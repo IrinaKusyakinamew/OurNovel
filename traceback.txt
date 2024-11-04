@@ -1,0 +1,66 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/showbuttons.rpy", line 5, in script
+    $ ui.interact()
+  File "game/showbuttons.rpy", line 5, in <module>
+    $ ui.interact()
+  File "game/movebuttons.rpy", line 2, in execute
+    screen movebuttons():
+  File "game/movebuttons.rpy", line 2, in execute
+    screen movebuttons():
+  File "game/movebuttons.rpy", line 3, in execute
+    imagebutton:
+  File "game/movebuttons.rpy", line 3, in keywords
+    imagebutton:
+  File "game/movebuttons.rpy", line 8, in <module>
+    action [Function(navigate, "bar_up")]
+NameError: name 'navigate' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/showbuttons.rpy", line 5, in script
+    $ ui.interact()
+  File "C:\Users\gideo\OneDrive\Рабочий стол\renpy-8.3.2-sdk\renpy\ast.py", line 821, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\gideo\OneDrive\Рабочий стол\renpy-8.3.2-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/showbuttons.rpy", line 5, in <module>
+    $ ui.interact()
+  File "C:\Users\gideo\OneDrive\Рабочий стол\renpy-8.3.2-sdk\renpy\ui.py", line 301, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\gideo\OneDrive\Рабочий стол\renpy-8.3.2-sdk\renpy\display\core.py", line 2215, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\gideo\OneDrive\Рабочий стол\renpy-8.3.2-sdk\renpy\display\core.py", line 2745, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "C:\Users\gideo\OneDrive\Рабочий стол\renpy-8.3.2-sdk\renpy\display\displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\gideo\OneDrive\Рабочий стол\renpy-8.3.2-sdk\renpy\display\displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\gideo\OneDrive\Рабочий стол\renpy-8.3.2-sdk\renpy\display\displayable.py", line 434, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\gideo\OneDrive\Рабочий стол\renpy-8.3.2-sdk\renpy\display\screen.py", line 480, in visit_all
+    callback(self)
+  File "C:\Users\gideo\OneDrive\Рабочий стол\renpy-8.3.2-sdk\renpy\display\core.py", line 2745, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "C:\Users\gideo\OneDrive\Рабочий стол\renpy-8.3.2-sdk\renpy\display\screen.py", line 491, in per_interact
+    self.update()
+  File "C:\Users\gideo\OneDrive\Рабочий стол\renpy-8.3.2-sdk\renpy\display\screen.py", line 697, in update
+    self.screen.function(**self.scope)
+  File "game/movebuttons.rpy", line 2, in execute
+    screen movebuttons():
+  File "game/movebuttons.rpy", line 2, in execute
+    screen movebuttons():
+  File "game/movebuttons.rpy", line 3, in execute
+    imagebutton:
+  File "game/movebuttons.rpy", line 3, in keywords
+    imagebutton:
+  File "game/movebuttons.rpy", line 8, in <module>
+    action [Function(navigate, "bar_up")]
+NameError: name 'navigate' is not defined
+
+Windows-10-10.0.22631 AMD64
+Ren'Py 8.3.2.24090902
+KURSACH 1.0
+Mon Nov  4 14:33:40 2024

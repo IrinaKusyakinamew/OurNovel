@@ -1,0 +1,26 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 235: end of line expected.
+    jump navigate("bar_front")
+                 ^
+
+File "game/script.rpy", line 238: end of line expected.
+    jump navigate("bar_up")
+                 ^
+
+File "game/script.rpy", line 241: end of line expected.
+    jump navigate("bar_right")
+                 ^
+
+File "game/script.rpy", line 244: end of line expected.
+    jump navigate("bar_left")
+                 ^
+
+File "game/script.rpy", line 247: end of line expected.
+    jump navigate("bar_down")
+                 ^
+
+Ren'Py Version: Ren'Py 8.3.2.24090902
+Mon Nov  4 15:25:04 2024

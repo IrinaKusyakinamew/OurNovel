@@ -1,4 +1,4 @@
-# Все три кнопки навигации
+# Все кнопки навигации
 label showbuttons:
     window hide
     show screen movebuttons

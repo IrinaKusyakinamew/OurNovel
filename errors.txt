@@ -2,25 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 235: end of line expected.
-    jump navigate("bar_front")
-                 ^
+The label room_chair is defined twice, at File "game/chair.rpy", line 2:
+label room_chair:
+and File "game/room_chair.rpyc", line 2:
 
-File "game/script.rpy", line 238: end of line expected.
-    jump navigate("bar_up")
-                 ^
 
-File "game/script.rpy", line 241: end of line expected.
-    jump navigate("bar_right")
-                 ^
 
-File "game/script.rpy", line 244: end of line expected.
-    jump navigate("bar_left")
-                 ^
+The label room_laptop is defined twice, at File "game/laptop.rpy", line 2:
+label room_laptop:
+and File "game/room_laptop.rpyc", line 2:
 
-File "game/script.rpy", line 247: end of line expected.
-    jump navigate("bar_down")
-                 ^
+
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Mon Nov  4 15:25:04 2024
+Wed Nov 13 22:25:47 2024

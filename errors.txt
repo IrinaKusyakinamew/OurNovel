@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-The label room_chair is defined twice, at File "game/chair.rpy", line 2:
-label room_chair:
-and File "game/room_chair.rpyc", line 2:
-
-
-
-The label room_laptop is defined twice, at File "game/laptop.rpy", line 2:
-label room_laptop:
-and File "game/room_laptop.rpyc", line 2:
-
-
+File "game/script.rpy", line 220: expected statement.
+    renpy.pause(0.1)  
+                      ^
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Wed Nov 13 22:25:47 2024
+Thu Nov 14 15:59:43 2024

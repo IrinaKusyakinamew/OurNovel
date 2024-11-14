@@ -21,6 +21,10 @@ default current_loc = "bar_front"
 $ playerName = "Игрок"
 $ friendName = "Игрок"
 $ friendSprite = ""
+$ sprite_angry = ""
+$ sprite_normal = ""
+$ sprite_uncomprehending = ""
+$ sprite_winks = ""
 
 #Инициализация звука НЕ РАБОТАЕТ
 init:
@@ -72,13 +76,19 @@ label create_character:
             # Вводим имя гг и запоминаем его в переменной
             $ playerName = renpy.input("Введите мужское имя", length=12).strip() or "Михаил"
             $ gender_symbol = "♂"
-            # Спрайт друга будет находиться в папке characters/boy
-            $ friendSprite = "boy"
+            # Спрайт друга будет находиться в папке characters/yarik
+            $ friendSprite = "yarik"
             # Имя друга
             $ friendName = "Владимир"
             # Настраиваем окончания для мужского рода
             $ verb_end = "" # Остальные глаголы
             $ past_verb_end = "л" # Глаголы прошедшего времени
+
+            # Объявляем переменные, содержащие путь к спрайтам друга (со всеми эмоциями)
+            $ sprite_angry = friendSprite + " angry"
+            $ sprite_normal = friendSprite + " normal"
+            $ sprite_uncomprehending = friendSprite + " uncomprehending"
+            $ sprite_winks = friendSprite + " winks"
             
         # Гг - девушка, ее друг - тоже девушка
         "♀ Я хотела бы узнать, приняли меня на работу или нет.":
@@ -87,13 +97,19 @@ label create_character:
             # Вводим имя гг и запоминаем его в переменной
             $ playerName = renpy.input("Введите женское имя", length=12).strip() or "Алиса"
             $ gender_symbol = "♀"
-            # Спрайт друга будет находиться в папке characters/girl
-            $ friendSprite = "girl"
+            # Спрайт друга будет находиться в папке characters/lisa
+            $ friendSprite = "lisa"
             # Имя друга
             $ friendName = "Лиза"
             # Настраиваем окончания для женского рода
             $ verb_end = "а" # Остальные глаголы
             $ past_verb_end = "ла" # Глаголы прошедшего времени
+
+            # Объявляем переменные, содержащие путь к спрайтам друга (со всеми эмоциями)
+            $ sprite_angry = friendSprite + " angry"
+            $ sprite_normal = friendSprite + " normal"
+            $ sprite_uncomprehending = friendSprite + " uncomprehending"
+            $ sprite_winks = friendSprite + " winks"
 
     # Показываем предупреждение, что пересоздать персонажа будет нельзя
     "Отнеситесь серьезно к созданию персонажа, так как потом пересоздать будет нельзя."
@@ -198,6 +214,14 @@ label bar_outside:
     scene bg bar_outside with dissolve
 
     # ВСТАВИТЬ СПРАЙТ ДРУГА ГГ
+
+    # Показать спрайт друга ЭТО ПРИМЕЕЕЕЕЕЕЕЕЕЕЕР
+    show expression sprite_normal
+    
+    $ renpy.pause(1)
+
+    # Показать спрайт с эмоцией "angry"
+    show expression sprite_angry
 
     # ВСТАВИТЬ РЕПЛИКИ
 

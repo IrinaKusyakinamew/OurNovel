@@ -4,7 +4,6 @@
 
 init offset = -1
 
-
 ################################################################################
 ## Стили
 ################################################################################
@@ -38,7 +37,6 @@ style label_text is gui_text:
 
 style prompt_text is gui_text:
     properties gui.text_properties("prompt")
-
 
 style bar:
     ysize gui.bar_size
@@ -287,59 +285,38 @@ style quick_button_text:
 
 screen navigation():
 
-    vbox:
-        style_prefix "navigation"
+    if main_menu:
+        imagemap:
+            ground "gui/game_menu/game_menu2.png"
+            idle "gui/game_menu/normal_icons.png"
+            hover "gui/game_menu/hover_icons.png"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+            hotspot(60, 128, 148, 128) action ShowMenu("gallery") #фото
+            hotspot(227, 133, 150, 139) action Start() #достижения НЕ РАБОТАЕТ
+            hotspot(68, 453, 143, 130) action ShowMenu("save") #сохранить
+            hotspot(235, 437, 128, 162) action ShowMenu("load") #загрузить
+            hotspot(69, 783, 147, 138) action Return() #вернуться
+            hotspot(239, 782, 134, 136) action ShowMenu("preferences") #настройки
+            hotspot(390, 765, 135, 159) action Quit(confirm=True) #выход
 
-        spacing gui.navigation_spacing
+    else:
+        imagemap:
+            ground "gui/game_menu/game_menu1.png"
+            idle "gui/game_menu/normal_icons.png"
+            hover "gui/game_menu/hover_icons.png"
 
-        if main_menu:
-
-            textbutton _("Начать") action Start()
-
-        else:
-
-            textbutton _("История") action ShowMenu("history")
-
-            textbutton _("Сохранить") action ShowMenu("save")
-
-        textbutton _("Загрузить") action ShowMenu("load")
-
-        textbutton _("Настройки") action ShowMenu("preferences")
-
-        if _in_replay:
-
-            textbutton _("Завершить повтор") action EndReplay(confirm=True)
-
-        elif not main_menu:
-
-            textbutton _("Главное меню") action MainMenu()
-
-        textbutton _("Об игре") action ShowMenu("about")
-
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            ## Помощь не необходима и не относится к мобильным устройствам.
-            textbutton _("Помощь") action ShowMenu("help")
-
-        if renpy.variant("pc"):
-
-            ## Кнопка выхода блокирована в iOS и не нужна на Android и в веб-
-            ## версии.
-            textbutton _("Выход") action Quit(confirm=not main_menu)
-
-
-style navigation_button is gui_button
-style navigation_button_text is gui_button_text
-
-style navigation_button:
-    size_group "navigation"
-    properties gui.button_properties("navigation_button")
-
-style navigation_button_text:
-    properties gui.text_properties("navigation_button")
+            hotspot(60, 128, 148, 128) action ShowMenu("gallery") #фото
+            hotspot(227, 133, 150, 139) action Start() #достижения НЕ РАБОТАЕТ
+            hotspot(399, 132, 129, 139) action Start() #заметки НЕ РАБОТАЕТ
+            hotspot(63, 284, 135, 151) action Start() #контакты НЕ РАБОТАЕТ
+            hotspot(224, 290, 145, 145) action Start() #сообщения НЕ РАБОТАЕТ
+            hotspot(388, 290, 138, 144) action Start() #игра НЕ РАБОТАЕТ
+            hotspot(68, 453, 143, 130) action ShowMenu("save") #сохранить
+            hotspot(235, 437, 128, 162) action ShowMenu("load") #загрузить
+            hotspot(371, 457, 169, 133) action MainMenu() #главное меню
+            hotspot(69, 783, 147, 138) action Return() #вернуться
+            hotspot(239, 782, 134, 136) action ShowMenu("preferences") #настройки
+            hotspot(390, 765, 135, 159) action Quit(confirm=True) #выход
 
 
 ## Экран главного меню #########################################################
@@ -354,55 +331,19 @@ screen main_menu():
     ## заменять этот.
     tag menu
 
-    add gui.main_menu_background
+    imagemap:
+        ground "menu_slideshow"
+        idle "gui/menu_normal.png"
+        hover "gui/menu_hover.png"
 
-    ## Эта пустая рамка затеняет главное меню.
-    frame:
-        style "main_menu_frame"
-
-    ## Оператор use включает отображение другого экрана в данном. Актуальное
-    ## содержание главного меню находится на экране навигации.
-    use navigation
-
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
-
-
-style main_menu_frame is empty
-style main_menu_vbox is vbox
-style main_menu_text is gui_text
-style main_menu_title is main_menu_text
-style main_menu_version is main_menu_text
-
-style main_menu_frame:
-    xsize 420
-    yfill True
-
-    background "gui/overlay/main_menu.png"
-
-style main_menu_vbox:
-    xalign 1.0
-    xoffset -30
-    xmaximum 1200
-    yalign 1.0
-    yoffset -30
-
-style main_menu_text:
-    properties gui.text_properties("main_menu", accent=True)
-
-style main_menu_title:
-    properties gui.text_properties("title")
-
-style main_menu_version:
-    properties gui.text_properties("version")
+        hotspot(1543, 33, 344, 138) action Start() #начать
+        hotspot(1439, 177, 448, 154) action ShowMenu("load") #загрузить
+        hotspot(1393, 324, 494, 154) action ShowMenu("preferences") #настройки
+        hotspot(1357, 482, 530, 144) action ShowMenu("about") #достижения НЕ РАБОТАЕТ
+        hotspot(1471, 634, 416, 153) action ShowMenu("gallery") #галерея
+        hotspot(1574, 901, 321, 162) action Quit(confirm=True) #выход
+        hotspot(0, 935, 184, 66) action ShowMenu("about") #об игре
+        hotspot(0, 994, 183, 84) action ShowMenu("help") #помощь
 
 
 ## Экран игрового меню #########################################################
@@ -428,7 +369,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
         hbox:
 
-            ## Резервирует пространство для навигации.
+            # Резервирует пространство для навигации.
             frame:
                 style "game_menu_navigation_frame"
 
@@ -474,13 +415,6 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     use navigation
 
-    textbutton _("Вернуться"):
-        style "return_button"
-
-        action Return()
-
-    label title
-
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
 
@@ -502,10 +436,10 @@ style game_menu_outer_frame:
     bottom_padding 45
     top_padding 180
 
-    background "gui/overlay/game_menu.png"
+    background "gui/game_menu/game_menu1.png"
 
 style game_menu_navigation_frame:
-    xsize 420
+    xsize 610
     yfill True
 
 style game_menu_content_frame:
@@ -514,7 +448,7 @@ style game_menu_content_frame:
     top_margin 15
 
 style game_menu_viewport:
-    xsize 1380
+    xsize 1190
 
 style game_menu_vscrollbar:
     unscrollable gui.unscrollable
@@ -580,7 +514,7 @@ style about_label_text:
 ## как они почти одинаковые, оба реализованы по правилам третьего экрана —
 ## file_slots.
 ##
-## https://www.renpy.org/doc/html/screen_special.html#save 
+## https://www.renpy.org/doc/html/screen_special.html#save
 
 screen save():
 
@@ -876,6 +810,31 @@ style slider_button_text:
 
 style slider_vbox:
     xsize 675
+
+## Экран галереи ###############################################################
+screen gallery():
+    tag menu
+
+    default page_name_value = FilePageNameInputValue(pattern=_("{} страница"))
+
+    use game_menu("Галерея", scroll="viewport"):
+
+        vbox: 
+            spacing 10 
+
+            button:
+                xalign 0.5
+                text "Галерея изображений" style "page_label_text"
+
+            # Сетка с кнопками
+            grid 3 100:
+                xfill True
+                yfill True
+
+                add g.make_button("meeting", "meet_ghost_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending1", "lonely_end_b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending2", "lonely_end_g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+
 
 
 ## Экран истории ###############################################################
@@ -1302,34 +1261,40 @@ style notify_text:
 
 screen nvl(dialogue, items=None):
 
-    window:
-        style "nvl_window"
+    #### ADD THIS TO MAKE THE PHONE WORK!! :) ###
+    if nvl_mode == "phone":
+        use PhoneDialogue(dialogue, items)
+    else:
+    ####
+    ## Indent the rest of the screen
+        window:
+            style "nvl_window"
 
-        has vbox:
-            spacing gui.nvl_spacing
+            has vbox:
+                spacing gui.nvl_spacing
 
-        ## Показывает диалог или в vpgrid, или в vbox.
-        if gui.nvl_height:
+            ## Displays dialogue in either a vpgrid or the vbox.
+            if gui.nvl_height:
 
-            vpgrid:
-                cols 1
-                yinitial 1.0
+                vpgrid:
+                    cols 1
+                    yinitial 1.0
+
+                    use nvl_dialogue(dialogue)
+
+            else:
 
                 use nvl_dialogue(dialogue)
 
-        else:
+            ## Displays the menu, if given. The menu may be displayed incorrectly if
+            ## config.narrator_menu is set to True, as it is above.
+            for i in items:
 
-            use nvl_dialogue(dialogue)
+                textbutton i.caption:
+                    action i.action
+                    style "nvl_button"
 
-        ## Показывает меню, если есть. Меню может показываться некорректно, если
-        ## config.narrator_menu установлено на True.
-        for i in items:
-
-            textbutton i.caption:
-                action i.action
-                style "nvl_button"
-
-    add SideImage() xalign 0.0 yalign 1.0
+        add SideImage() xalign 0.0 yalign 1.0
 
 
 screen nvl_dialogue(dialogue):

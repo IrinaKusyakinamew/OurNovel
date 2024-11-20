@@ -2,17 +2,247 @@
 errors listed below, and try again.
 
 
-The label room_chair is defined twice, at File "game/chair.rpy", line 2:
-label room_chair:
-and File "game/room_chair.rpyc", line 2:
+File "game/script.rpy", line 100: Line with id start_b42cd388 appears twice. The other line is game/act1.rpyc:11
 
+File "game/script.rpy", line 101: Line with id start_44abcc99 appears twice. The other line is game/act1.rpyc:12
 
+File "game/script.rpy", line 102: Line with id start_c43aa736 appears twice. The other line is game/act1.rpyc:13
 
-The label room_laptop is defined twice, at File "game/laptop.rpy", line 2:
-label room_laptop:
-and File "game/room_laptop.rpyc", line 2:
+File "game/script.rpy", line 103: Line with id start_67e029ba appears twice. The other line is game/act1.rpyc:14
 
+File "game/script.rpy", line 104: Line with id start_e21c07bb appears twice. The other line is game/act1.rpyc:15
 
+File "game/script.rpy", line 105: Line with id start_b8bff766 appears twice. The other line is game/act1.rpyc:16
+
+File "game/script.rpy", line 106: Line with id start_19aef026 appears twice. The other line is game/act1.rpyc:17
+
+File "game/script.rpy", line 107: Line with id start_13305923 appears twice. The other line is game/act1.rpyc:18
+
+File "game/script.rpy", line 169: Line with id create_character_afe5bd80 appears twice. The other line is game/act1.rpyc:80
+
+File "game/script.rpy", line 198: Line with id continue_start_ae861690 appears twice. The other line is game/act1.rpyc:109
+
+File "game/script.rpy", line 200: Line with id continue_start_3dec562e appears twice. The other line is game/act1.rpyc:111
+
+File "game/script.rpy", line 201: Line with id continue_start_b8bbd03c appears twice. The other line is game/act1.rpyc:112
+
+File "game/script.rpy", line 202: Line with id continue_start_ff11a59c appears twice. The other line is game/act1.rpyc:113
+
+File "game/script.rpy", line 203: Line with id continue_start_a6d39438 appears twice. The other line is game/act1.rpyc:114
+
+File "game/script.rpy", line 204: Line with id continue_start_c8451511 appears twice. The other line is game/act1.rpyc:115
+
+File "game/script.rpy", line 205: Line with id continue_start_1f88a2a6 appears twice. The other line is game/act1.rpyc:116
+
+File "game/script.rpy", line 207: Line with id continue_start_d86f8d21 appears twice. The other line is game/act1.rpyc:118
+
+File "game/script.rpy", line 250: Line with id go_to_hall_f70d5abe appears twice. The other line is game/act1.rpyc:161
+
+File "game/script.rpy", line 254: Line with id go_to_hall_efc265a6 appears twice. The other line is game/act1.rpyc:165
+
+File "game/script.rpy", line 267: Line with id bar_outside_c35bc229 appears twice. The other line is game/act1.rpyc:178
+
+File "game/script.rpy", line 270: Line with id bar_outside_056c3e88 appears twice. The other line is game/act1.rpyc:181
+
+File "game/script.rpy", line 274: Line with id bar_outside_8e5ff20c appears twice. The other line is game/act1.rpyc:185
+
+File "game/script.rpy", line 322: Line with id bar_inside_60734b42 appears twice. The other line is game/act1.rpyc:233
+
+File "game/script.rpy", line 323: Line with id bar_inside_6559ce23 appears twice. The other line is game/act1.rpyc:234
+
+File "game/script.rpy", line 326: Line with id bar_inside_6ccce175 appears twice. The other line is game/act1.rpyc:237
+
+File "game/script.rpy", line 327: Line with id bar_inside_6f5cedcd appears twice. The other line is game/act1.rpyc:238
+
+File "game/script.rpy", line 330: Line with id bar_inside_73cb8961 appears twice. The other line is game/act1.rpyc:241
+
+File "game/script.rpy", line 331: Line with id bar_inside_e2c4d1ff appears twice. The other line is game/act1.rpyc:242
+
+File "game/script.rpy", line 332: Line with id bar_inside_95ba00e3 appears twice. The other line is game/act1.rpyc:243
+
+File "game/script.rpy", line 337: Line with id bar_inside_3a9eeefe appears twice. The other line is game/act1.rpyc:248
+
+File "game/script.rpy", line 346: Line with id bar_inside_dc7deabf appears twice. The other line is game/act1.rpyc:257
+
+File "game/script.rpy", line 349: Line with id bar_inside_e0f47da7 appears twice. The other line is game/act1.rpyc:260
+
+File "game/script.rpy", line 358: Line with id bar_inside_d15d2376 appears twice. The other line is game/act1.rpyc:269
+
+File "game/script.rpy", line 359: Line with id bar_inside_8a939630 appears twice. The other line is game/act1.rpyc:270
+
+File "game/script.rpy", line 367: Line with id bar_inside_2dc4b894 appears twice. The other line is game/act1.rpyc:278
+
+File "game/script.rpy", line 369: Line with id bar_inside_cb1131a0 appears twice. The other line is game/act1.rpyc:280
+
+File "game/script.rpy", line 371: Line with id bar_inside_95dbf98f appears twice. The other line is game/act1.rpyc:282
+
+File "game/script.rpy", line 372: Line with id bar_inside_09ae0e3e appears twice. The other line is game/act1.rpyc:283
+
+File "game/script.rpy", line 373: Line with id bar_inside_9b99ec1f appears twice. The other line is game/act1.rpyc:284
+
+File "game/script.rpy", line 374: Line with id bar_inside_0990bae7 appears twice. The other line is game/act1.rpyc:285
+
+File "game/script.rpy", line 375: Line with id bar_inside_6f6a2d2d appears twice. The other line is game/act1.rpyc:286
+
+File "game/script.rpy", line 376: Line with id bar_inside_ded6faef appears twice. The other line is game/act1.rpyc:287
+
+File "game/script.rpy", line 377: Line with id bar_inside_2eeef97e appears twice. The other line is game/act1.rpyc:288
+
+File "game/script.rpy", line 378: Line with id bar_inside_b1b12922 appears twice. The other line is game/act1.rpyc:289
+
+File "game/script.rpy", line 380: Line with id bar_inside_0d1d6726 appears twice. The other line is game/act1.rpyc:291
+
+File "game/script.rpy", line 381: Line with id bar_inside_1b8bbb73 appears twice. The other line is game/act1.rpyc:292
+
+File "game/script.rpy", line 382: Line with id bar_inside_83f9aac5 appears twice. The other line is game/act1.rpyc:293
+
+File "game/script.rpy", line 384: Line with id bar_inside_2ca7c181 appears twice. The other line is game/act1.rpyc:295
+
+File "game/script.rpy", line 385: Line with id bar_inside_d9289156 appears twice. The other line is game/act1.rpyc:296
+
+File "game/script.rpy", line 386: Line with id bar_inside_707d49f2 appears twice. The other line is game/act1.rpyc:297
+
+File "game/script.rpy", line 388: Line with id bar_inside_9d100e72 appears twice. The other line is game/act1.rpyc:299
+
+File "game/script.rpy", line 389: Line with id bar_inside_8c0f8a46 appears twice. The other line is game/act1.rpyc:300
+
+File "game/script.rpy", line 390: Line with id bar_inside_dbacf47b appears twice. The other line is game/act1.rpyc:301
+
+File "game/script.rpy", line 391: Line with id bar_inside_4a39caac appears twice. The other line is game/act1.rpyc:302
+
+File "game/script.rpy", line 393: Line with id bar_inside_f5200900 appears twice. The other line is game/act1.rpyc:304
+
+File "game/script.rpy", line 394: Line with id bar_inside_46eeb643 appears twice. The other line is game/act1.rpyc:305
+
+File "game/script.rpy", line 396: Line with id bar_inside_da835cc7 appears twice. The other line is game/act1.rpyc:307
+
+File "game/script.rpy", line 397: Line with id bar_inside_78eb9b1c appears twice. The other line is game/act1.rpyc:308
+
+File "game/script.rpy", line 398: Line with id bar_inside_101a2a08 appears twice. The other line is game/act1.rpyc:309
+
+File "game/script.rpy", line 401: Line with id bar_inside_a388bdad appears twice. The other line is game/act1.rpyc:312
+
+File "game/script.rpy", line 416: Line with id meet_ghost_a1d5aaf2 appears twice. The other line is game/act1.rpyc:327
+
+File "game/script.rpy", line 417: Line with id meet_ghost_1a477c34 appears twice. The other line is game/act1.rpyc:328
+
+File "game/script.rpy", line 423: Line with id meet_ghost_67a98848 appears twice. The other line is game/act1.rpyc:334
+
+File "game/script.rpy", line 424: Line with id meet_ghost_abdef9ff appears twice. The other line is game/act1.rpyc:335
+
+File "game/script.rpy", line 425: Line with id meet_ghost_6aa64f9a appears twice. The other line is game/act1.rpyc:336
+
+File "game/script.rpy", line 429: Line with id meet_ghost_7f735782 appears twice. The other line is game/act1.rpyc:340
+
+File "game/script.rpy", line 430: Line with id meet_ghost_13c9506f appears twice. The other line is game/act1.rpyc:341
+
+File "game/script.rpy", line 431: Line with id meet_ghost_d7306e5d appears twice. The other line is game/act1.rpyc:342
+
+File "game/script.rpy", line 438: Line with id meet_ghost_b88e449f appears twice. The other line is game/act1.rpyc:349
+
+File "game/script.rpy", line 441: Line with id meet_ghost_50aee7a0 appears twice. The other line is game/act1.rpyc:352
+
+File "game/script.rpy", line 445: Line with id meet_ghost_7d377e77 appears twice. The other line is game/act1.rpyc:356
+
+File "game/script.rpy", line 446: Line with id meet_ghost_b45c7af6 appears twice. The other line is game/act1.rpyc:357
+
+File "game/script.rpy", line 447: Line with id meet_ghost_e3fbecdd appears twice. The other line is game/act1.rpyc:358
+
+File "game/script.rpy", line 450: Line with id meet_ghost_af0b08d0 appears twice. The other line is game/act1.rpyc:361
+
+File "game/script.rpy", line 451: Line with id meet_ghost_f1873949 appears twice. The other line is game/act1.rpyc:362
+
+File "game/script.rpy", line 452: Line with id meet_ghost_c01c9c27 appears twice. The other line is game/act1.rpyc:363
+
+File "game/script.rpy", line 453: Line with id meet_ghost_05abdf96 appears twice. The other line is game/act1.rpyc:364
+
+File "game/script.rpy", line 455: Line with id meet_ghost_490dbc48 appears twice. The other line is game/act1.rpyc:366
+
+File "game/script.rpy", line 457: Line with id meet_ghost_d4b5b9c3 appears twice. The other line is game/act1.rpyc:368
+
+File "game/script.rpy", line 458: Line with id meet_ghost_ed9d5742 appears twice. The other line is game/act1.rpyc:369
+
+File "game/script.rpy", line 459: Line with id meet_ghost_38aad4ef appears twice. The other line is game/act1.rpyc:370
+
+File "game/script.rpy", line 460: Line with id meet_ghost_da312b85 appears twice. The other line is game/act1.rpyc:371
+
+File "game/script.rpy", line 461: Line with id meet_ghost_ab442f26 appears twice. The other line is game/act1.rpyc:372
+
+File "game/script.rpy", line 462: Line with id meet_ghost_a3888216 appears twice. The other line is game/act1.rpyc:373
+
+File "game/script.rpy", line 463: Line with id meet_ghost_1e279596 appears twice. The other line is game/act1.rpyc:374
+
+File "game/script.rpy", line 464: Line with id meet_ghost_277ae0cc appears twice. The other line is game/act1.rpyc:375
+
+File "game/script.rpy", line 465: Line with id meet_ghost_495f2ca5 appears twice. The other line is game/act1.rpyc:376
+
+File "game/script.rpy", line 466: Line with id meet_ghost_792afa36 appears twice. The other line is game/act1.rpyc:377
+
+File "game/script.rpy", line 467: Line with id meet_ghost_8d7aac47 appears twice. The other line is game/act1.rpyc:378
+
+File "game/script.rpy", line 469: Line with id meet_ghost_36bea51e appears twice. The other line is game/act1.rpyc:380
+
+File "game/script.rpy", line 481: Line with id bar_interact_pred_536a1433 appears twice. The other line is game/act1.rpyc:392
+
+File "game/script.rpy", line 518: Line with id bar_interact_56c7cb00 appears twice. The other line is game/act1.rpyc:429
+
+File "game/script.rpy", line 525: Line with id bar_interact_a417b3d0 appears twice. The other line is game/act1.rpyc:436
+
+File "game/script.rpy", line 558: Line with id bar_up_pred_eb60636f appears twice. The other line is game/act1.rpyc:469
+
+File "game/script.rpy", line 587: Line with id bar_up_56c7cb00 appears twice. The other line is game/act1.rpyc:498
+
+File "game/script.rpy", line 594: Line with id bar_up_a417b3d0 appears twice. The other line is game/act1.rpyc:505
+
+File "game/script.rpy", line 631: Line with id move_bar_up_abb4710c appears twice. The other line is game/act1.rpyc:542
+
+File "game/script.rpy", line 645: Line with id bar_right_pred_3d62cade appears twice. The other line is game/act1.rpyc:556
+
+File "game/script.rpy", line 673: Line with id bar_right_56c7cb00 appears twice. The other line is game/act1.rpyc:584
+
+File "game/script.rpy", line 680: Line with id bar_right_a417b3d0 appears twice. The other line is game/act1.rpyc:591
+
+File "game/script.rpy", line 719: Line with id move_bar_right_abb4710c appears twice. The other line is game/act1.rpyc:630
+
+File "game/script.rpy", line 733: Line with id bar_left_pred_8ff6aa41 appears twice. The other line is game/act1.rpyc:644
+
+File "game/script.rpy", line 762: Line with id bar_left_56c7cb00 appears twice. The other line is game/act1.rpyc:673
+
+File "game/script.rpy", line 769: Line with id bar_left_a417b3d0 appears twice. The other line is game/act1.rpyc:680
+
+File "game/script.rpy", line 808: Line with id move_bar_left_abb4710c appears twice. The other line is game/act1.rpyc:719
+
+File "game/script.rpy", line 819: Line with id bar_down_6afa6649 appears twice. The other line is game/act1.rpyc:730
+
+File "game/script.rpy", line 820: Line with id bar_down_4d446f99 appears twice. The other line is game/act1.rpyc:731
+
+File "game/script.rpy", line 821: Line with id bar_down_11bb85bc appears twice. The other line is game/act1.rpyc:732
+
+File "game/script.rpy", line 822: Line with id bar_down_3dc53805 appears twice. The other line is game/act1.rpyc:733
+
+File "game/script.rpy", line 823: Line with id bar_down_5b77cbfc appears twice. The other line is game/act1.rpyc:734
+
+File "game/script.rpy", line 824: Line with id bar_down_f9725760 appears twice. The other line is game/act1.rpyc:735
+
+File "game/script.rpy", line 825: Line with id bar_down_7d8d2a1e appears twice. The other line is game/act1.rpyc:736
+
+File "game/script.rpy", line 833: Line with id bar_down_6b7463f2 appears twice. The other line is game/act1.rpyc:744
+
+File "game/script.rpy", line 834: Line with id bar_down_30e301c2 appears twice. The other line is game/act1.rpyc:745
+
+File "game/script.rpy", line 837: Line with id bar_down_3e19d842 appears twice. The other line is game/act1.rpyc:748
+
+File "game/script.rpy", line 838: Line with id bar_down_1970b258 appears twice. The other line is game/act1.rpyc:749
+
+File "game/script.rpy", line 839: Line with id bar_down_f13edee7 appears twice. The other line is game/act1.rpyc:750
+
+File "game/script.rpy", line 846: Line with id bar_down_d98591e6 appears twice. The other line is game/act1.rpyc:757
+
+File "game/script.rpy", line 863: Line with id move_bar_down_abb4710c appears twice. The other line is game/act1.rpyc:774
+
+File "game/script.rpy", line 883: Line with id ending_first_55770152 appears twice. The other line is game/act1.rpyc:794
+
+File "game/script.rpy", line 889: Line with id act2_start_8936c683 appears twice. The other line is game/act1.rpyc:800
 
 Ren'Py Version: Ren'Py 8.3.2.24090902
-Wed Nov 13 22:25:47 2024
+Wed Nov 20 19:56:37 2024

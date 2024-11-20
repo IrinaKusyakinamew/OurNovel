@@ -87,12 +87,12 @@ screen barInteract:
         hover "bar_interact_objects/bar_interact_girl2_hover.png"
         action Jump("bar_interact_girl2")
 
-    imagebutton:
-        xpos 1640
-        ypos 346
-        idle "bar_interact_objects/bar_interact_man1_idle.png"
-        hover "bar_interact_objects/bar_interact_man1_hover.png"
-        action Jump("bar_interact_man1")
+    # imagebutton:
+    #     xpos 1640
+    #     ypos 346
+    #     idle "bar_interact_objects/bar_interact_man1_idle.png"
+    #     hover "bar_interact_objects/bar_interact_man1_hover.png"
+    #     action Jump("bar_interact_man1")
 
     imagebutton:
         xpos 54

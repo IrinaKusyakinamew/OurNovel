@@ -724,6 +724,11 @@ screen preferences():
                                 textbutton _("Тест") action Play("sound", config.sample_sound)
 
 
+                        label _("Громкость фона")
+
+                        hbox:
+                            bar value Preference("mixer ambient volume")
+
                     if config.has_voice:
                         label _("Громкость голоса")
 

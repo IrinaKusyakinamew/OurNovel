@@ -67,6 +67,8 @@ define bool_time = False
 # Переменная для отслеживания состояния подсказки
 define info_panel_closed = False
 define info_panel_closed_1 = False
+define info_panel_closed_2 = False
+define info_panel_closed_3 = False
 
 #переменные взаимоотношений 
 define friendship_fr = 0
@@ -75,6 +77,31 @@ define friendshp_gh = 0
 # Начальная (опорная) локация в баре - центральный зал бара (для свободной навигации)
 default current_loc = "bar_front"
 
+# Переменные отображения микшеров по умолчанию
+# Используйте обычные переменные или словарь для хранения настроек
+default has_sound = True
+default has_music = True
+default has_voice = False
+
+# Музыка и звуки
+define audio.bar1 = "music/music_bar_1.mp3"
+define audio.bar2 = "music/music_bar_2.mp3"
+define audio.createpers = "sounds/create_character.mp3"
+define audio.vibro = "sounds/phone-vibration-96623.mp3"
+define audio.stepshall = "sounds/steps_dormitory_hall.mp3"
+define audio.stepsstreer = "sounds/steps_street.mp3"
+define audio.drink = "sounds/drink_sound.mp3"
+define audio.start_music_0 = "music/Triangle.mp3"
+define audio.start_music_1 = "music/AcrylicOnCanvas.mp3"
+define audio.start_music_2 = "music/Friends.ogg"
+define audio.choise_1 = "music/AMomentsReflection.mp3"
+define audio.bar_interact = "music/Assasins.mp3"
+define audio.gallery1 = "music/Kiss And Goodbye.ogg"
+define audio.singing = "sounds/singing.mp3"
+
+# Логическая переменная, показывающая звучала ли музыка
+define werePlayed = False
+
 #инициализация начальных имен и спрайтов
 $ playerName = "Игрок"
 $ friendName = "Игрок"
@@ -82,11 +109,25 @@ $ friendSprite = ""
 $ partnerName = "Игрок"
 $ partnerSprite = ""
 
-# Инициализация звука НЕ РАБОТАЕТ
+#Инициализация звука НЕ РАБОТАЕТ
 init:
-    $ hover_sound = "create_character.mp3"  # Путь к вашему звуковому файлу
+    $ hover_sound = "sounds/create_character.mp3"
 
 # Переменная для отслеживания состояния всплывающей подсказки в баре (свободная навигация)
 init python:
+    # Канал с фоновыми звуками
+    renpy.music.register_channel("ambient", loop=True, mixer="ambient")
+    renpy.music.register_channel("hover", loop=False, mixer = "hover")
+    renpy.music.register_channel("sound2", loop=False, mixer="sfx")
+    renpy.music.register_channel("music1", "music", True)
+
     if not hasattr(persistent, 'info_panel_shown'):
         persistent.info_panel_shown = False
+
+# Функция для воспроизведения звука при наведении НЕ РАБОТАЕТ
+python:
+    def play_hover_sound():
+        renpy.sound.play(hover_sound)
+
+
+

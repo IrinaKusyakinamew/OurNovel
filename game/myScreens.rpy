@@ -219,6 +219,340 @@ screen barLeft:
         hover "bar_left_interact_objects/bar_left_man_hover.png"
         action Jump("bar_left_man")
 
+# Интерактивный экран центральной части улицы
+screen streetFront:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("streetFront"), Jump("act2_front")]
+
+    imagebutton:
+        xpos 332
+        ypos 575
+        idle "street_interact_objects/ghost_idle.png"
+        hover "street_interact_objects/ghost_hover.png"
+        action Jump("ghost")
+
+    imagebutton:
+        xpos 1483
+        ypos 0
+        idle "street_interact_objects/street_interact_house_idle.png"
+        hover "street_interact_objects/street_interact_house_hover.png"
+        action Jump("street_interact_house")
+
+# Интерактивный экран верхней части улицы
+screen streetUp:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("streetUp"), Jump("act2_up")]
+
+# Интерактивный экран правой части улицы
+screen streetRight:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("streetRight"), Jump("act2_right")]
+
+    imagebutton:
+        xpos 0
+        ypos 255
+        idle "street_right_interact_objects/street_right_clouds_idle.png"
+        hover "street_right_interact_objects/street_right_clouds_hover.png"
+        action Jump("street_right_clouds")
+
+    imagebutton:
+        xpos 793
+        ypos 171
+        idle "street_right_interact_objects/street_right_tree_idle.png"
+        hover "street_right_interact_objects/street_right_tree_hover.png"
+        action Jump("street_right_tree")
+
+# Интерактивный экран левой части улицы
+screen streetLeft:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("streetLeft"), Jump("act2_left")]
+
+    imagebutton:
+        xpos 1360
+        ypos 0
+        idle "street_left_interact_objects/street_left_house_idle.png"
+        hover "street_left_interact_objects/street_left_house_hover.png"
+        action Jump("street_left_house")
+
+    imagebutton:
+        xpos 331
+        ypos 25
+        idle "street_left_interact_objects/street_left_tree_idle.png"
+        hover "street_left_interact_objects/street_left_tree_hover.png"
+        action Jump("street_left_tree")
+
+# Интерактивный экран левой части улицы
+screen streetDown:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("streetDown"), Jump("act2_down")]
+
+
+screen galleryFront:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("galleryFront"), Jump("act2_front_gallery")]
+
+    imagebutton:
+        xpos 830
+        ypos 522
+        idle "gallery_interact_objects/gallery_interact_arc_idle.png"
+        hover "gallery_interact_objects/gallery_interact_arc_hover.png"
+        action Jump("gallery_interact_arc")
+
+    imagebutton:
+        xpos 1618
+        ypos 165
+        idle "gallery_interact_objects/gallery_interact_window_idle.png"
+        hover "gallery_interact_objects/gallery_interact_window_hover.png"
+        action Jump("gallery_interact_window")
+
+    imagebutton:
+        xpos 397
+        ypos 620
+        idle "gallery_interact_objects/gallery_interact_award_idle.png"
+        hover "gallery_interact_objects/gallery_interact_award_hover.png"
+        action Jump("gallery_interact_award")
+
+screen galleryUp:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("galleryUp"), Jump("act2_up_gallery")]
+
+screen galleryRight:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("galleryRight"), Jump("act2_right_gallery")]
+
+    imagebutton:
+        xpos 508
+        ypos 37
+        idle "gallery_right_interact_objects/gallery_right_wall_idle.png"
+        hover "gallery_right_interact_objects/gallery_right_wall_hover.png"
+        action Jump("gallery_right_wall")
+
+screen galleryLeft:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("galleryLeft"), Jump("act2_left_gallery")]
+
+    imagebutton:
+        xpos 681
+        ypos 173
+        idle "gallery_left_interact_objects/gallery_left_beautiful_painting_idle.png"
+        hover "gallery_left_interact_objects/gallery_left_beautiful_painting_hover.png"
+        action Jump("gallery_left_beautiful_painting")
+
+screen galleryDown:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("galleryDown"), Jump("act2_down_gallery")]
+
+screen roomScreen:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("roomScreen"), Jump("act2_flashback_graffity")]
+
+    imagebutton:
+        xpos 0
+        ypos 626
+        idle "room_objects/room_objects_bed_idle.png"
+        hover "room_objects/room_objects_bed_hover.png"
+        action Jump("room_objects_bed")
+
+    imagebutton:
+        xpos 307
+        ypos 606
+        idle "room_objects/room_objects_lamp_idle.png"
+        hover "room_objects/room_objects_lamp_hover.png"
+        action Jump("room_objects_lamp")
+
+    imagebutton:
+        xpos 570
+        ypos 202
+        idle "room_objects/room_objects_window_idle.png"
+        hover "room_objects/room_objects_window_hover.png"
+        action Jump("room_objects_window")
+
+    imagebutton:
+        xpos 720
+        ypos 649
+        idle "room_objects/room_objects_table_idle.png"
+        hover "room_objects/room_objects_table_hover.png"
+        action Jump("room_objects_table")
+
+    imagebutton:
+        xpos 1590
+        ypos 153
+        idle "room_objects/room_objects_door_idle.png"
+        hover "room_objects/room_objects_door_hover.png"
+        action Jump("room_objects_door")
+
+
+screen unikHall:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("unikHall"), Jump("act3_hall")]
+
+screen unikCanteen:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("unikCanteen"), Jump("act3_canteen")]
+
+screen unikClasses:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("unikClasses"), Jump("act3_classes")]
+
+    imagebutton:
+        xpos 196
+        ypos 33
+        idle "unik_classes_interact_objects/unik_classes_door1_idle.png"
+        hover "unik_classes_interact_objects/unik_classes_door1_hover.png"
+        action Jump("unik_classes_door1")
+
+    imagebutton:
+        xpos 591
+        ypos 196
+        idle "unik_classes_interact_objects/unik_classes_door2_idle.png"
+        hover "unik_classes_interact_objects/unik_classes_door2_hover.png"
+        action Jump("unik_classes_door2")
+
+screen unikAwards:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("unikAwards"), Jump("act3_awards")]
+
+screen unikLadder:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("unikLadder"), Jump("act3_ladder")]
+
+screen unikDean:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("unikDean"), Jump("act3_dean")]
+
+    imagebutton:
+        xpos 610
+        ypos 136
+        idle "unik_dean_interact_objects/unik_dean_door_idle.png"
+        hover "unik_dean_interact_objects/unik_dean_door_hover.png"
+        action Jump("unik_dean_door")
+
+screen unikFrescoes:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("unikFrescoes"), Jump("act3_frescoes")]
+
+screen unikLecture:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("unikLecture"), Jump("act3_lecture")]
+
+screen bagInteract:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [Hide("bagInteract"), Jump("act2_gallery")]
+
+    imagebutton:
+        xpos 504
+        ypos 324
+        idle "street_interact_objects/street_interact_bag_idle.png"
+        hover "street_interact_objects/street_interact_bag_hover.png"
+        action Jump("street_interact_bag")
+        
+    imagebutton:
+        xpos 594
+        ypos 744
+        idle "street_interact_objects/street_interact_phone_idle.png"
+        hover "street_interact_objects/street_interact_phone_hover.png"
+        action Jump("street_interact_phone")
+
 
 # Экран с подсказкой
 screen info_panel:
@@ -228,13 +562,13 @@ screen info_panel:
             padding(30, 30)
             xalign 0.5
             yalign 0.5
-            xsize 1270
+            xsize 1470
             vbox:
-                xsize 1270
-                text "Внимание! На различных локациях перед вами будет стоять выбор подключения к режиму интерактивности."
-                text "Если вы осуществите подключение, по окончании исследования фона не забудьте нажать голубую кнопку для выхода из интерактивного режима."
-                text "Пока вы не нажмете голубую кнопку в правой нижней части экрана, стрелки для перемещения по локациям отображены не будут"
-                text "Если вы хотите выйти из режима свободной навигации, нажмите стрелочку вниз, находясь в начальной локации бара"
+                xsize 1470
+                text "Внимание! Вы находитесь в режиме интерактивности."
+                text "Для того, чтобы выйти из данного режима, нажмите на кнопку выхода в правом нижнем углу."
+                text "Когда вы сделаете это, в левом нижнем углу появятся стрелки навигации."
+                text "Используйте их для перемещения между локациями."
                 null height 15
                 textbutton "ЗАКРЫТЬ" action [
                     Hide("info_panel"), 
@@ -249,13 +583,56 @@ screen info_panel_door:
             padding(30, 30)
             xalign 0.5
             yalign 0.5
-            xsize 970
+            xsize 1470
             vbox:
-                xsize 970
-                text "Внимание! Нажмите на дверь, чтобы зайти в бар."
+                xsize 1470
+                text "Внимание! Вы вошли в интерактивный режим. После завершения исследования локации нажмите на кнопку выхода внизу слева."
                 null height 15
                 textbutton "ЗАКРЫТЬ" action [
                     Hide("info_panel_door"), 
                     SetVariable("info_panel_closed_1", True)  # Устанавливаем флаг, что подсказка была показана и закрыта
+                ] xalign 0.5
+
+# Экран с подсказкой
+screen info_panel_2:
+    # Показывать экран только если подсказка ещё не была показана
+    if not info_panel_closed_2:
+        frame:
+            padding(30, 30)
+            xalign 0.5
+            yalign 0.5
+            xsize 1470
+            vbox:
+                xsize 1470
+                text "Внимание! Вы находитесь в режиме интерактивности."
+                text "Для того, чтобы выйти из данного, нажмите на кнопку выхода в правом нижнем углу."
+                text "Когда вы сделаете это, в левом нижнем углу появятся стрелки навигации."
+                text "Используйте их для перемещения между локациями."
+                null height 15
+                textbutton "ЗАКРЫТЬ" action [
+                    Hide("info_panel_2"), 
+                    SetVariable("info_panel_closed_2", True)  # Устанавливаем флаг, что подсказка была показана и закрыта
+                ] xalign 0.5
+
+
+# Экран с подсказкой
+screen info_panel_3:
+    # Показывать экран только если подсказка ещё не была показана
+    if not info_panel_closed_3:
+        frame:
+            padding(30, 30)
+            xalign 0.5
+            yalign 0.5
+            xsize 1470
+            vbox:
+                xsize 1470
+                text "Внимание! На различных локациях перед вами будет стоять выбор подключения к режиму интерактивности."
+                text "Если вы осуществите подключение, по окончании исследования фона не забудьте нажать голубую кнопку для выхода из интерактивного режима."
+                text "Пока вы не нажмете голубую кнопку в правой нижней части экрана, стрелки для перемещения по локациям отображены не будут"
+                text "Если вы хотите выйти из режима свободной навигации, нажмите стрелочку вниз, находясь в начальной локации бара"
+                null height 15
+                textbutton "ЗАКРЫТЬ" action [
+                    Hide("info_panel_3"), 
+                    SetVariable("info_panel_closed_3", True)  # Устанавливаем флаг, что подсказка была показана и закрыта
                 ] xalign 0.5
 

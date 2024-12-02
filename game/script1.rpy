@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-# Функция для воспроизведения звука при наведении НЕ РАБОТАЕТ
 python:
     def play_hover_sound():
         renpy.sound.play(hover_sound)
 
-# Начало игры 1 АКТ
-=======
-# Начало игры
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
+
 label start:
 
     # Фон стола с компьютером от первого лица
@@ -38,11 +33,10 @@ label create_character:
         "♂ Я хотел бы узнать...":
             # Звук кликанья
             play sound "sounds/create_character.mp3"
-<<<<<<< HEAD
+
             # При наведении на вариант, должен играть звук НЕ РАБОТАЕТ
             $ renpy.sound.play(hover_sound)
-=======
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
+
             #вводим имя гг и запоминаем его в переменной
             $ playerName = renpy.input("По умолчанию главному герою будет дано имя Миша. Введите имя персонажа, если желаете его заменить. ", length=12).strip() or "Миша"
             $ gender_symbol = "♂"
@@ -77,11 +71,9 @@ label create_character:
         "♀ Я хотела бы узнать...":
             # Звук кликанья
             play sound "sounds/create_character.mp3"
-<<<<<<< HEAD
             # При наведении на вариант, должен играть звук НЕ РАБОТАЕТ
             $ renpy.sound.play(hover_sound)
-=======
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
+
             #вводим имя гг и запоминаем его в переменной
             $ playerName = renpy.input("По умолчанию главной героине будет дано имя Алиса. Введите имя персонажа, если желаете его заменить. ", length=12).strip() or "Алиса"
             $ gender_symbol = "♀"
@@ -163,12 +155,8 @@ label continue_start:
     # Играет депрессивная композиция
     play music start_music_1 fadein 2
 
-<<<<<<< HEAD
     "{i}{color=#626262}Cнова мимо… {w}Денег уже почти не осталось, видимо, опять придется просить {b}{color=#5f2626}[friendPronoun]{/color}{/b} подкинуть работу.{/color}{/i}"
     
-=======
-    "{i}{color=#626262}Cнова мимо… {w}Денег уже почти не осталось, видимо, опять придется просить {b}{color=#5f2626}[friendPronoun]{/color}{/b} подкинуть работу. Пора собираться в бар.{/color}{/i}"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     # Перемещаемся в блок с комнатой гг
     jump room
 
@@ -182,7 +170,6 @@ label room:
     if not info_panel_closed_1:
         show screen info_panel_interactive
 
-<<<<<<< HEAD
     # Цикл для ожидания закрытия подсказки
     while not info_panel_closed_1:
         # Ждем, пока подсказка не будет закрыта
@@ -190,8 +177,6 @@ label room:
 
     gg "Пора собираться в бар."
 
-=======
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     # Перемещаемся в блок с интерактивностью по комнате
     jump move_in_room
 
@@ -230,13 +215,9 @@ label move_in_room:
 label go_to_hall:
     # Показываем фон коридора общаги
     show bg hall2 with dissolve
-<<<<<<< HEAD
 
     play hover "sounds/shagi-23.mp3"
 
-=======
-    play hover "sounds/shagi-23.mp3"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     # Проверяем, если игрок "тыкался" больше 7 раз
     if time >= 7:
         "{i}{color=#626262}Кажется, я опаздываю.{/color}{/i}"
@@ -258,15 +239,10 @@ label go_to_hall:
 label bar_outside:
     # Показываем фон перед входом в бар
     scene bg bar_outside with dissolve
-<<<<<<< HEAD
 
     stop music fadeout 2
     play music1 start_music_2 fadein 2
 
-=======
-    stop music fadeout 2
-    play music1 start_music_2 fadein 2
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     # Проверка, провел ли игрок слишком много времени в комнате
     if bool_time:
         $ note_meet_fr2 = True
@@ -313,15 +289,10 @@ label bar_inside:
     # Показываем фон бара с людьми
     show bg bar_people with fade
     $ renpy.pause(0.5)
-<<<<<<< HEAD
 
     stop music1 fadeout 2
     play music bar2 fadein 2
 
-=======
-    stop music1 fadeout 2
-    play music bar2 fadein 2
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     show bg bar_without_alcohol with fade
     show expression fr_normal with dissolve
     fr "Выбирай, что душе угодно, сегодня я угощаю."
@@ -397,38 +368,26 @@ label bar_inside:
     gg "Сегодня неплохая погода, последние теплые осенние вечера."
     fr "Ага, мы как раз с нашей компанией на прошлых выходных на шашлыки гоняли к Андрею на дачу.{w} [partnerName], кстати тоже там был[verb_end1]."
     "{i}{color=#626262}Мда, зачем [friendName] мне это говорит...{w} Вкусный напиток, отопью еще.{/color}{/i}"
-<<<<<<< HEAD
     
     play sound "sounds/drink_sound.mp3"
 
-=======
-    play sound "sounds/drink_sound.mp3"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     gg "А давно он[verb_end1] входит в «компанию»?"
     fr "{bt=1}Не, что ты. Совсем недавно удалось пересечься на одной тусе.{w} \nМы разговорились, оказалось он[verb_end1] подзарез нуждается в деньгах, \nсам[verb_end] знаешь, как это бывает.{/bt}" 
     fr "{bt=2}Ну, я и предложил[verb_end] поработать у нас. Оказалось, он[verb_end1] обладает невероятным \nталантом искать новых клиентов,{w} [partnerName] умеет так забалтывать людей, \nчто они ведутся и пробуют наш товар, а после подсаживаются на него, \nбинго.{/bt}"
     show expression fr_winks at right2
     fr "{bt=2}С тех пор он[verb_end1] член нашей небольшой, но очень дружной «семьи».{/bt}"
     "{i}{color=#626262}Не это я ожидал[verb_end] услышать.{w} Сделаю еще глоток.{/color}{/i}"
-<<<<<<< HEAD
     
     play sound "sounds/drink_sound.mp3"
-    
-=======
-    play sound "sounds/drink_sound.mp3"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
+
     gg "{bt=3}Зачем ты мне это рассказываешь? Ты же знаешь, в каких \nмы отношениях после того случая.{/bt}"
     hide fr_winks
     fr "{bt=3}[playerName], может уже пора помириться? Оставь обиды прошлого, \nработая в команде, вы могли бы получать огромную кучу \nденег.{/bt}"
     extend "{bt=4}Ты, возможно, сможешь наконец съехать со своей халупы…{/bt}"
     "{i}{color=#626262}Еще глоток...{/color}{/i}"
-<<<<<<< HEAD
     
     play sound "sounds/drink_sound.mp3"
-    
-=======
-    play sound "sounds/drink_sound.mp3"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
+
     show expression fr_uncomprehending at right2
     fr "{bt=5}Ты меня вообще слушаешь?{/bt}"
     gg "{bt=5}[friendName], о чем ты? Я тебя не расслышал[verb_end].{/bt}"
@@ -461,11 +420,8 @@ label meet_ghost:
     show bg street_animation_right with fade
     $ renpy.pause(1.5)
     show bg street_animation_left with fade
-<<<<<<< HEAD
     "{i}{color=#626262}Я… Где?{w} Улица. Темно, ночь?{w} Кто-то поет?{/color}{/i}"
-=======
-    "{i}{color=#626262}Я… Где?{w} Улица. Темно, ночь?{w} *звуки пения* Кто-то поет?{/color}{/i}"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
+
     "[playerName] оборачивается в поисках источника звука"
 
     show meet_ghost with fade
@@ -493,22 +449,18 @@ label meet_ghost:
 
         "Успокоиться, поговорить с призраком":
             play hover "sounds/create_character.mp3"
-<<<<<<< HEAD
+
             $ note_meet_gh1 = True
             gg "{sc=2}Хорошо, но не подходи ближе. Давай поговорим.{/sc}"
-=======
-            gg "{sc=2}Хорошо, но не подходи ближе.{w} Давай поговорим.{/sc}"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
+
             $ friendshp_gh += 1
             $ renpy.notify(f"Отношения с персонажем Призрак улучшились")
             gh happy "Спасибо, я сейчас все объясню"
 
         "Бежать":
             play hover "sounds/create_character.mp3"
-<<<<<<< HEAD
             $ note_meet_gh2 = True
-=======
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
+
             show bg street with vpunch
             "[playerName] пытается подняться, но не может из-за плохого самочувствия." #все это надо как-то обыграть с помощью анимаций и смены фонов
             "{sc=3}{i}{color=#626262}Черт, надо валить, но я не могу встать.{/color}{/i}{/sc}"
@@ -541,10 +493,7 @@ label meet_ghost:
 
 # Блок диалога перед интерактивностью (или свободной навигацией) в главном зале бара
 label bar_interact_pred:
-<<<<<<< HEAD
 
-=======
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     # Делаем так, чтобы при возвращении в главную локацию музыка не звучала заново
     if not werePlayed:
 
@@ -620,24 +569,7 @@ label bar_interact:
     # # Если мы потыкались больше, чем на 1 предмет
     # else:
     #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-<<<<<<< HEAD
-=======
-    #     while not closed:
-    #         # Закрываем диалоговое окно
-    #         window hide
-    #         # Показываем фон главного зала в баре, если он не был показан ранее
-    #         if not persistent.background_shown:
-    #             show bg bar_people with dissolve
-    #             # Меняем глобальную переменную на True, так как фон был показан
-    #             $ persistent.background_shown = True
-    #         # Запускаем интерактивный экран
-    #         show screen barInteract with dissolve
-    #         # Включаем интерактивное взаимодействие
-    #         $ result = ui.interact()
-    #     # Если цикл прервался, то мы нажали на кнопку, значит, можно поместить на экран кнопки навигации
-    #     jump showbuttons
 
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     while not closed:
         # Закрываем диалоговое окно
         window hide
@@ -715,38 +647,6 @@ label bar_up:
     # # Если мы потыкались больше, чем на 1 предмет
     # else:
     #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-<<<<<<< HEAD
-    while not closed:
-        # Закрываем диалоговое окно
-        window hide
-
-        # Показываем фон главного зала в баре, если он не был показан ранее
-        if not persistent.background_shown:
-            show bg bar_up with dissolve
-            # Меняем глобальную переменную на True, так как фон был показан
-            $ persistent.background_shown = True
-
-        # Запускаем интерактивный экран
-        show screen barUp with dissolve
-
-=======
-    #     while not closed:
-    #         # Закрываем диалоговое окно
-    #         window hide
-    #         # Показываем фон главного зала в баре, если он не был показан ранее
-    #         if not persistent.background_shown:
-    #             show bg bar_up with dissolve
-    #             # Меняем глобальную переменную на True, так как фон был показан
-    #             $ persistent.background_shown = True
-
-    #         # Запускаем интерактивный экран
-    #         show screen barUp with dissolve
-
-    #         # Включаем интерактивное взаимодействие
-    #         $ result = ui.interact()
-
-    #     # Если цикл прервался, то мы нажали на кнопку, значит, можно поместить на экран кнопки навигации
-    #     jump showbuttons
 
     while not closed:
         # Закрываем диалоговое окно
@@ -761,7 +661,6 @@ label bar_up:
         # Запускаем интерактивный экран
         show screen barUp with dissolve
 
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
         # Меняем значение переменной, так как мы уже запустили интерактивный экран (больше нам не нужно меню выбора в этой локации)
         $ interactive_mode_ended_interact = 1
 
@@ -840,33 +739,10 @@ label bar_right:
     # # Если мы потыкались больше, чем на 1 предмет
     # else:
     #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-<<<<<<< HEAD
-    while not closed:
-        # Закрываем диалоговое окно
-        window hide
-
-=======
-    #     while not closed:
-    #         # Закрываем диалоговое окно
-    #         window hide
-    #         # Показываем фон главного зала в баре, если он не был показан ранее
-    #         if not persistent.background_shown:
-    #             show bg bar_right with dissolve
-    #             # Меняем глобальную переменную на True, так как фон был показан
-    #             $ persistent.background_shown = True
-    #         # Запускаем интерактивный экран
-    #         show screen barRight with dissolve
-    #         # Включаем интерактивное взаимодействие
-    #         $ result = ui.interact()
-
-    #     # Если цикл прервался, то мы нажали на кнопку, значит, можно поместить на экран кнопки навигации
-    #     jump showbuttons
 
     while not closed:
         # Закрываем диалоговое окно
         window hide
-
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
         # Показываем фон главного зала в баре, если он не был показан ранее
         if not persistent.background_shown:
             show bg bar_right with dissolve
@@ -959,33 +835,11 @@ label bar_left:
     # # Если мы потыкались больше, чем на 1 предмет
     # else:
     #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-<<<<<<< HEAD
-    while not closed:
-        # Закрываем диалоговое окно
-        window hide
-
-=======
-    #     while not closed:
-    #         # Закрываем диалоговое окно
-    #         window hide
-    #         # Показываем фон левого зала в баре, если он не был показан ранее
-    #         if not persistent.background_shown:
-    #             show bg bar_left with dissolve
-    #             # Меняем глобальную переменную на True, так как фон был показан
-    #             $ persistent.background_shown = True
-    #         # Запускаем интерактивный экран
-    #         show screen barLeft with dissolve
-    #         # Включаем интерактивное взаимодействие
-    #         $ result = ui.interact()
-
-    #     # Переходим в блок, который открывает экран с кнопками навигации
-    #     jump showbuttons
 
     while not closed:
         # Закрываем диалоговое окно
         window hide
 
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
         # Показываем фон главного зала в баре, если он не был показан ранее
         if not persistent.background_shown:
             show bg bar_left with dissolve
@@ -1002,10 +856,7 @@ label bar_left:
         $ result = ui.interact()
     
     hide barLeft
-<<<<<<< HEAD
-=======
 
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     jump showbuttons
 
     return
@@ -1034,7 +885,6 @@ label move_bar_left:
 label bar_down:
     # Показываем фон дворика
     scene bg bar_down with wipeleft
-<<<<<<< HEAD
 
     # Играем музыку, трогающую душу
     stop music fadeout 1
@@ -1046,17 +896,7 @@ label bar_down:
     gh uncomprehending "Нет, ты не можешь быть призраком, я вижу тебя ровно так же, как и обычных людей, у тебя такой же облик."
     gh " Если бы ты был[verb_end] призраком, ты был[verb_end] бы похож[verb_end] на меня, наверно."
     gg "{sc=1}Это все очень странно и страшно, я не хочу этого, я хочу просто домой \nи лечь спать.{w} Но какой в этом всем теперь этом смысл, если \nменя даже не видят другие люди?{/sc}"
-=======
-    # Играем музыку, трогающую душу
-    stop music fadeout 1
-    play music1 choise_1 fadein 2
-    show ghost happy
-    gh "О, ты так быстро, не ожидала."
-    gg "Только что сквозь меня прошел человек,{w}{sc=2} Я ЧЕРТОВ ПРИЗРАК!{/sc}"
-    gh uncomprehending "Нет, ты не можешь быть призраком,{w} я вижу тебя ровно так же, как и обычных людей, у тебя такой же облик."
-    gh " Если бы ты был[verb_end] призраком, ты был[verb_end] бы похож[verb_end] на меня, наверно."
-    gg "{sc=1}Это все очень странно и страшно,{w} я не хочу этого, я хочу просто домой \nи лечь спать.{w} Но какой в этом всем теперь этом смысл, если \nменя даже не видят другие люди?{/sc}"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
+
     gh upset "Мне очень жаль, я понимаю твои чувства."
     gh normal "Если хочешь, мы можем объединиться, попробуем помочь друг другу."
 
@@ -1131,10 +971,4 @@ label ending_first:
     pause
 
     return
-<<<<<<< HEAD
-=======
 
-    
-
-
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb

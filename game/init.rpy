@@ -179,7 +179,10 @@ define bool_time = False
 # Переменная для отслеживания состояния подсказки
 define info_panel_closed = False
 define info_panel_closed_1 = False
+<<<<<<< HEAD
 define info_panel_closedd_1 = False
+=======
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 define info_panel_closed_2 = False
 define info_panel_closed_3 = False
 
@@ -222,9 +225,13 @@ $ friendSprite = ""
 $ partnerName = "Игрок"
 $ partnerSprite = ""
 
-# Инициализация звука НЕ РАБОТАЕТ
+#Инициализация звука НЕ РАБОТАЕТ
 init:
+<<<<<<< HEAD
     $ hover_sound = "sounds/create_character.mp3"  # Путь к вашему звуковому файлу
+=======
+    $ hover_sound = "sounds/create_character.mp3"
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
 # Переменная для отслеживания состояния всплывающей подсказки в баре (свободная навигация)
 init python:
@@ -240,4 +247,11 @@ init python:
 # Функция для воспроизведения звука при наведении НЕ РАБОТАЕТ
 python:
     def play_hover_sound():
+<<<<<<< HEAD
         renpy.sound.play(hover_sound)
+=======
+        renpy.sound.play(hover_sound)
+
+
+
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb

@@ -1,6 +1,11 @@
 label act3_start:
+<<<<<<< HEAD
     # # Обнуляем нажатие на подсказку
     # $ info_panel_closed_3 = False
+=======
+    # Обнуляем нажатие на подсказку
+    $ info_panel_closed_3 = False
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     # Логические переменные для отслеживания того, впервые мы появляемся в блоке локации или нет
     # Если впервые, то запускается диалог (КУДА НУЖНО ВСТАВИТЬ РЕПЛИКИ), иначе ничего не происходит
@@ -14,11 +19,19 @@ label act3_start:
     $ count_canteen_interact = 0
     $ count_awards_interact = 0
 
+<<<<<<< HEAD
+=======
+    "Вы перешли в акт 3"
+
+    # ВСТАВИТЬ ДИАЛОГ
+
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     jump act3_continue
 
 label act3_continue:
 
     scene bg univer_front with dissolve
+<<<<<<< HEAD
     
     $ renpy.pause(1.0)
 
@@ -27,6 +40,13 @@ label act3_continue:
     gh "Это место выглядит знакомо."
     gg "Отлично, пойдем внутрь."
 
+=======
+    "Вид университета издалека"
+
+    scene bg univer_side with dissolve
+    "Вид университета вблизи"
+    
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     jump act3_hall_pred
 
     return
@@ -39,6 +59,7 @@ label act3_hall_pred:
 
     scene bg hall with dissolve
 
+<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_hall_interact==0:
         if important1:
@@ -48,10 +69,20 @@ label act3_hall_pred:
 
         show ghost normal with dissolve
         gh "Да, мне тоже нравится. Пойдем посмотрим на холл со 2 этажа."
+=======
+    "Вы находитесь в холле с лестницей"  
+
+    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
+    if count_hall_interact==0:
+        "Здесь будет длинный диалог"
+
+        # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # Меняем значение переменной
         $ count_hall_interact = 1
 
+<<<<<<< HEAD
         jump act3_ladder_pred
 
     # show screen info_panel
@@ -69,6 +100,23 @@ label act3_hall_pred:
     # jump act3_hall
 
     # return
+=======
+    show screen info_panel
+
+    # Показываем подсказку относительно перемещения по локациям, если она ещё не была закрыта
+    if not info_panel_closed_3:
+        show screen info_panel_3
+
+    # Цикл для ожидания закрытия подсказки
+    while not info_panel_closed_3:
+        # Ждем, пока подсказка не будет закрыта
+        $ renpy.pause(0.1)
+
+    # Перемещаемся в блок интерактивности в главном зале бара 
+    jump act3_hall
+
+    return
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
 # Блок интерактивности в холле вуза
 label act3_hall:
@@ -80,6 +128,7 @@ label act3_hall:
 
     scene bg hall with dissolve
 
+<<<<<<< HEAD
     # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
     # while not closed:
     #     # Закрываем диалоговое окно
@@ -97,6 +146,25 @@ label act3_hall:
     #     $ result = ui.interact()
 
     # hide unikHall
+=======
+    # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
+    while not closed:
+        # Закрываем диалоговое окно
+        window hide
+        # Показываем фон главного зала в баре, если он не был показан ранее
+        if not persistent.background_shown:
+            show bg hall with dissolve
+            # Меняем глобальную переменную на True, так как фон был показан
+            $ persistent.background_shown = True
+
+        # Запускаем интерактивный экран
+        show screen unikHall with dissolve
+
+        # Включаем интерактивное взаимодействие
+        $ result = ui.interact()
+
+    hide unikHall
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     jump showbuttons_unik
 
@@ -112,10 +180,20 @@ label act3_classes_pred:
 
     scene bg classes with dissolve
 
+<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_classes_interact==0:
         
         gg "Хм, может стоит зайти в кабинет?"
+=======
+    "Вы находитесь в коридоре с кабинетами"
+
+    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
+    if count_classes_interact==0:
+        "Здесь будет длинный диалог"
+
+        # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # Меняем значение переменной
         $ count_classes_interact = 1
@@ -167,6 +245,7 @@ label act3_canteen_pred:
 
     scene bg canteen with dissolve
 
+<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_canteen_interact==0:
         show bg canteen with pixellate
@@ -190,6 +269,19 @@ label act3_canteen_pred:
         $ friendshp_gh_temp += 1
 
 
+=======
+    "Вы находитесь в столовой"
+
+    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
+    if count_canteen_interact==0:
+        "Здесь будет длинный диалог"
+
+        # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
+
+        # Меняем значение переменной
+        $ count_canteen_interact = 1
+
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     # Перемещаемся в блок интерактивности в главном зале бара 
     jump act3_canteen
 
@@ -205,6 +297,7 @@ label act3_canteen:
 
     scene bg canteen with dissolve
 
+<<<<<<< HEAD
     # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
     # while not closed:
     #     # Закрываем диалоговое окно
@@ -222,6 +315,25 @@ label act3_canteen:
     #     $ result = ui.interact()
 
     # hide unikCanteen
+=======
+    # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
+    while not closed:
+        # Закрываем диалоговое окно
+        window hide
+        # Показываем фон главного зала в баре, если он не был показан ранее
+        if not persistent.background_shown:
+            show bg canteen with dissolve
+            # Меняем глобальную переменную на True, так как фон был показан
+            $ persistent.background_shown = True
+
+        # Запускаем интерактивный экран
+        show screen unikCanteen with dissolve
+
+        # Включаем интерактивное взаимодействие
+        $ result = ui.interact()
+
+    hide unikCanteen
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     jump showbuttons_unik
 
@@ -236,6 +348,7 @@ label act3_ladder_pred:
 
     scene bg ladder with dissolve
 
+<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_ladder_interact==0:
 
@@ -244,6 +357,18 @@ label act3_ladder_pred:
         $ renpy.pause(1.0)
         jump act3_frescoes_pred
 
+=======
+    "Вы находитесь на 2 этаже у лестницы"
+
+    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
+    if count_ladder_interact==0:
+        "Здесь будет длинный диалог"
+
+        # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
+
+        # Меняем значение переменной
+        $ count_ladder_interact = 1
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     # Перемещаемся в блок интерактивности в главном зале бара 
     jump act3_ladder
@@ -260,6 +385,7 @@ label act3_ladder:
 
     scene bg ladder with dissolve
 
+<<<<<<< HEAD
     # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
     # while not closed:
     #     # Закрываем диалоговое окно
@@ -277,6 +403,25 @@ label act3_ladder:
     #     $ result = ui.interact()
 
     # hide unikLadder
+=======
+    # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
+    while not closed:
+        # Закрываем диалоговое окно
+        window hide
+        # Показываем фон главного зала в баре, если он не был показан ранее
+        if not persistent.background_shown:
+            show bg ladder with dissolve
+            # Меняем глобальную переменную на True, так как фон был показан
+            $ persistent.background_shown = True
+
+        # Запускаем интерактивный экран
+        show screen unikLadder with dissolve
+
+        # Включаем интерактивное взаимодействие
+        $ result = ui.interact()
+
+    hide unikLadder
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     jump showbuttons_unik
 
@@ -291,6 +436,7 @@ label act3_lecture_pred:
 
     scene bg lecture with dissolve
 
+<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_lecture_interact==0:
         show bg lecture with pixellate
@@ -308,6 +454,15 @@ label act3_lecture_pred:
         gh "Хах, забавно"
 
         $ friendshp_gh_temp += 1
+=======
+    "Вы находитесь в лекционной аудитории"
+
+    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
+    if count_lecture_interact==0:
+        "Здесь будет длинный диалог"
+
+        # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # Меняем значение переменной
         $ count_lecture_interact = 1
@@ -327,6 +482,7 @@ label act3_lecture:
 
     scene bg lecture with dissolve
 
+<<<<<<< HEAD
     # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
     # while not closed:
     #     # Закрываем диалоговое окно
@@ -342,6 +498,23 @@ label act3_lecture:
 
     #     # Включаем интерактивное взаимодействие
     #     $ result = ui.interact()
+=======
+    # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
+    while not closed:
+        # Закрываем диалоговое окно
+        window hide
+        # Показываем фон главного зала в баре, если он не был показан ранее
+        if not persistent.background_shown:
+            show bg lecture with dissolve
+            # Меняем глобальную переменную на True, так как фон был показан
+            $ persistent.background_shown = True
+
+        # Запускаем интерактивный экран
+        show screen unikLecture with dissolve
+
+        # Включаем интерактивное взаимодействие
+        $ result = ui.interact()
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     hide unikLecture
 
@@ -358,6 +531,7 @@ label act3_frescoes_pred:
 
     scene bg frescoes with dissolve
 
+<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_frescoes_interact==0:
         
@@ -386,6 +560,15 @@ label act3_frescoes_pred:
 
         $ note_fantoms1 = True
         $ renpy.notify("В заметках появилась новая запись")
+=======
+    "Вы находитесь в коридоре с фресками"
+
+    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
+    if count_frescoes_interact==0:
+        "Здесь будет длинный диалог"
+
+        # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # Меняем значение переменной
         $ count_frescoes_interact = 1
@@ -405,6 +588,7 @@ label act3_frescoes:
 
     scene bg frescoes with dissolve  
 
+<<<<<<< HEAD
     # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
     # while not closed:
     #     # Закрываем диалоговое окно
@@ -422,6 +606,25 @@ label act3_frescoes:
     #     $ result = ui.interact()
 
     # hide unikFrescoes
+=======
+    # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
+    while not closed:
+        # Закрываем диалоговое окно
+        window hide
+        # Показываем фон главного зала в баре, если он не был показан ранее
+        if not persistent.background_shown:
+            show bg frescoes with dissolve
+            # Меняем глобальную переменную на True, так как фон был показан
+            $ persistent.background_shown = True
+
+        # Запускаем интерактивный экран
+        show screen unikFrescoes with dissolve
+
+        # Включаем интерактивное взаимодействие
+        $ result = ui.interact()
+
+    hide unikFrescoes
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     jump showbuttons_unik
 
@@ -436,9 +639,17 @@ label act3_dean_pred:
 
     scene bg dean with dissolve
 
+<<<<<<< HEAD
 
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_dean_interact==0:
+=======
+    "Вы находитесь перед деканатом"
+
+    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
+    if count_dean_interact==0:
+        "Здесь будет длинный диалог"
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
 
@@ -488,6 +699,7 @@ label act3_awards_pred:
 
     scene bg awards with dissolve
 
+<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_awards_interact==0:
         gg "Как много призов и грамот."
@@ -497,6 +709,15 @@ label act3_awards_pred:
         gg "Не спорю. Пойдем дальше?"
 
         $ friendshp_gh_temp += 1
+=======
+    "Вы находитесь перед витринами с наградами"
+
+    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
+    if count_awards_interact==0:
+        "Здесь будет длинный диалог"
+
+        # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # Меняем значение переменной
         $ count_awards_interact = 1
@@ -514,6 +735,7 @@ label act3_awards:
 
     scene bg awards with dissolve 
 
+<<<<<<< HEAD
     # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
     # while not closed:
     #     # Закрываем диалоговое окно
@@ -531,6 +753,25 @@ label act3_awards:
     #     $ result = ui.interact()
 
     # hide unikAwards
+=======
+    # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
+    while not closed:
+        # Закрываем диалоговое окно
+        window hide
+        # Показываем фон главного зала в баре, если он не был показан ранее
+        if not persistent.background_shown:
+            show bg awards with dissolve
+            # Меняем глобальную переменную на True, так как фон был показан
+            $ persistent.background_shown = True
+
+        # Запускаем интерактивный экран
+        show screen unikAwards with dissolve
+
+        # Включаем интерактивное взаимодействие
+        $ result = ui.interact()
+
+    hide unikAwards
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     jump showbuttons_unik
 
@@ -633,6 +874,7 @@ label move_unik_down:
 
 label act3_flashback_start:
     scene bg classes with dissolve
+<<<<<<< HEAD
     $ note_fantoms2 = True
     $ renpy.notify("В заметках появилась новая запись")
 
@@ -859,11 +1101,80 @@ label act3_flashback_start:
 
     [friendName] в очередной раз выручил[verb_end] меня, подкинув работу на первое время. Конечно, мне не очень нравился род деятельности, но разве у меня был выбор?
     ```
+=======
+    "Начинается флешбек"
+    # ДИАЛОГ, ПОСЛЕ КОТОРОГО ПЕРЕНОСИМСЯ ВО ФЛЕШБЕК
+    scene bg flashback2_awakening with dissolve
+    "Героя бессовестным образом будят"
+    scene bg flashback2_room with dissolve
+    "Герой проснулся"
+    scene bg flashback2_bathroom with dissolve
+    "Герой идет в душ"
+    scene bg flashback2_street with dissolve
+    "Герой идет в колледж"
+    scene bg flashback2_med with dissolve
+    "Герой пришел в колледж"
+    scene bg flashback2_hall with dissolve
+    "Герой прошел пропускной пункт"
+    scene bg flashback2_coridor with dissolve
+    "Коридор"
+    scene bg flashback2_anatomy with dissolve
+    "Кабинет анатомии"
+
+    scene bg flashback2_winter_day2 with dissolve
+    "Сцены общения с партнером"
+
+    scene bg flashback2_winter_day1 with dissolve
+
+    "Герой и партнер хорошо проводят время"
+
+    # ВСТАВИТЬ РЕПЛИКИ
+
+    scene bg flashback2_winter_night2 with dissolve
+
+    "Герой и партнер хорошо проводят время"
+
+    # ВСТАВИТЬ РЕПЛИКИ
+
+    scene bg flashback2_summer_day2 with dissolve
+
+    "Герой и партнер хорошо проводят время"
+
+    # ВСТАВИТЬ РЕПЛИКИ
+
+    scene bg flashback2_summer_day1 with dissolve
+
+    "Герой и партнер хорошо проводят время"
+
+    # ВСТАВИТЬ РЕПЛИКИ
+
+    scene bg flashback2_summer_night2 with dissolve
+
+    "Герой и партнер хорошо проводят время"
+
+    # ВСТАВИТЬ РЕПЛИКИ
+
+    scene bg flashback2_room with dissolve
+
+    # ВСТАВИТЬ РЕПЛИКИ
+
+    "Герою пишет друг"
+
+    scene bg flashback2_partner_home with dissolve
+
+    "Вечеринка, на которой морально уничтожили героя"
+
+    scene bg bar_right with dissolve
+
+    "Герой ушел в запой"
+
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     jump act3_present
 
     return
 
 label act3_present:
+<<<<<<< HEAD
     scene bg classes with pixellate
     show ghost uncomprehending with dissolve
     gh "Эй, [playerName], прием! Ты опять погряз[past_verb_end] в мыслях?"
@@ -979,10 +1290,36 @@ label act3_present:
     gg "Хорошо, веди."
 
     jump act3_end
+=======
+    scene bg classes with dissolve
+    "Возвращаемся в коридор после флешбека"
+    scene bg class with dissolve
+    # ВСТАВИТЬ РЕПЛИКИ
+    if friendshp_gh >=7:
+        "Герой делится своими переживаниями"
+        menu:
+            "ВАЖНЫЙ ВЫБОР!"
+            "Ты права, компания отравляла мне жизнь, но в мире есть и хорошие люди - например, ты":
+                #ВСТАВИТЬ РЕПЛИКИ
+                jump act3_end
+            "Компания хотела мне только хорошего, они неплохие люди":
+                # ВСТАВИТЬ РЕПЛИКИ
+                jump act3_end
+
+    else:
+        "Герой не делится своими переживаниями"
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     
 label act3_end:
     scene bg classes with wipeleft
     scene bg hall with wipeleft
     # ВСТАВИТЬ РЕПЛИКИ
     jump act4_start
+<<<<<<< HEAD
     return
+=======
+    return
+
+
+
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb

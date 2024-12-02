@@ -868,6 +868,11 @@ screen preferences():
                         hbox:
                             bar value Preference("mixer ambient volume")
 
+                        label _("Громкость фона")
+
+                        hbox:
+                            bar value Preference("mixer ambient volume")
+
                     if config.has_voice:
                         label _("Громкость голоса")
 

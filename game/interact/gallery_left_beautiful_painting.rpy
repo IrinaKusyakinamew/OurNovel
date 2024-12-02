@@ -1,4 +1,5 @@
 label gallery_left_beautiful_painting:
+<<<<<<< HEAD
 
     gg "Смотри, это же репродукция «Ребенка в кимоно» Лиллы Кабо Перри."
     $ friendshp_gh += 1
@@ -14,4 +15,8 @@ label gallery_left_beautiful_painting:
         $ renpy.notify("Открыто новое достижение!")
         $ persistent.painting_notify += 1
 
+=======
+    # ВСТАВИТЬ НУЖНЫЙ ТЕКСТ
+    "Описание красивой картины"
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     jump act2_left_gallery

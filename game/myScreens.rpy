@@ -399,10 +399,14 @@ screen roomScreen:
         yalign 0.99
         idle "blue_idle"
         hover "blue_hover"
+<<<<<<< HEAD
         if flashback1_click > 5:
             action [SetVariable("closed", True), Hide("roomScreen"), Jump("act2_flashback_graffity")]
         else:
             action[Jump("button_wait")]
+=======
+        action [SetVariable("closed", True), Hide("roomScreen"), Jump("act2_flashback_graffity")]
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     imagebutton:
         xpos 0
@@ -540,7 +544,11 @@ screen bagInteract:
         yalign 0.99
         idle "blue_idle"
         hover "blue_hover"
+<<<<<<< HEAD
         action [Hide("bagInteract"), Jump("pre_goout")]
+=======
+        action [Hide("bagInteract"), Jump("act2_gallery")]
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     imagebutton:
         xpos 504
@@ -567,10 +575,18 @@ screen info_panel:
             yalign 0.5
             xsize 1470
             vbox:
+<<<<<<< HEAD
                 xsize 1270
                 text "На различных локациях вы сможете подключиться к режиму интерактивности."
                 text "Если вы осуществите подключение, по окончании исследования фона не забудьте нажать в правом нижнем углу экрана для выхода из интерактивного режима."
                 text "Пока вы не нажмете кнопку, стрелки для перемещения по локациям отображены не будут."
+=======
+                xsize 1470
+                text "Внимание! Вы находитесь в режиме интерактивности."
+                text "Для того, чтобы выйти из данного режима, нажмите на кнопку выхода в правом нижнем углу."
+                text "Когда вы сделаете это, в левом нижнем углу появятся стрелки навигации."
+                text "Используйте их для перемещения между локациями."
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
                 null height 15
                 textbutton "ЗАКРЫТЬ" action [
                     Hide("info_panel"), 
@@ -638,6 +654,7 @@ screen info_panel_3:
                     SetVariable("info_panel_closed_3", True)  # Устанавливаем флаг, что подсказка была показана и закрыта
                 ] xalign 0.5
 
+<<<<<<< HEAD
 # Экран с подсказкой об интерактиве
 screen info_panel_interactive:
     # Показывать экран только если подсказка ещё не была показана
@@ -673,3 +690,5 @@ screen info_panel_relationship:
                     Hide("info_panel_relationship"), 
                     SetVariable("info_panel_closedd_1", True)  # Устанавливаем флаг, что подсказка была показана и закрыта
                 ] xalign 0.5
+=======
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb

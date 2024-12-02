@@ -13,17 +13,11 @@ label act2_start:
 
     $ count_act2_front_pred = 0
     
-<<<<<<< HEAD
     show ghost normal 
     gg "Итак, что будем делать?"
     gh "Полагаю, стоит осмотреть этот двор. Именно здесь начинаются странности, возможно тут найдутся какие-нибудь зацепки."
     gg "Разумная мысль."
     hide ghost
-=======
-    "Вы перешли во второй акт"
-
-    # ВСТАВИТЬ ДИАЛОГ
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     jump act2_front_pred
 
@@ -38,16 +32,8 @@ label act2_front_pred:
 
     scene bg bar_down_ghost with dissolve
 
-<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_pred_interact==0:
-=======
-    "Вы находитесь в центре улицы"
-
-    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
-    if count_pred_interact==0:
-        "Здесь будет длинный диалог"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
 
@@ -164,17 +150,9 @@ label act2_up_pred:
     # Показываем фон верхней части улицы
     scene bg street_up with dissolve
 
-<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_pred_up==0:
         "Пусто..."
-=======
-    "Вы находитесь в верхней части улицы"
-
-    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
-    if count_pred_up==0:
-        "Здесь будет длинный диалог"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
 
@@ -250,7 +228,6 @@ label act2_up:
     #     jump showbuttons_street
 
     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-<<<<<<< HEAD
     # while not closed:
     #     # Закрываем диалоговое окно
     #     window hide
@@ -267,24 +244,6 @@ label act2_up:
     #     $ result = ui.interact()
 
     # hide streetUp
-=======
-    while not closed:
-        # Закрываем диалоговое окно
-        window hide
-        # Показываем фон главного зала в баре, если он не был показан ранее
-        if not persistent.background_shown:
-            show bg street_up with dissolve
-            # Меняем глобальную переменную на True, так как фон был показан
-            $ persistent.background_shown = True
-
-        # Запускаем интерактивный экран
-        show screen streetUp with dissolve
-
-        # Включаем интерактивное взаимодействие
-        $ result = ui.interact()
-
-    hide streetUp
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     jump showbuttons_street
 
@@ -319,16 +278,8 @@ label act2_right_pred:
     # Показываем фон верхней части улицы
     scene bg street_right with dissolve
 
-<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_pred_right==0:
-=======
-    "Вы находитесь в правой части улицы"
-
-    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
-    if count_pred_right==0:
-        "Здесь будет длинный диалог"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
 
@@ -456,16 +407,8 @@ label act2_left_pred:
     # Показываем фон верхней части улицы
     scene bg street_left with dissolve
 
-<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_pred_left==0:
-=======
-    "Вы находитесь в левой части улицы"
-
-    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
-    if count_pred_left==0:
-        "Здесь будет длинный диалог"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
 
@@ -590,17 +533,9 @@ label act2_down_pred:
     # Показываем фон верхней части улицы
     scene bg street_down with dissolve
 
-<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_pred_down==0:
         "Здесь ничего нет."
-=======
-    "Вы находитесь в нижней части улицы"
-
-    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
-    if count_pred_down==0:
-        "Здесь будет длинный диалог"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
 
@@ -674,7 +609,6 @@ label act2_down:
     #     # Если цикл прервался, то мы нажали на кнопку, значит, можно поместить на экран кнопки навигации
     #     jump showbuttons_street
 
-<<<<<<< HEAD
     # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
     # while not closed:
     #     # Закрываем диалоговое окно
@@ -692,25 +626,6 @@ label act2_down:
     #     $ result = ui.interact()
 
     # hide streetDown
-=======
-    # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    while not closed:
-        # Закрываем диалоговое окно
-        window hide
-        # Показываем фон главного зала в баре, если он не был показан ранее
-        if not persistent.background_shown:
-            show bg street_down with dissolve
-            # Меняем глобальную переменную на True, так как фон был показан
-            $ persistent.background_shown = True
-
-        # Запускаем интерактивный экран
-        show screen streetDown with dissolve
-
-        # Включаем интерактивное взаимодействие
-        $ result = ui.interact()
-
-    hide streetDown
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     jump showbuttons_street
 
@@ -739,10 +654,6 @@ label move_street_down:
 label act2_bag:
     hide screen streetFront
     scene bg street_bag with dissolve
-<<<<<<< HEAD
-=======
-    "Призрак нашел сумку и телефон"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ
 
 label act2_bag_interact:
@@ -750,7 +661,6 @@ label act2_bag_interact:
     # Включаем интерактивное взаимодействие (пока не нажмем на дверь, не попадем внутрь бара)
     $ result = ui.interact()
 
-<<<<<<< HEAD
 label pre_goout:
     scene bg bar_down with dissolve
     gg "В целом, ничего необычного."
@@ -765,8 +675,6 @@ label pre_goout:
     gg "В любом случае, других идей у нас нет. Веди."
     gh "Хорошо, это недалеко."
 
-=======
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 label act2_gallery:
     # Логические переменные для отслеживания того, впервые мы появляемся в блоке локации или нет
     # Если впервые, то запускается диалог (КУДА НУЖНО ВСТАВИТЬ РЕПЛИКИ), иначе ничего не происходит
@@ -784,16 +692,12 @@ label act2_gallery:
 
     scene bg gallery_entrance with dissolve
 
-<<<<<<< HEAD
+
     $ renpy.pause(0.5)
-=======
-    "Вы находитесь у входа в картинную галерею"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     scene bg gallery_up with dissolve
 
     stop music fadeout 2
-<<<<<<< HEAD
     play music1 "music/classic_music.mp3" fadein 2
 
     show ghost normal with dissolve
@@ -844,24 +748,6 @@ label act2_gallery:
             $ renpy.notify("В заметках появилась новая запись")
 
     "{i}{color=#626262} И правда, как же давно это было.{w} Средняя школа…{/color} {/i}"
-=======
-
-    play music1 "music/classic_music.mp3" fadein 2
-
-    # ВСТАВИТЬ РЕПЛИКИ ПРО СКУЧНУЮ КАРТИНУ
-
-    "Тут идут реплики"
-
-    menu:
-        "Поделиться о себе информацией":
-            $ renpy.notify("Вы улучшили отношения с призраком")
-        "Поделиться, но сухо":
-            $ renpy.notify("Ваши отношения с призраком не улучшились")
-
-    "Погружение в мысли"
-
-    # ВСТАВИТЬ РЕПЛИКИ
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     jump act2_flashback_start
 
@@ -872,7 +758,6 @@ label act2_flashback_start:
 
     play music gallery1
 
-<<<<<<< HEAD
     scene bg flashback_lesson with pixellate
 
     "Урок математики"
@@ -938,27 +823,6 @@ label act2_flashback_start:
     scene bg flashback_room with dissolve
 
     "{i}{color=#626262}Я не могу упустить этот шанс, меня впервые позвали куда-то. Я хочу завести себе друзей! Нужно дождаться, когда мама уйдет на вечернюю подработку{/color} {/i}"
-=======
-    scene bg flashback_lesson with dissolve
-
-    "Урок математики"
-
-    # ВСТАВИТЬ РЕПЛИКИ
-
-    scene bg flashback_hall with dissolve
-
-    "Гг возвращается домой"
-
-    scene bg flashback_mom_room with dissolve
-
-    "Происходит серьезный разговор матери с гг"
-
-    # ВСТАВИТЬ РЕПЛИКИ
-
-    scene bg flashback_room with dissolve
-
-    "Комната гг"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     jump act2_flashback_interact_room
 
@@ -982,7 +846,6 @@ label act2_flashback_interact_room:
     
     return
 
-<<<<<<< HEAD
 label button_wait:
     "Нужно подождать, пока мама уйдет."
     jump act2_flashback_interact_room
@@ -1057,21 +920,6 @@ label act2_flashback_graffity:
     t_pol "Кто это у нас тут? Пойдешь с нами, вандал."
     "{i}{color=#626262}Почему я не сообразил[verb_end] и не побежал[verb_end]? Что теперь делать? Придется идти с ними. {/color} {/i}"
 
-=======
-label act2_flashback_graffity:
-    scene bg flashback_padik with dissolve
-
-    "Подъезд, у которого встречается компания"
-
-    # ВСТАВИТЬ РЕПЛИКИ
-
-    scene bg flashback_play with dissolve
-
-    "Ребята идут на детскую площадку"
-
-    # ВСТАВИТЬ РЕПЛИКИ
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
-
     jump act2_flashback_policy
     
     return
@@ -1079,7 +927,6 @@ label act2_flashback_graffity:
 label act2_flashback_policy:
 
     scene bg flashback_policy1 with dissolve
-<<<<<<< HEAD
     $ renpy.pause(1)
 
     scene bg flashback_policy with dissolve
@@ -1101,14 +948,6 @@ label act2_flashback_policy:
     f_pol "В следующий раз следите лучше за своим ребенком."
     hide fat_policeman with dissolve
     mom "Дома поговорим."
-=======
-    "Гг привезли в участок полиции"
-    # ВСТАВИТЬ РЕПЛИКИ
-
-    scene bg flashback_policy with dissolve
-    "Гг ставят на учет"
-    # ВСТАВИТЬ РЕПЛИКИ
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     jump act2_flashback_home
     
@@ -1116,7 +955,6 @@ label act2_flashback_policy:
 
 label act2_flashback_home:
     scene bg flashback_kitchen with dissolve
-<<<<<<< HEAD
     show mom street with dissolve
     "Мама снимает кепку, проходит на кухню"
     mom "Иди сюда."
@@ -1151,12 +989,6 @@ label act2_flashback_home:
     #звуки плача
     "{sc=2}{i}{color=#626262}Как же… Почему все так получилось? Мои рисунки… Все, что я нарисовал[verb_end] за свою жизнь{/color} {/i}{/sc}"
 
-
-=======
-    "Мама жестко отчитывает гг"
-    # ВСТАВИТЬ РЕПЛИКИ
-    "Конец флешбека"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     jump act2_present
     return
 
@@ -1166,7 +998,6 @@ label act2_present:
 
     play music1 "music/classic_music.mp3" fadein 2
 
-<<<<<<< HEAD
     scene bg gallery_up with pixellate
     show ghost surprised with dissolve
     gh "[playerName], прием! Ты тут? Я тебя уже пару минут зову, а ты не откликаешься"
@@ -1190,11 +1021,6 @@ label act2_present:
     gh "Стой, может мы немного походим по выставке?"
     gg "Хм, в принципе, идея неплохая"
     hide ghost with dissolve
-
-=======
-    scene bg gallery_front with dissolve
-
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     jump act2_front_pred_gallery
 
     return
@@ -1202,27 +1028,12 @@ label act2_present:
 
 label act2_front_pred_gallery:
     scene bg gallery_front with dissolve
-<<<<<<< HEAD
-   
-=======
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
     # Инициализаруем переменную, проверяющую, нажата ли кнопка выхода из интерактивного фона
-    $ closed = False
-
-<<<<<<< HEAD
-    
+    $ closed = False 
 
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_pred_interact==0:
-        
-=======
-    "Вы находитесь в холле картинной галереи"
-
-    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
-    if count_pred_interact==0:
-        "Здесь будет длинный диалог"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
 
@@ -1281,22 +1092,10 @@ label act2_up_pred_gallery:
 
     scene bg gallery_up with dissolve
 
-<<<<<<< HEAD
-    
-
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_pred_up==0:
         
         gg "Уродская картина..."
-=======
-    "Вы находитесь в центре картинной галереи"
-
-    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
-    if count_pred_up==0:
-        "Здесь будет длинный диалог"
-
-        # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # Меняем значение переменной
         $ count_pred_up = 1
@@ -1359,22 +1158,10 @@ label act2_right_pred_gallery:
     $ closed = False
 
     scene bg gallery_right with dissolve
-
-<<<<<<< HEAD
     
-
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_pred_right==0:
         gh "Как много пейзажей."
-=======
-    "Вы находитесь в правой части картинной галереи"
-
-    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
-    if count_pred_right==0:
-        "Здесь будет длинный диалог"
-
-        # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # Меняем значение переменной
         $ count_pred_right = 1
@@ -1442,19 +1229,9 @@ label act2_left_pred_gallery:
 
     scene bg gallery_left with dissolve
 
-<<<<<<< HEAD
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_pred_left==0:
         gg "Хм..."
-=======
-    "Вы находитесь в левой части картинной галереи"
-
-    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
-    if count_pred_left==0:
-        "Здесь будет длинный диалог"
-
-        # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
         # Меняем значение переменной
         $ count_pred_left = 1
@@ -1520,20 +1297,10 @@ label act2_down_pred_gallery:
 
     scene bg gallery_down with dissolve
 
-<<<<<<< HEAD
-   
 
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_pred_down==0:
         
-=======
-    "Вы находитесь в нижней части картинной галереи"
-
-    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
-    if count_pred_down==0:
-        "Здесь будет длинный диалог"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
-
         # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
 
         # Меняем значение переменной
@@ -1587,12 +1354,10 @@ label move_gallery_down:
         menu:
             "Внимание! Если вы подтвердите выбор, то покинете локацию!"
             "Покинуть картинную галерею":
-<<<<<<< HEAD
                 gh "Наверно, нам пора уходить"
                 gg "Да, загулялись мы тут"
 
-=======
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
+
                 jump act2_street
             "Еще рано":
                 jump act2_front_pred_gallery
@@ -1608,7 +1373,6 @@ label act2_street:
     stop music1 fadeout 2
     play music gallery1 fadein 2
     scene bg gallery_down with dissolve
-<<<<<<< HEAD
     show ghost uncomprehending with dissolve
     gh "И все-таки, почему ты бросил[verb_end] рисовать?"
     gg "Да так… Вырос[past_verb_end], сменились увлечения, не до этого стало"
@@ -1640,13 +1404,3 @@ label act2_street:
 
             jump act3_start
     return
-=======
-    "Вы вышли на улицу"
-    menu:
-        "ВАЖНОЕ РЕШЕНИЕ"
-        "Возможно, когда-нибудь я попробую снова заняться рисованием":
-            jump act3_start
-        "Это было простым детским увлечением":
-            jump act3_start
-    return
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb

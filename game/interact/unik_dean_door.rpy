@@ -1,5 +1,4 @@
 label unik_dean_door:
-<<<<<<< HEAD
     if dean_door_click == 0:
         jump unik_dean_door1
 
@@ -33,8 +32,4 @@ label unik_dean_door1:
         gg "Мда, зреет что-то нехорошее"
         gh "И не говори"
 
-=======
-    # ВСТАВИТЬ НУЖНЫЙ ТЕКСТ
-    "Описание двери в деканат"
->>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
     jump act3_dean

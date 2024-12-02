@@ -292,7 +292,7 @@ screen navigation():
             hover "gui/game_menu/hover_icons.png"
 
             hotspot(60, 128, 148, 128) action ShowMenu("gallery") #фото
-            hotspot(227, 133, 150, 139) action Start() #достижения НЕ РАБОТАЕТ
+            hotspot(227, 133, 150, 139) action ShowMenu("achievements") #достижения
             hotspot(68, 453, 143, 130) action ShowMenu("save") #сохранить
             hotspot(235, 437, 128, 162) action ShowMenu("load") #загрузить
             hotspot(69, 783, 147, 138) action Return() #вернуться
@@ -306,11 +306,11 @@ screen navigation():
             hover "gui/game_menu/hover_icons.png"
 
             hotspot(60, 128, 148, 128) action ShowMenu("gallery") #фото
-            hotspot(227, 133, 150, 139) action Start() #достижения НЕ РАБОТАЕТ
-            hotspot(399, 132, 129, 139) action Start() #заметки НЕ РАБОТАЕТ
-            hotspot(63, 284, 135, 151) action Start() #контакты НЕ РАБОТАЕТ
-            hotspot(224, 290, 145, 145) action Start() #сообщения НЕ РАБОТАЕТ
-            hotspot(388, 290, 138, 144) action Start() #игра НЕ РАБОТАЕТ
+            hotspot(227, 133, 150, 139) action ShowMenu("achievements") #достижения
+            hotspot(399, 132, 129, 139) action ShowMenu("notes") #заметки
+            hotspot(63, 284, 135, 151) action ShowMenu("contacts") #контакты НЕ РАБОТАЕТ
+            hotspot(224, 290, 145, 145) action ShowMenu("msg") #сообщения НЕ РАБОТАЕТ
+            hotspot(388, 290, 138, 144) action ShowMenu("play_game") #игра НЕ РАБОТАЕТ
             hotspot(68, 453, 143, 130) action ShowMenu("save") #сохранить
             hotspot(235, 437, 128, 162) action ShowMenu("load") #загрузить
             hotspot(371, 457, 169, 133) action MainMenu() #главное меню
@@ -339,7 +339,7 @@ screen main_menu():
         hotspot(1543, 33, 344, 138) action Start() #начать
         hotspot(1439, 177, 448, 154) action ShowMenu("load") #загрузить
         hotspot(1393, 324, 494, 154) action ShowMenu("preferences") #настройки
-        hotspot(1357, 482, 530, 144) action ShowMenu("about") #достижения НЕ РАБОТАЕТ
+        hotspot(1357, 482, 530, 144) action ShowMenu("achievements") #достижения НЕ РАБОТАЕТ
         hotspot(1471, 634, 416, 153) action ShowMenu("gallery") #галерея
         hotspot(1574, 901, 321, 162) action Quit(confirm=True) #выход
         hotspot(0, 935, 184, 66) action ShowMenu("about") #об игре
@@ -506,6 +506,146 @@ style about_text is gui_text
 
 style about_label_text:
     size gui.label_text_size
+
+## Экран Заметки ###############################################################
+screen notes():
+
+    tag menu
+
+    use game_menu(_("Заметки"), scroll="viewport"):
+
+        style_prefix "about"
+
+        if note_Naomi:
+            vbox:
+                text _("Заметка 9") xalign 1
+                text _("Оказалось, что Призрак, Наоми и загадочный художник - это один человек! С ума сойти.")
+                text ""        
+
+        if note_gang1:
+            vbox:
+                text _("Заметка 8") xalign 1
+                text _("Я подели[past_end] моментами из своего прошлого с Призраком. Меня не устраивает положение дел, я хочу что-то изменить. Призрак поддержала меня.")
+                text ""
+        elif note_gang2:
+            vbox:
+                text _("Заметка 8") xalign 1
+                text _("Я подели[past_end] моментами из своего прошлого с Призраком. Меня устраивает положение дел, я не хочу ничего менять. Призрак, кажется, очень расстроилась")
+                text ""
+        elif note_gang3:
+            vbox:
+                text _("Заметка 8") xalign 1
+                text _("Я не хочу чтобы кто-то лез мне в душу. Мои проблемы - это мои проблемы. Я не хочу раскрыться человеку, чтобы меня потом вновь ранили.")
+                text ""
+        
+        if note_fantoms2:  
+            vbox:
+                text _("Заметка 7") xalign 1
+            if dean_door_click > 0 and count_canteen_interact > 0:
+                vbox:
+                    text _("Кто-то влятельный не хотел, чтобы Призрак рисовала в импрессионизме. Почему?")
+            else:
+                vbox:
+                    text _("Пазл не складывается...")
+                    text ""
+
+            if friendshp_gh_temp == 5:
+                vbox:
+                    text _("Я смог[past_verb_end] узнать Призрака получше. Она была интересным интересным человеком.")
+            else:
+                vbox:
+                    text _("Я не смог[past_verb_end] собрать все сцены прошлого.")
+                    text ""
+
+        if note_fantoms1:
+            vbox:
+                text _("Заметка 6") xalign 1
+                text _("Мы решили отправиться в университет, в котором предположительно училась Призрак. Поднявшись на 2 этаж, мы увидели то чего совершенно не ожидали: двух фантомов прошлого. Призрак узнала их - это ее одногруппники. Наконец-то у нас появилась полноценная зацепка, мы прододжим исследовать университет.")
+                text ""            
+
+        if note_painter1:
+            vbox:
+                text _("Заметка 5") xalign 1
+                text _("Мое детство было не самым радужным. Тогда рисование являлось неотъемлемой частью моей жизни. Наверное, оно все еще важно для меня.")
+                text ""
+        elif note_painter2:
+            vbox:
+                text _("Заметка 5") xalign 1
+                text _("Мое детство было не самым радужным. Хоть тогда рисование и являлось важной частью моей жизни, воспоминания об этом вызывают у меня только боль.")
+                text ""
+
+        if note_pictures1:
+            vbox:
+                text _("Заметка 4") xalign 1
+                text _("Я удивлен[verb_end], что Призрак имеет схожие со мной взгляды на искусство. Раньше я и правда занима[past_end] рисованием и мне это очень нравилось.")
+                text ""
+        elif note_pictures2:
+            vbox:
+                text _("Заметка 4") xalign 1
+                text _("Я удивлен[verb_end], что Призрак имеет схожие со мной взгляды на искусство. Раньше я и правда увлека[past_end] рисованием, но я давно забросил[verb_end] это дело.")
+                text ""
+        
+        if note_cooperate:
+            vbox:
+                text _("Заметка 3") xalign 1
+                text _("Я решил[verb_end] объединиться с призраком, чтобы выпутаться из своего непростого положения. Вместе мы осмотрели дворик около бара, но не смогли найти зацепок. Из необычного - чья-то сумка с личными вещами.")
+                text ""
+
+        if note_meet_gh2:
+            vbox:
+                text _("Заметка 2") xalign 1
+                text _("Ну и дела... [friendName] напоил[verb_end] меня непонятно чем, давно мне так плохо не было. Я аж призраков видеть начал[verb_end]. Это было очень страшно, надеюсь, когда я выйду из бара, этого существа там уже не будет.")
+                text ""
+        elif note_meet_gh1:
+            vbox:
+                text _("Заметка 2") xalign 1
+                text _("Ну и дела... [friendName] напоил[verb_end] меня непонятно чем, давно мне так плохо не было. Я аж призраков видеть начал[verb_end]. Но это меня совсем не напугало, за свою жизнь я видел[verb_end] вещи и похуже.")
+                text ""
+                
+        if note_meet_fr2:
+            vbox:
+                text _("Заметка 1") xalign 1
+                text _("Когда же в моей жизни настанет белая полоса? Очередное проваленное собеседование оставляет все меньше надежды на хорошую жизнь. Надеюсь, [friendName] не сильно злится из-за опоздания, мне бы сейчас не помешала [friendPronoun] помощь.") 
+        elif note_meet_fr1:
+            vbox:
+                text _("Заметка 1") xalign 1
+                text _("Когда же в моей жизни настанет белая полоса? Очередное проваленное собеседование оставляет все меньше надежды на хорошую жизнь. Надеюсь, [friendName] не просто так позвал[verb_end] меня в бар и он[verb_end] расскажет мне что-то полезное.")
+        else:
+            vbox:
+                text _("Заметок пока нет")
+
+## Экран Сообщений ###############################################################
+screen msg():
+
+    tag menu
+
+    use game_menu(_("Сообщения"), scroll="viewport"):
+
+        style_prefix "about"
+        vbox:
+            text _("Сообщения. Функционал отсутствует") xalign 1
+
+## Экран Контакты ###############################################################
+screen contacts():
+
+    tag menu
+
+    use game_menu(_("Контакты"), scroll="viewport"):
+
+        style_prefix "about"
+        vbox:
+            text _("Контакты. Функционал отсутствует") xalign 1
+
+## Экран Игры ###############################################################
+screen play_game():
+
+    tag menu
+
+    use game_menu(_("Игра"), scroll="viewport"):
+
+        style_prefix "about"
+        vbox:
+            text _("Игра. Функционал отсутствует") xalign 1
 
 
 ## Экраны загрузки и сохранения ################################################
@@ -723,6 +863,10 @@ screen preferences():
                             if config.sample_sound:
                                 textbutton _("Тест") action Play("sound", config.sample_sound)
 
+                        label _("Громкость фона")
+
+                        hbox:
+                            bar value Preference("mixer ambient volume")
 
                         label _("Громкость фона")
 
@@ -827,9 +971,7 @@ screen gallery():
         vbox: 
             spacing 10 
 
-            button:
-                xalign 0.5
-                text "Галерея изображений" style "page_label_text"
+            text _("Галерея изображений") xalign 0.5
 
             # Сетка с кнопками
             grid 3 100:
@@ -837,8 +979,38 @@ screen gallery():
                 yfill True
 
                 add g.make_button("meeting", "meet_ghost_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
-                add g.make_button("ending1", "lonely_end_b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
-                add g.make_button("ending2", "lonely_end_g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending1b", "lonely_end_b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending1g", "lonely_end_g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("flashback1b", "flashback1b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("flashback1g", "flashback1g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("flashback2b", "flashback2b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("flashback2g", "flashback2g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+
+
+## Экран достижений ###############################################################
+screen achievements():
+    tag menu
+
+    default page_name_value = FilePageNameInputValue(pattern=_("{} страница"))
+
+    use game_menu("Достижения", scroll="viewport"):
+
+        vbox: 
+            spacing 10 
+
+            text _("Достижения") xalign 0.5
+
+            # Сетка с кнопками
+            grid 4 100:
+                xfill True
+                yfill True
+
+                add ach.make_button("late_fr", "late", xalign=0.5, yalign=0.5, hover_border="images/achievements/late_hover.png")
+                add ach.make_button("listen_smn", "listen", xalign=0.5, yalign=0.5, hover_border="images/achievements/listen_hover.png")
+                add ach.make_button("alone_forever", "alone", xalign=0.5, yalign=0.5, hover_border="images/achievements/alone_hover.png")
+                add ach.make_button("tolstoi", "bookworm", xalign=0.5, yalign=0.5, hover_border="images/achievements/bookworm_hover.png")
+                add ach.make_button("painting", "painting", xalign=0.5, yalign=0.5, hover_border="images/achievements/painting_hover.png")
+                add ach.make_button("history", "history", xalign=0.5, yalign=0.5, hover_border="images/achievements/history_hover.png")
 
 
 
@@ -1266,7 +1438,6 @@ style notify_text:
 
 screen nvl(dialogue, items=None):
 
-    #### ADD THIS TO MAKE THE PHONE WORK!! :) ###
     if nvl_mode == "phone":
         use PhoneDialogue(dialogue, items)
     else:

@@ -2,17 +2,67 @@
 define gh = Character('Призрак', color="#6d457e", image='ghost') #призрак
 define gg = Character("[playerName]", color="#3b2f73") #гг
 define fr = Character("[friendName]", color="#5f2626") #друг гг
-define par = Character("[partnerName]", color="#481919") #любовный интерес гг
-define barman = Character('Бармен', color="#294232", image='barman') #бармен
+define par = Character("[partnerName]", color="#5f2626") #любовный интерес гг
+define barman = Character('Бармен', color="#221e3a", image='barman') #бармен
+
+define tchr = Character('Наталья Васильевна', color="#221e3a", image='minor/teacher')
+define mom = Character('Мама', color="#67682b", image='parents/mom')
+define gang = Character('Компания', color="#5f2626", image='minor/gang')
+define f_pol = Character('Грузный миллиционер', color="#221e3a", image='minor/fat_policeman')
+define t_pol = Character('Высокий миллиционер', color="#221e3a", image='minor/tall_policeman')
+
+define f1 = Character("Студентка", color="#6d457e", image='minor/fantoms')
+define f2 = Character("Студент", color="#6d457e", image='minor/fantoms')
+define f_np = Character("Николай Петрович", color="#6d457e", image='minor/fantoms')
+define f_dean = Character("Декан", color="#6d457e", image='minor/fantoms')
+define dad = Character('Отец', color="#67682b", image='parents/dad')
+define aik = Character('Айзек', color="#6d457e", image='korteze/aizek')
 
 #определяем телефонных персонажей
 define gg_nvl = Character("я", kind=nvl, callback=Phone_SendSound)
 define fr_nvl = Character("Заноза", kind=nvl, callback=Phone_ReceiveSound)
 define hr_nvl = Character("HR", kind=nvl, callback=Phone_ReceiveSound)
+define par1_nvl = Character("Хлебушек", kind=nvl, callback=Phone_ReceiveSound)
+define par2_nvl = Character("Хлебушек <3", kind=nvl, callback=Phone_ReceiveSound)
 
 #переменные для плавного исчезновения телефона
 define config.adv_nvl_transition = None
 define config.nvl_adv_transition = Dissolve(0.3)
+
+#переменные для разового отображения уведомления о получении достижения
+define persistent.late_notify = 0
+define persistent.listen_notify = 0
+define persistent.alone_notify = 0
+
+define persistent.bookworm_notify = 0
+define persistent.painting_notify = 0
+
+define persistent.history_notify = 0
+define persistent.conversation_notify = 0
+
+#переменные, отвечающие за отображение заметок в конкекстном меню
+define note_meet_fr1 = False
+define note_meet_fr2 = False
+define note_meet_gh1 = False
+define note_meet_gh2 = False
+
+define note_cooperate = False
+define note_pictures1 = False
+define note_pictures2 = False
+define note_painter1 = False
+define note_painter2 = False
+
+define note_fantoms1 = False
+define note_fantoms2 = False
+define note_gang1 = False
+define note_gang2 = False
+define note_gang3 = False
+define note_Naomi = False
+
+
+define important1 = False
+define important2 = False
+
 
 #создание анимации в главном меню
 image menu_slideshow:
@@ -40,13 +90,70 @@ init python:
     g.condition("persistent.meeting")
     g.image("meet_ghost")
 
-    g.button("ending1")
-    g.condition("persistent.ending1")
+    g.button("ending1b")
+    g.condition("persistent.ending1b")
     g.image("lonely_end_b")
 
-    g.button("ending2")
-    g.condition("persistent.ending2")
+    g.button("ending1g")
+    g.condition("persistent.ending1g")
     g.image("lonely_end_g")
+
+    g.button("flashback1b")
+    g.condition("persistent.flashback1b")
+    g.image("flashback1b")
+
+    g.button("flashback1g")
+    g.condition("persistent.flashback1g")
+    g.image("flashback1g")
+
+    g.button("flashback2b")
+    g.condition("persistent.flashback2b")
+    g.image("flashback2b")
+
+    g.button("flashback2g")
+    g.condition("persistent.flashback2g")
+    g.image("flashback2g")
+
+#добавление кнопок в экрана достижений
+init python:
+    ach = Gallery()
+
+    ach.locked_button = "images/achievements/locked_achievement.png"
+
+    ach.button("late_fr")
+    ach.condition("persistent.late")
+    ach.image("late_img")
+
+    ach.button("listen_smn")
+    ach.condition("persistent.listen")
+    ach.image("listen_img")
+
+    ach.button("alone_forever")
+    ach.condition("persistent.alone")
+    ach.image("alone_img")
+
+    ach.button("tolstoi")
+    ach.condition("persistent.bookworm")
+    ach.image("bookworm_img")
+
+    ach.button("painting")
+    ach.condition("persistent.painting")
+    ach.image("painting_img")
+
+    ach.button("history")
+    ach.condition("persistent.history")
+    ach.image("history_img")
+
+
+# Теперь создаём экран для текста, который будет использоваться
+screen text_window(message):
+    frame:
+        xalign 0.5
+        yalign 0.5
+        has vbox
+
+        # Здесь вы можете настроить внеш вид своего текстового окна
+        text message
 
 #переменные, отвечающие за расположение персонажей сбоку
 init:
@@ -56,6 +163,11 @@ init:
 #переменные, необходимые для грамотного отображения текста в интерактивном режиме
 define barman_click = 0
 define girl_click = 0
+define tree_click = 0
+define flashback1_click = 0
+define dean_door_click = 0
+
+define friendshp_gh_temp = 0
 
 #переменная, хранящая текущую локацию
 default current_state = "default"
@@ -67,6 +179,10 @@ define bool_time = False
 # Переменная для отслеживания состояния подсказки
 define info_panel_closed = False
 define info_panel_closed_1 = False
+<<<<<<< HEAD
+define info_panel_closedd_1 = False
+=======
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 define info_panel_closed_2 = False
 define info_panel_closed_3 = False
 
@@ -111,7 +227,11 @@ $ partnerSprite = ""
 
 #Инициализация звука НЕ РАБОТАЕТ
 init:
+<<<<<<< HEAD
+    $ hover_sound = "sounds/create_character.mp3"  # Путь к вашему звуковому файлу
+=======
     $ hover_sound = "sounds/create_character.mp3"
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb
 
 # Переменная для отслеживания состояния всплывающей подсказки в баре (свободная навигация)
 init python:
@@ -127,7 +247,11 @@ init python:
 # Функция для воспроизведения звука при наведении НЕ РАБОТАЕТ
 python:
     def play_hover_sound():
+<<<<<<< HEAD
+        renpy.sound.play(hover_sound)
+=======
         renpy.sound.play(hover_sound)
 
 
 
+>>>>>>> 7e58ff4c47926c2d3a1d18df67bdf67e55a202bb

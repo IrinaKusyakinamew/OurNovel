@@ -557,6 +557,37 @@ screen bagInteract:
         hover "street_interact_objects/street_interact_phone_hover.png"
         action Jump("street_interact_phone")
 
+screen estateHall:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("estateHall"), Jump("act4_estate_hall")]
+
+    imagebutton:
+        xpos 1046
+        ypos 422
+        idle "estate_interact_objects/estate_interact_door_idle.png"
+        hover "estate_interact_objects/estate_interact_door_hover.png"
+        action Jump("estate_interact_door")
+
+screen estateRoom:
+    # Кнопка выхода из интерактивного режима
+    imagebutton:
+        xalign 0.99
+        yalign 0.99
+        idle "blue_idle"
+        hover "blue_hover"
+        action [SetVariable("closed", True), Hide("estateRoom"), Jump("act4_estate_room")]
+
+    imagebutton:
+        xpos 1357
+        ypos 229
+        idle "estate_room_objects/estate_room_easel_idle.png"
+        hover "estate_room_objects/estate_room_easel_hover.png"
+        action Jump("estate_room_easel")
 
 # Экран с подсказкой
 screen info_panel:
@@ -674,4 +705,3 @@ screen info_panel_relationship:
                     Hide("info_panel_relationship"), 
                     SetVariable("info_panel_closedd_1", True)  # Устанавливаем флаг, что подсказка была показана и закрыта
                 ] xalign 0.5
-

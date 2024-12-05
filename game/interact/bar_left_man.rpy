@@ -11,11 +11,15 @@ label bar_left_man:
     menu:
         "Что делать?"
         "Постучать по барной стойке": #звук нужен
+            play sound "sounds/create_character.mp3"
+            play sound "sounds/nastoychivyiy-ugrojayuschiy-stuk-v-dver.mp3"
             gg "Бармен, налей мне виски!"
-            "По прежнему не реагирует"
+            "По-прежнему не реагирует"
+            stop sound
             jump bar_left_man1
             
         "Отойти":
+            play sound "sounds/create_character.mp3"
             # Возвращаемся в блок интерактивности в левой части
             jump bar_left
 
@@ -24,9 +28,11 @@ label bar_left_man1:
     menu:
         "Внимание! Следующий выбор автоматически перенесет вас на следующую локацию. Перед тем как нажать на него, убедитесь, что закончили свои дела в баре."
         "Продолжать попытки":
+            play sound "sounds/create_character.mp3"
             jump bar_left_man2
 
         "Отойти":
+            play sound "sounds/create_character.mp3"
             # Возвращаемся в блок интерактивности в левой части
             jump bar_left
 

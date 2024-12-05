@@ -40,6 +40,7 @@ label create_character:
             #вводим имя гг и запоминаем его в переменной
             $ playerName = renpy.input("По умолчанию главному герою будет дано имя Миша. Введите имя персонажа, если желаете его заменить. ", length=12).strip() or "Миша"
             $ gender_symbol = "♂"
+            $ gender = "male"
 
             #спрайт друга будет находиться в папке characters/yarik
             $ friendSprite = "yarik"
@@ -77,6 +78,7 @@ label create_character:
             #вводим имя гг и запоминаем его в переменной
             $ playerName = renpy.input("По умолчанию главной героине будет дано имя Алиса. Введите имя персонажа, если желаете его заменить. ", length=12).strip() or "Алиса"
             $ gender_symbol = "♀"
+            $ gender = "female"
 
             #спрайт друга будет находиться в папке characters/lisa
             $ friendSprite = "lisa"

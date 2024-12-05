@@ -14,6 +14,9 @@ label act3_start:
     $ count_canteen_interact = 0
     $ count_awards_interact = 0
 
+    stop music fadeout 2
+    play music1 "music/Dreaming.ogg" fadein 2
+
     jump act3_continue
 
 label act3_continue:
@@ -57,22 +60,6 @@ label act3_hall_pred:
 
         jump act3_ladder_pred
 
-    # show screen info_panel
-
-    # # Показываем подсказку относительно перемещения по локациям, если она ещё не была закрыта
-    # if not info_panel_closed_3:
-    #     show screen info_panel_3
-
-    # # Цикл для ожидания закрытия подсказки
-    # while not info_panel_closed_3:
-    #     # Ждем, пока подсказка не будет закрыта
-    #     $ renpy.pause(0.1)
-
-    # # Перемещаемся в блок интерактивности в главном зале бара 
-    # jump act3_hall
-
-    # return
-
 # Блок интерактивности в холле вуза
 label act3_hall:
 
@@ -83,29 +70,9 @@ label act3_hall:
 
     scene bg hall with dissolve
 
-
-    # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    # while not closed:
-    #     # Закрываем диалоговое окно
-    #     window hide
-    #     # Показываем фон главного зала в баре, если он не был показан ранее
-    #     if not persistent.background_shown:
-    #         show bg hall with dissolve
-    #         # Меняем глобальную переменную на True, так как фон был показан
-    #         $ persistent.background_shown = True
-
-    #     # Запускаем интерактивный экран
-    #     show screen unikHall with dissolve
-
-    #     # Включаем интерактивное взаимодействие
-    #     $ result = ui.interact()
-
-    # hide unikHall
-
     jump showbuttons_unik
 
     return
-
 
 
 # Блок диалога перед интерактивностью или СН в кордиоре с кабинетами
@@ -209,24 +176,6 @@ label act3_canteen:
 
     scene bg canteen with dissolve
 
-    # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    # while not closed:
-    #     # Закрываем диалоговое окно
-    #     window hide
-    #     # Показываем фон главного зала в баре, если он не был показан ранее
-    #     if not persistent.background_shown:
-    #         show bg canteen with dissolve
-    #         # Меняем глобальную переменную на True, так как фон был показан
-    #         $ persistent.background_shown = True
-
-    #     # Запускаем интерактивный экран
-    #     show screen unikCanteen with dissolve
-
-    #     # Включаем интерактивное взаимодействие
-    #     $ result = ui.interact()
-
-    # hide unikCanteen
-
     jump showbuttons_unik
 
     return
@@ -264,24 +213,6 @@ label act3_ladder:
     $ current_loc = "ladder"
 
     scene bg ladder with dissolve
-
-    # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    # while not closed:
-    #     # Закрываем диалоговое окно
-    #     window hide
-    #     # Показываем фон главного зала в баре, если он не был показан ранее
-    #     if not persistent.background_shown:
-    #         show bg ladder with dissolve
-    #         # Меняем глобальную переменную на True, так как фон был показан
-    #         $ persistent.background_shown = True
-
-    #     # Запускаем интерактивный экран
-    #     show screen unikLadder with dissolve
-
-    #     # Включаем интерактивное взаимодействие
-    #     $ result = ui.interact()
-
-    # hide unikLadder
 
     jump showbuttons_unik
 
@@ -331,22 +262,6 @@ label act3_lecture:
     $ current_loc = "lecture"
 
     scene bg lecture with dissolve
-
-    # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    # while not closed:
-    #     # Закрываем диалоговое окно
-    #     window hide
-    #     # Показываем фон главного зала в баре, если он не был показан ранее
-    #     if not persistent.background_shown:
-    #         show bg lecture with dissolve
-    #         # Меняем глобальную переменную на True, так как фон был показан
-    #         $ persistent.background_shown = True
-
-    #     # Запускаем интерактивный экран
-    #     show screen unikLecture with dissolve
-
-    #     # Включаем интерактивное взаимодействие
-    #     $ result = ui.interact()
 
     hide unikLecture
 
@@ -409,24 +324,6 @@ label act3_frescoes:
     $ current_loc = "frescoes"
 
     scene bg frescoes with dissolve  
-
-    # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    # while not closed:
-    #     # Закрываем диалоговое окно
-    #     window hide
-    #     # Показываем фон главного зала в баре, если он не был показан ранее
-    #     if not persistent.background_shown:
-    #         show bg frescoes with dissolve
-    #         # Меняем глобальную переменную на True, так как фон был показан
-    #         $ persistent.background_shown = True
-
-    #     # Запускаем интерактивный экран
-    #     show screen unikFrescoes with dissolve
-
-    #     # Включаем интерактивное взаимодействие
-    #     $ result = ui.interact()
-
-    # hide unikFrescoes
 
     jump showbuttons_unik
 
@@ -517,24 +414,6 @@ label act3_awards:
     $ current_loc = "awards"
 
     scene bg awards with dissolve 
-
-    # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    # while not closed:
-    #     # Закрываем диалоговое окно
-    #     window hide
-    #     # Показываем фон главного зала в баре, если он не был показан ранее
-    #     if not persistent.background_shown:
-    #         show bg awards with dissolve
-    #         # Меняем глобальную переменную на True, так как фон был показан
-    #         $ persistent.background_shown = True
-
-    #     # Запускаем интерактивный экран
-    #     show screen unikAwards with dissolve
-
-    #     # Включаем интерактивное взаимодействие
-    #     $ result = ui.interact()
-
-    # hide unikAwards
 
     jump showbuttons_unik
 
@@ -641,12 +520,14 @@ label act3_flashback_start:
     $ renpy.notify("В заметках появилась новая запись")
 
     "{i}{color=#626262}Я невольно сравниваю эти коридоры и аудитории с тем, что, казалось, уже забыто…{/color} {/i}"
-
+    stop music1 fadeout 2
     scene bg flashback2_awakening with pixellate
+    play sound "sounds/flushing-water-from-bucket-to-toilet_gjh9mseu (mp3cut.net).mp3"
     #звук выливания воды из ведра
     show dad with dissolve
     dad "Вставай, бестолочь!"
     gg "Ты че творишь?!"
+    play music "music/AcrylicOnCanvas.mp3" fadein 2
     dad "Что-что? Бужу тебя, дубина.{w} Твои пьянки не являются причиной для пропусков пар. Собирайся."
     hide dad with dissolve
 
@@ -654,6 +535,7 @@ label act3_flashback_start:
     gg "Как же болит голова… Я не хочу никуда идти, но лежать в мокрой кровати плохой вариант."
     
     scene bg flashback2_bathroom with dissolve
+    play ambient "sounds/v-dushe-32816.mp3"
     gg ```
     И почему все так? До того, как он попал в тюрьму, он был совсем другим человеком. Как бы сложилась наша жизнь, если бы не та ошибка 5 лет назад? Если бы он не доверял своему партнеру по бизнесу, который в итоге его подставил? 
     
@@ -667,6 +549,9 @@ label act3_flashback_start:
     
     Пора одеваться и идти в шарагу.
     ```
+    stop ambient
+
+    play sound "sounds/frosted-snow-steps_fkzdxse_.mp3"
 
     scene bg flashback2_street with dissolve
     gg ```
@@ -676,7 +561,9 @@ label act3_flashback_start:
     
     Но нужно ли мне это все…
     ```
-
+    stop sound
+    
+    play sound "sounds/shagi-23.mp3"
     scene bg flashback2_med with dissolve
     $ renpy.pause(0.7)
 
@@ -685,6 +572,8 @@ label act3_flashback_start:
 
     scene bg flashback2_coridor with dissolve
     $ renpy.pause(0.7)
+
+    stop sound
 
     scene bg flashback2_anatomy with dissolve
     "{i}{color=#626262}До пары еще есть немного времени. Посмотрю шортсы.{/color} {/i}"
@@ -707,6 +596,8 @@ label act3_flashback_start:
     gg "Пойдем, тут недалеко есть хорошее кафе."
     par "Отлично, пошли."
 
+    stop music fadeout 2
+    play music1 "music/Evening.mp3"
     scene bg flashback2_summer_day2 with fade
     "Спустя пару дней"
     nvl clear
@@ -756,7 +647,7 @@ label act3_flashback_start:
     par "Пойдем, это еще не все."
     gg "Ого, веди."
 
-    scene bg bar_right with dissolve #НУЖЕН ФОН РЕСТОРАНА
+    scene bg restaraunt with dissolve #НУЖЕН ФОН РЕСТОРАНА
     show expression par_winks with dissolve
     par "Заказывай, что хочешь."
     gg "Хорошо."
@@ -788,7 +679,7 @@ label act3_flashback_start:
 
     scene bg flashback2_winter_day2 with fade
     "Через пару недель"
-    "{i}{color=#626262}На носу уже новый год. Как быстро летт время. Я очень рад[verb_end], что в моей жизни появи[past_end1] [partnerName].{/color} {/i}"
+    "{i}{color=#626262}На носу уже новый год. Как быстро летит время. Я очень рад[verb_end], что в моей жизни появи[past_end1] [partnerName].{/color} {/i}"
     nvl clear
     par2_nvl "[playerName], помнишь про новогоднюю вечеринку у меня дома, ты же придешь?"
     gg_nvl "Еще спрашиваещь? Конечно!"
@@ -815,6 +706,8 @@ label act3_flashback_start:
 
     Ты делаешь мою жизнь ярче и интереснее. Рядом с тобой я чувствую себя самым счастливым человеком на свете, потому что… нет, пожалуй перейду сразу к делу.
     ```
+    stop music1 fadeout 2
+    play music "music/partner_mras.ogg" fadein 2
     show expression par_grin
     par "Я хочу признаться тебе в одной вещи.{w} Всё это время я встреча[past_end1] с тобой на спор. Я поспорил[verb_end1] с друзьями на деньги, что смогу завоевать твоё сердце." 
     "{i}{color=#626262}Что…{/color} {/i}"
@@ -823,6 +716,7 @@ label act3_flashback_start:
     par "Мне не жаль, что я поступил[verb_end1] так. Я хотел[verb_end1] доказать себе и другим, что могу добиться любой цели. И я доказал[verb_end1]. Не вижу смысла сожалеть о своих действиях." 
     "{i}{color=#626262}Как… Почему?{/color} {/i}"
     par "Давайте же выпьем, друзья! За мою победу!"
+    play ambient "sounds/laugh2.mp3"
 
     gg "{sc=1}[partnerName], скажи, что это неправда!{/sc}"
     par "Увы…"
@@ -832,9 +726,20 @@ label act3_flashback_start:
 
     scene bg flashback2_partner_home with dissolve
     "{sc=2}{i}{color=#626262}Это просто кошмар, это не может быть правдой!{/color} {/i}{/sc}"
+
+    if gender == "male":
+        play sound "sounds/Mujchina-plachet-i-smorkaetsa (mp3cut.net).mp3"
+    if gender == "female":
+        play sound "sounds/plach-rydaniya-jenshiny61 (mp3cut.net).mp3"
     #всхлипы перед плачем
     "{i}{color=#626262}[partnerName] даже не смотрит в мою сторону{/color} {/i}"
     "{sc=2}{i}{color=#626262}Я хочу убраться отсюда{/color} {/i}{/sc}"
+
+    stop ambient
+    stop sound
+
+    stop music fadeout 2
+    play music1 "music/Kiss And Goodbye.ogg" fadein 2
 
     show bg flashback2_winter_night2 with wipeleft
     $ renpy.pause(1)
@@ -890,6 +795,7 @@ label act3_present:
         menu:
             "Что ответить?"
             "Не устраивает":
+                play hover "sounds/create_character.mp3"
                 $ important2 = True
                 $ renpy.notify("Вы приняли важное решение.")
                 gg "Нет… Я оказа[past_end] в чертовом замкнутом круге: из-за этих подработок у меня появились проблемы с законом."
@@ -907,6 +813,7 @@ label act3_present:
                 $ renpy.notify("В заметках появилась новая запись.")
 
             "Устраивает":
+                play hover "sounds/create_character.mp3"
                 gg "Знаешь, вполне."
                 $ friendshp_gh -= 3
                 $ renpy.notify("Отношения с персонажем Призрак резко ухудшились.")
@@ -927,6 +834,8 @@ label act3_present:
         $ note_gang3 = True
         $ renpy.notify("В заметках появилась новая запись.")
 
+    stop music1 fadeout 2
+    play music "music/Dreaming.mp3" fadein 2
     scene bg class with pixellate
     show aizek normal with dissolve
     aik "Слушай, мне уже надоело прикрывать тебя перед родителями. Может, пока завязывать с твоим хобби? "
@@ -970,6 +879,7 @@ label act3_present:
     menu:
         "Что делать?"
         "Поддержать Наоми":
+            play hover "sounds/create_character.mp3"
             gg "Я в шоке, не представляю даже как тебе сейчас тяжело… Но смотри сколько мы всего узнали! Это просто невероятно, ты сочетаешь в себе столько разных граней. Я поражен(а)."
             gh happy "Хех, спасибо, приятно слышать."
             $ friendshp_gh += 1
@@ -978,6 +888,7 @@ label act3_present:
             gh "Я тоже рада, что познакомилась с тобой."
 
         "Поторопить Наоми":
+            play hover "sounds/create_character.mp3"
             gg "Я понимаю твою печаль... Но хотелось бы знать, что мы планируем делать дальше."
             gh upset "А... Мне надо немного подумать."
 

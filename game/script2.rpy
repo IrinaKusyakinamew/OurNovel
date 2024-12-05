@@ -66,58 +66,6 @@ label act2_front:
         # Ждем, пока подсказка не будет закрыта
         $ renpy.pause(0.1)  
 
-    # # После того как подсказка закрыта, показываем меню выбора, если мы еще не включали интерактивный экран
-    # if interactive_mode_ended_interact == 0:
-    #     menu:
-    #         "Осмотреться":
-    #             # Закрываем диалоговое окно
-    #             window hide
-
-    #             # Показываем фон главного зала в баре, если он не был показан ранее
-    #             if not persistent.background_shown:
-    #                 show bg bar_down_ghost with dissolve
-    #                 # Меняем глобальную переменную на True, так как фон был показан
-    #                 $ persistent.background_shown = True
-
-    #             # Запускаем интерактивный экран
-    #             show screen streetFront with dissolve
-
-    #             # Выведется только один раз
-    #             "Нажмите на кнопку, если хотите выйти из интерактивного режима"
-
-    #             # Меняем значение переменной, так как мы уже запустили интерактивный экран (больше нам не нужно меню выбора в этой локации)
-    #             $ interactive_mode_ended_interact = 1
-
-    #             # Включаем интерактивное взаимодействие
-    #             $ result = ui.interact()
-
-    #         "Исследовать локацию позже":
-    #             $ count_act2_front_pred += 1
-    #             "Продолжайте ходить по локациям"
-    #             # Переходим в блок, который открывает экран с кнопками навигации
-    #             jump showbuttons_street
-
-    # # Если мы потыкались больше, чем на 1 предмет
-    # else:
-    #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    #     while not closed:
-    #         # Закрываем диалоговое окно
-    #         window hide
-    #         # Показываем фон главного зала в баре, если он не был показан ранее
-    #         if not persistent.background_shown:
-    #             show bg bar_down_ghost with dissolve
-    #             # Меняем глобальную переменную на True, так как фон был показан
-    #             $ persistent.background_shown = True
-
-    #         # Запускаем интерактивный экран
-    #         show screen streetFront with dissolve
-
-    #         # Включаем интерактивное взаимодействие
-    #         $ result = ui.interact()
-
-    #     # Если цикл прервался, то мы нажали на кнопку, значит, можно поместить на экран кнопки навигации
-    #     jump showbuttons_street
-
     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
     while not closed:
         # Закрываем диалоговое окно
@@ -175,76 +123,6 @@ label act2_up:
     # Показываем фон верхней части улицы
     scene bg street_up with dissolve
 
-    # # После того как подсказка закрыта, показываем меню выбора, если мы еще не включали интерактивный экран
-    # if interactive_mode_ended_up == 0:
-    #     menu:
-    #         "Осмотреться":
-
-    #             # Закрываем диалоговое окно
-    #             window hide
-
-    #             # Показываем фон главного зала в баре, если он не был показан ранее
-    #             if not persistent.background_shown:
-    #                 show bg street_up with dissolve
-    #                 # Меняем глобальную переменную на True, так как фон был показан
-    #                 $ persistent.background_shown = True
-
-    #             # Запускаем интерактивный экран
-    #             show screen streetUp with dissolve
-
-    #             # Выведется только один раз
-    #             "Нажмите на кнопку, если хотите выйти из интерактивного режима"
-
-    #             # Меняем значение переменной, так как мы уже запустили интерактивный экран (больше нам не нужно меню выбора в этой локации)
-    #             $ interactive_mode_ended_up = 1
-
-    #             # Включаем интерактивное взаимодействие
-    #             $ result = ui.interact()
-
-    #         "Исследовать локацию позже":
-    #             "Продолжайте ходить по локациям"
-    #             # Переходим в блок, который открывает экран с кнопками навигации
-    #             jump showbuttons_street
-
-    # # Если мы потыкались больше, чем на 1 предмет
-    # else:
-    #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    #     while not closed:
-    #         # Закрываем диалоговое окно
-    #         window hide
-    #         # Показываем фон главного зала в баре, если он не был показан ранее
-    #         if not persistent.background_shown:
-    #             show bg street_up with dissolve
-    #             # Меняем глобальную переменную на True, так как фон был показан
-    #             $ persistent.background_shown = True
-
-    #         # Запускаем интерактивный экран
-    #         show screen streetUp with dissolve
-
-    #         # Включаем интерактивное взаимодействие
-    #         $ result = ui.interact()
-
-    #     # Если цикл прервался, то мы нажали на кнопку, значит, можно поместить на экран кнопки навигации
-    #     jump showbuttons_street
-
-    # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    # while not closed:
-    #     # Закрываем диалоговое окно
-    #     window hide
-    #     # Показываем фон главного зала в баре, если он не был показан ранее
-    #     if not persistent.background_shown:
-    #         show bg street_up with dissolve
-    #         # Меняем глобальную переменную на True, так как фон был показан
-    #         $ persistent.background_shown = True
-
-    #     # Запускаем интерактивный экран
-    #     show screen streetUp with dissolve
-
-    #     # Включаем интерактивное взаимодействие
-    #     $ result = ui.interact()
-
-    # hide streetUp
-
     jump showbuttons_street
 
     return
@@ -300,58 +178,6 @@ label act2_right:
 
     # Показываем фон верхней части улицы
     scene bg street_right with dissolve
-
-    # # После того как подсказка закрыта, показываем меню выбора, если мы еще не включали интерактивный экран
-    # if interactive_mode_ended_right == 0:
-    #     menu:
-    #         "Осмотреться":
-
-    #             # Закрываем диалоговое окно
-    #             window hide
-
-    #             # Показываем фон главного зала в баре, если он не был показан ранее
-    #             if not persistent.background_shown:
-    #                 show bg street_right with dissolve
-    #                 # Меняем глобальную переменную на True, так как фон был показан
-    #                 $ persistent.background_shown = True
-
-    #             # Запускаем интерактивный экран
-    #             show screen streetRight with dissolve
-
-    #             # Выведется только один раз
-    #             "Нажмите на кнопку, если хотите выйти из интерактивного режима"
-
-    #             # Меняем значение переменной, так как мы уже запустили интерактивный экран (больше нам не нужно меню выбора в этой локации)
-    #             $ interactive_mode_ended_right = 1
-
-    #             # Включаем интерактивное взаимодействие
-    #             $ result = ui.interact()
-
-    #         "Исследовать локацию позже":
-    #             "Продолжайте ходить по локациям"
-    #             # Переходим в блок, который открывает экран с кнопками навигации
-    #             jump showbuttons_street
-
-    # # Если мы потыкались больше, чем на 1 предмет
-    # else:
-    #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    #     while not closed:
-    #         # Закрываем диалоговое окно
-    #         window hide
-    #         # Показываем фон главного зала в баре, если он не был показан ранее
-    #         if not persistent.background_shown:
-    #             show bg street_right with dissolve
-    #             # Меняем глобальную переменную на True, так как фон был показан
-    #             $ persistent.background_shown = True
-
-    #         # Запускаем интерактивный экран
-    #         show screen streetRight with dissolve
-
-    #         # Включаем интерактивное взаимодействие
-    #         $ result = ui.interact()
-
-    #     # Если цикл прервался, то мы нажали на кнопку, значит, можно поместить на экран кнопки навигации
-    #     jump showbuttons_street
 
     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
     while not closed:
@@ -430,58 +256,6 @@ label act2_left:
     # Показываем фон левой части улицы
     scene bg street_left with dissolve
 
-    # # После того как подсказка закрыта, показываем меню выбора, если мы еще не включали интерактивный экран
-    # if interactive_mode_ended_left == 0:
-    #     menu:
-    #         "Осмотреться":
-
-    #             # Закрываем диалоговое окно
-    #             window hide
-
-    #             # Показываем фон главного зала в баре, если он не был показан ранее
-    #             if not persistent.background_shown:
-    #                 show bg street_left with dissolve
-    #                 # Меняем глобальную переменную на True, так как фон был показан
-    #                 $ persistent.background_shown = True
-
-    #             # Запускаем интерактивный экран
-    #             show screen streetLeft with dissolve
-
-    #             # Выведется только один раз
-    #             "Нажмите на кнопку, если хотите выйти из интерактивного режима"
-
-    #             # Меняем значение переменной, так как мы уже запустили интерактивный экран (больше нам не нужно меню выбора в этой локации)
-    #             $ interactive_mode_ended_left = 1
-
-    #             # Включаем интерактивное взаимодействие
-    #             $ result = ui.interact()
-
-    #         "Исследовать локацию позже":
-    #             "Продолжайте ходить по локациям"
-    #             # Переходим в блок, который открывает экран с кнопками навигации
-    #             jump showbuttons_street
-
-    # # Если мы потыкались больше, чем на 1 предмет
-    # else:
-    #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    #     while not closed:
-    #         # Закрываем диалоговое окно
-    #         window hide
-    #         # Показываем фон главного зала в баре, если он не был показан ранее
-    #         if not persistent.background_shown:
-    #             show bg street_left with dissolve
-    #             # Меняем глобальную переменную на True, так как фон был показан
-    #             $ persistent.background_shown = True
-
-    #         # Запускаем интерактивный экран
-    #         show screen streetLeft with dissolve
-
-    #         # Включаем интерактивное взаимодействие
-    #         $ result = ui.interact()
-
-    #     # Если цикл прервался, то мы нажали на кнопку, значит, можно поместить на экран кнопки навигации
-    #     jump showbuttons_street
-
     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
     while not closed:
         # Закрываем диалоговое окно
@@ -557,76 +331,6 @@ label act2_down:
     # Показываем фон левой части улицы
     scene bg street_down with dissolve
 
-    # # После того как подсказка закрыта, показываем меню выбора, если мы еще не включали интерактивный экран
-    # if interactive_mode_ended_down == 0:
-    #     menu:
-    #         "Осмотреться":
-
-    #             # Закрываем диалоговое окно
-    #             window hide
-
-    #             # Показываем фон главного зала в баре, если он не был показан ранее
-    #             if not persistent.background_shown:
-    #                 show bg street_down with dissolve
-    #                 # Меняем глобальную переменную на True, так как фон был показан
-    #                 $ persistent.background_shown = True
-
-    #             # Запускаем интерактивный экран
-    #             show screen streetDown with dissolve
-
-    #             # Выведется только один раз
-    #             "Нажмите на кнопку, если хотите выйти из интерактивного режима"
-
-    #             # Меняем значение переменной, так как мы уже запустили интерактивный экран (больше нам не нужно меню выбора в этой локации)
-    #             $ interactive_mode_ended_down = 1
-
-    #             # Включаем интерактивное взаимодействие
-    #             $ result = ui.interact()
-
-    #         "Исследовать локацию позже":
-    #             "Продолжайте ходить по локациям"
-    #             # Переходим в блок, который открывает экран с кнопками навигации
-    #             jump showbuttons_street
-
-    # # Если мы потыкались больше, чем на 1 предмет
-    # else:
-    #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    #     while not closed:
-    #         # Закрываем диалоговое окно
-    #         window hide
-    #         # Показываем фон главного зала в баре, если он не был показан ранее
-    #         if not persistent.background_shown:
-    #             show bg street_down with dissolve
-    #             # Меняем глобальную переменную на True, так как фон был показан
-    #             $ persistent.background_shown = True
-
-    #         # Запускаем интерактивный экран
-    #         show screen streetDown with dissolve
-
-    #         # Включаем интерактивное взаимодействие
-    #         $ result = ui.interact()
-
-    #     # Если цикл прервался, то мы нажали на кнопку, значит, можно поместить на экран кнопки навигации
-    #     jump showbuttons_street
-
-    # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    # while not closed:
-    #     # Закрываем диалоговое окно
-    #     window hide
-    #     # Показываем фон главного зала в баре, если он не был показан ранее
-    #     if not persistent.background_shown:
-    #         show bg street_down with dissolve
-    #         # Меняем глобальную переменную на True, так как фон был показан
-    #         $ persistent.background_shown = True
-
-    #     # Запускаем интерактивный экран
-    #     show screen streetDown with dissolve
-
-    #     # Включаем интерактивное взаимодействие
-    #     $ result = ui.interact()
-
-    # hide streetDown
-
     jump showbuttons_street
 
     return
@@ -686,12 +390,7 @@ label act2_gallery:
     # Обнуляем нажатие на подсказку
     $ info_panel_closed_2 = False
 
-    stop music1 fadeout 2
-
-    play music gallery1 fadein 2
-
     scene bg gallery_entrance with dissolve
-
 
     $ renpy.pause(0.5)
 
@@ -735,6 +434,7 @@ label act2_gallery:
 
     menu:
         "Поделиться информацией о себе":
+            play sound "sounds/create_character.mp3"
             $ friendshp_gh += 1
             $ renpy.notify(f"Отношения с персонажем Призрак улучшились")
 
@@ -743,6 +443,7 @@ label act2_gallery:
             $ renpy.notify("В заметках появилась новая запись")
 
         "Поделиться, но сухо":
+            play sound "sounds/create_character.mp3"
             gg "Когда-то я увлека[past_end] рисованием, но уже давно как забросил[verb_end]."
             $ note_pictures2 = True
             $ renpy.notify("В заметках появилась новая запись")
@@ -756,7 +457,7 @@ label act2_gallery:
 label act2_flashback_start:
     stop music1 fadeout 2
 
-    play music gallery1
+    play music gallery1 fadein 2
 
     scene bg flashback_lesson with pixellate
 
@@ -764,15 +465,25 @@ label act2_flashback_start:
     "[playerName] рисует в тетради"
     #мб сделать фон тетради?
 
+    scene bg school_paint with dissolve
     "{i}{color=#626262}Так, а вот здесь наверно стоит добавить красного.{w} Нет, лучше использовать оранжевый, он лучше передаст то, что я хочу показать. {/color} {/i}"
+
+    scene bg flashback_lesson with dissolve
     show teacher silhouette with dissolve
+    play sound "sounds/jenskiy-golos-nevnyatnoe-slovo.mp3"
+    scene bg flashback_lesson with dissolve
     tchr "*неразборчиво*"
     hide teacher with dissolve
+    scene bg school_paint with dissolve
     "{i}{color=#626262}Хм, а может лучше наоборот сделать акцент вот здесь? Тогда использую эту форму. {/color} {/i}"
+    scene bg flashback_lesson with dissolve
     show teacher silhouette with dissolve
+    play sound "sounds/jenskiy-golos-nevnyatnoe-slovo.mp3"
     tchr "*неразборчиво!*"
     hide teacher with dissolve
+    scene bg school_paint with dissolve
     "{i}{color=#626262}Первый вариант все же был лучше…{/color} {/i}"
+    scene bg flashback_lesson with dissolve
     show teacher angry with dissolve
     tchr "Ковалев[verb_end]!{w} Сколько тебя можно звать, ты оглох[past_verb_end]?!"
     gg "Простите.. Я просто задума[past_end]. Что вы спросили?"
@@ -780,11 +491,13 @@ label act2_flashback_start:
     gg "Хорошо."
     show teacher normal
     tchr "Продолжаем урок."
+    play sound "sounds/call_for_break.mp3"
     "*звенит звонок конца урока*"
     hide teacher with dissolve
+    play ambient "sounds/noise_at_break.mp3" fadein 2
     "{i}{color=#626262}Тоже мне… Докопалась, карга старая. Так, на чем я останови[past_end]? {/color} {/i}"
     show expression fr_yo_grin with dissolve
-    fr "Здорово ты, конечно ее разозлил[verb_end]. Мне понравилось, молодца."
+    fr "Здорово ты, конечно, ее разозлил[verb_end]. Мне понравилось, молодца."
     gg "А? Спасибо?..."
     fr "Что делаешь? Рисуешь?"
     "*[friendName] заглядывает в тетрадь*"
@@ -803,6 +516,7 @@ label act2_flashback_start:
     fr "Отлично! Буду ждать тебя."
     hide fr_yo_smile with dissolve
     "{i}{color=#626262}Осталось отсидеть 1 урок. Надеюсь, мама отпустит меня вечером погулять{/color} {/i}"
+    stop ambient
 
 
     scene bg flashback_hall with dissolve
@@ -854,12 +568,17 @@ label button_wait:
 label act2_flashback_graffity:
     show bg flashback_room with dissolve
     gg "Она наконец ушла. Нужно поторопиться, я не хочу опаздывать."
+
+    stop music fadeout 2
+    play music1 "music/Dreaming.mp3" fadein 2
+
     scene bg flashback_padik with dissolve
 
     show expression fr_yo_normal with dissolve
     fr "Я же говорил[verb_end], что он[verb_end] придет! Ты вовремя, мы уже уходить собирались"
     gg "Простите, мама оставила дома сидеть над матешей, пришлось ждать, пока она уйдет"
     show expression fr_yo_normal at right with moveinright
+    play sound "sounds/zvuk-tolpa-smeetsya-3-24183.mp3"
     show gang at left with dissolve
     gang "Ууу, а говорили, что ты паинька, художник"
     "{i}{color=#626262}Какие-то они…{w} Странные, ладно, посмотрим, что будет дальше{/color} {/i}"
@@ -880,18 +599,24 @@ label act2_flashback_graffity:
 
     Если тебе что-то не нравится, конечно, можешь уйти, мы насильно тебя не держим
 
-    Да, ну. А в начале крутышкой показа[past_end]
-
-    Пфф, струсил[verb_end] чтоль?
     ```
+    play sound "sounds/zvuk-tolpa-smeetsya-3-24183.mp3"
+
+    gang "Да, ну. А в начале крутышкой показа[past_end]"
+
+    gang "Пфф, струсил[verb_end] чтоль?"
+
     "{i}{color=#626262}Черт… Я не могу сейчас повернуть назад{/color} {/i}"
     gg "Ладно"
     hide gang
+    play sound "sounds/hold_spray.mp3"
     "*[playerName] берет баллончик*"
     show expression fr_yo_grin with dissolve
     fr "Маску не забудь, а то травануться можешь"
     hide fr_yo_grin with dissolve
+    play sound "sounds/face-mask-ear-loop-put-on-surgeon-surgery.mp3"
     "*[playerName] надевает маску, взбалтывает баллончик и начинает рисовать*" #надо звуков добавить
+    play sound "sounds/sprayer_30d0f.mp3"
     gang "Я знал, что ты свой человек!"
     "{i}{color=#626262}Так, надо постараться не сильно испортить площадку. Попробую нарисовать что-то красивое. {/color} {/i}" #звуки рисования из баллончика
     gang```
@@ -899,7 +624,7 @@ label act2_flashback_graffity:
 
     Ха, и правда художник
 
-    азбавит наши скучные "художества"
+    Разбавит наши скучные "художества"
 
     Ну да, а то твой предел это "йух" написать!
 
@@ -909,14 +634,20 @@ label act2_flashback_graffity:
     ```
     
     "{i}{color=#626262}Им правда нравится? Никто давно так не хвалил мои рисунки… Может, все в жизни не так уж и плохо? {/color} {/i}"
+    play sound "sounds/shagi-23.mp3"
     "*Звуки шагов*"
+    stop music1 fadeout 2
+    play music "music/Leaving Home.mp3" fadein 2
     show fat_policeman at right2 with dissolve
+    stop sound
     f_pol "Так, шпана! Что это вы тут делаете?!"
     show tall_policeman at left2 with dissolve
     t_pol "Петрович, лови их!"
+    play sound "sounds/run.mp3"
     fr "Черт, мусора! Бежим!"
     "{i}{color=#626262} А? Куда? Кого? {/color} {/i}"
     "*Компания разбегается, [playerName] стоит столбом*"
+    stop sound
     t_pol "Кто это у нас тут? Пойдешь с нами, вандал."
     "{i}{color=#626262}Почему я не сообразил[verb_end] и не побежал[verb_end]? Что теперь делать? Придется идти с ними. {/color} {/i}"
 
@@ -954,6 +685,8 @@ label act2_flashback_policy:
     return
 
 label act2_flashback_home:
+    stop music fadeout 2
+    play music1 "music/Abuse In The Orphanage.ogg" fadein 2
     scene bg flashback_kitchen with dissolve
     show mom street with dissolve
     "Мама снимает кепку, проходит на кухню"
@@ -968,12 +701,14 @@ label act2_flashback_home:
     gg "Но мам…"
     mom "Не мамкай мне тут. Это все из-за твоих поганых рисунков. Мне это надоело. С этого дня ты под домашним арестом.{w} Ты обязан[verb_end] взяться за голову, пока еще не поздно, этими рисульками ты на жизнь не заработаешь. С этого дня никакого рисования!"
     hide mom with dissolve
+    play sound "sounds/z_uki-r_ut-bumagu.mp3"
     #слышится звук рвущейся бумаги
     "{i}{color=#626262}Что это за звук?{/color} {/i}"
     show bg flashback_room with wipeleft
     gg "{sc=1}Мама, что ты делаешь?!{/sc}"
     show mom shout with dissolve
-    mom "Как что? Избавляюсь от этого мусора. Мое терпение лопнуло. Если я еще раз увижу, что ты рисуешь, пиняй на себя."
+    mom "Как что? Избавляюсь от этого мусора. Мое терпение лопнуло. Если я еще раз увижу, что ты рисуешь, пеняй на себя."
+    stop sound
     "*Мать забирает еще целые альбомы с рисунками*"
     hide mom with dissolve
     show bg flashback_room with vpunch
@@ -1001,7 +736,7 @@ label act2_present:
     scene bg gallery_up with pixellate
     show ghost surprised with dissolve
     gh "[playerName], прием! Ты тут? Я тебя уже пару минут зову, а ты не откликаешься"
-    gg "Прости, задумался[past_end]"
+    gg "Прости, задума[past_end]"
     gh "Все в порядке?"
     gg "Да, давай продолжать наше расследование.{w} Раз картина не навевает тебе никаких воспоминаний, то в этом месте должно быть что-то другое, что тянуло тебя сюда"
     gh normal "Логично. Может, информационная табличка?"
@@ -1113,23 +848,23 @@ label act2_up_gallery:
     # Меняем текущее местоположение для осуществления правильной логики навигации
     $ current_loc = "gallery_up"
 
-    # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    while not closed:
-        # Закрываем диалоговое окно
-        window hide
-        # Показываем фон главного зала в баре, если он не был показан ранее
-        if not persistent.background_shown:
-            show bg gallery_up with dissolve
-            # Меняем глобальную переменную на True, так как фон был показан
-            $ persistent.background_shown = True
+    # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
+    # while not closed:
+    #     # Закрываем диалоговое окно
+    #     window hide
+    #     # Показываем фон главного зала в баре, если он не был показан ранее
+    #     if not persistent.background_shown:
+    #         show bg gallery_up with dissolve
+    #         # Меняем глобальную переменную на True, так как фон был показан
+    #         $ persistent.background_shown = True
 
-        # Запускаем интерактивный экран
-        show screen galleryUp with dissolve
+    #     # Запускаем интерактивный экран
+    #     show screen galleryUp with dissolve
 
-        # Включаем интерактивное взаимодействие
-        $ result = ui.interact()
+    #     # Включаем интерактивное взаимодействие
+    #     $ result = ui.interact()
 
-    hide galleryUp
+    # hide galleryUp
 
     jump showbuttons_gallery
 
@@ -1354,12 +1089,14 @@ label move_gallery_down:
         menu:
             "Внимание! Если вы подтвердите выбор, то покинете локацию!"
             "Покинуть картинную галерею":
+                play sound "sounds/create_character.mp3"
                 gh "Наверно, нам пора уходить"
                 gg "Да, загулялись мы тут"
 
 
                 jump act2_street
             "Еще рано":
+                play sound "sounds/create_character.mp3"
                 jump act2_front_pred_gallery
     # Иначе локация недоступна
     else:
@@ -1382,6 +1119,7 @@ label act2_street:
     menu:
         "Что ответить?"
         "Возможно, когда-нибудь я попробую снова заняться рисованием":
+            play sound "sounds/create_character.mp3"
             $ renpy.notify("Вы приняли важное решение.")
             $ important1 = True
             $ note_painter1 = True
@@ -1394,6 +1132,7 @@ label act2_street:
             jump act3_start
 
         "Это было простым детским увлечением":
+            play sound "sounds/create_character.mp3"
             $ renpy.notify("Вы приняли важное решение.")
             $ note_painter2 = True
             gg "Это было простым детским увлечением, я не хочу к нему возвращаться"

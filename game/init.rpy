@@ -222,6 +222,7 @@ $ friendName = "Игрок"
 $ friendSprite = ""
 $ partnerName = "Игрок"
 $ partnerSprite = ""
+$ gender = "None"
 
 #Инициализация звука НЕ РАБОТАЕТ
 init:

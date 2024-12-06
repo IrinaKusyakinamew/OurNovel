@@ -142,7 +142,7 @@ label act3_canteen_pred:
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_canteen_interact==0:
         show bg canteen with pixellate
-        show f2 normal with dissolve
+        show f2 happy with dissolve
         f2 "Не расстраивайся! Главное, не прекращать попытки и тогда…"
         "???" "…!"
         show f2 upset
@@ -230,10 +230,12 @@ label act3_lecture_pred:
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_lecture_interact==0:
         show bg lecture with pixellate
-        show f1 with dissolve
+        show f1 normal with dissolve
         f1 "Слушай, у тебя есть конспекты прошлой лекции?"
         "???" "…"
-        f1 "Можно сфоткать?...{w} Блин, я не понимаю твой почерк."
+        f1 "Можно сфоткать?..."
+        show f1 happy
+        f1 "Блин, я не понимаю твой почерк."
         "???" "…"
         f1 "Хаха, именно так."
         hide f1 with dissolve
@@ -286,13 +288,14 @@ label act3_frescoes_pred:
         hide ghost with dissolve
 
         show bg frescoes with pixellate
-        show f1 at left2 with dissolve
+        show f1 normal at left2 with dissolve
         gh "!!!"
         f1 "Какие же неудобные скамейки в этой аудитории!"
         show f2 normal at right2 with dissolve
         f2 "И не говори…{w} Мне кажется, что моя 5 точка превратилась в квадрат."
         f1 "А у нас сейчас еще пара по искусствоведению. Ты идешь?"
         "???" "…"
+        show f2 happy at right2 
         f2 "Ну кто бы сомневался, ты ведь почти никогда не пропускаешь пары."
         "???" "…"
         hide f1 with dissolve
@@ -837,7 +840,7 @@ label act3_present:
     stop music1 fadeout 2
     play music "music/Dreaming.mp3" fadein 2
     scene bg class with pixellate
-    show aizek normal with dissolve
+    show f_aizek normal with dissolve
     aik "Слушай, мне уже надоело прикрывать тебя перед родителями. Может, пока завязывать с твоим хобби? "
     "???" "..."
 
@@ -850,14 +853,14 @@ label act3_present:
     gh "Так значит…"
 
     "???" "..."
-    show aizek calm
+    show f_aizek calm
     aik "Нет, послушай! Я не считаю это чем-то плохим, но я переживаю за тебя! И родители тоже. Может, они и избирают немного жесткие методы, но это и правда ради твоего блага…"
     "???" "...!"
-    show aizek normal
+    show f_aizek normal
     aik "Ты собираешься сегодня в то место, о котором говорила?"
     "???" "..."
     aik "Пожалуйста, будь осторожна, Наоми."
-    hide aizek with dissolve
+    hide f_aizek with dissolve
     
     gg "Что…?!"
     show ghost surprised with dissolve
@@ -880,7 +883,7 @@ label act3_present:
         "Что делать?"
         "Поддержать Наоми":
             play hover "sounds/create_character.mp3"
-            gg "Я в шоке, не представляю даже как тебе сейчас тяжело… Но смотри сколько мы всего узнали! Это просто невероятно, ты сочетаешь в себе столько разных граней. Я поражен(а)."
+            gg "Я в шоке, не представляю даже как тебе сейчас тяжело… Но смотри сколько мы всего узнали! Это просто невероятно, ты сочетаешь в себе столько разных граней. Я поражен[verb_end]."
             gh happy "Хех, спасибо, приятно слышать."
             $ friendshp_gh += 1
             $ renpy.notify("Отношения с Персонажем Призрак улучшились.")

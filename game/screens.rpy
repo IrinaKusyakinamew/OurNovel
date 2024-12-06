@@ -516,6 +516,12 @@ screen notes():
 
         style_prefix "about"
 
+        if note_Naomi_flashback:
+            vbox:
+                text _("Заметка 10") xalign 1
+                text _("Мы прибыли к месту, где Наоми последний раз рисовала граффити и перед нами возникло ее воспоминание. Отец Наоми считал, что она обязана рисовать картины достойные их семьи. Брат Наоми, Айзек, до того прикрывавший ее хобби, рассказал обо всем отцу. За неповиновение отец посадил ее под домашний арест. Именно тогда она нарисовала картину для выставки в галерее. Наоми погибла из-за несчастного случая, когда Айзек не рассчитав силы толкнул ее.")
+                text ""
+
         if note_Naomi:
             vbox:
                 text _("Заметка 9") xalign 1
@@ -985,7 +991,15 @@ screen gallery():
                 add g.make_button("flashback1g", "flashback1g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
                 add g.make_button("flashback2b", "flashback2b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
                 add g.make_button("flashback2g", "flashback2g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
-
+                add g.make_button("naomi_draws", "naomi_draws_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("naomi_disappear", "naomi_disappear_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending2b", "ending2b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending2g", "ending2g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending2jos", "ending2jos_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending3b", "ending3b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending3g", "ending3g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending4b", "ending4b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending4g", "ending4g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
 
 ## Экран достижений ###############################################################
 screen achievements():
@@ -1011,6 +1025,7 @@ screen achievements():
                 add ach.make_button("tolstoi", "bookworm", xalign=0.5, yalign=0.5, hover_border="images/achievements/bookworm_hover.png")
                 add ach.make_button("painting", "painting", xalign=0.5, yalign=0.5, hover_border="images/achievements/painting_hover.png")
                 add ach.make_button("history", "history", xalign=0.5, yalign=0.5, hover_border="images/achievements/history_hover.png")
+                add ach.make_button("prisoner", "prisoner", xalign=0.5, yalign=0.5, hover_border="images/achievements/prisoner_hover.png")
 
 
 

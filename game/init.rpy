@@ -18,6 +18,9 @@ define f_dean = Character("Декан", color="#6d457e", image='minor/fantoms')
 define dad = Character('Отец', color="#67682b", image='parents/dad')
 define aik = Character('Айзек', color="#6d457e", image='korteze/aizek')
 
+define na = Character('Наоми', color="#6d457e", image='korteze/naomi')
+define nd = Character('Отец Наоми', color="#6d457e", image='korteze/n_dad')
+
 #определяем телефонных персонажей
 define gg_nvl = Character("я", kind=nvl, callback=Phone_SendSound)
 define fr_nvl = Character("Заноза", kind=nvl, callback=Phone_ReceiveSound)
@@ -40,6 +43,8 @@ define persistent.painting_notify = 0
 define persistent.history_notify = 0
 define persistent.conversation_notify = 0
 
+define persistent.running_notify = 0
+
 #переменные, отвечающие за отображение заметок в конкекстном меню
 define note_meet_fr1 = False
 define note_meet_fr2 = False
@@ -58,6 +63,8 @@ define note_gang1 = False
 define note_gang2 = False
 define note_gang3 = False
 define note_Naomi = False
+
+define note_Naomi_flashback = False
 
 
 define important1 = False
@@ -114,6 +121,45 @@ init python:
     g.condition("persistent.flashback2g")
     g.image("flashback2g")
 
+    g.button("naomi_draws")
+    g.condition("persistent.Naomi_flashback")
+    g.image("naomi_draws")
+    
+    g.button("naomi_disappear")
+    g.condition("persistent.Naomi_disappear")
+    g.image("naomi_disappear")
+
+
+
+#пока что эти кнопки нерабочие
+    g.button("ending2b")
+    g.condition("persistent.ending2b")
+    g.image("ending2b")
+
+    g.button("ending2g")
+    g.condition("persistent.ending2g")
+    g.image("ending2g")
+
+    g.button("ending2jos")
+    g.condition("persistent.ending2jos")
+    g.image("ending2jos")
+
+    g.button("ending3b")
+    g.condition("persistent.ending3b")
+    g.image("ending3b")
+
+    g.button("ending3g")
+    g.condition("persistent.ending3g")
+    g.image("ending3g")
+
+    g.button("ending4b")
+    g.condition("persistent.ending4b")
+    g.image("ending4b")
+
+    g.button("ending4g")
+    g.condition("persistent.ending4g")
+    g.image("ending4g")
+
 #добавление кнопок в экрана достижений
 init python:
     ach = Gallery()
@@ -143,6 +189,10 @@ init python:
     ach.button("history")
     ach.condition("persistent.history")
     ach.image("history_img")
+
+    ach.button("prisoner")
+    ach.condition("persistent.running")
+    ach.image("running_img")
 
 
 # Теперь создаём экран для текста, который будет использоваться

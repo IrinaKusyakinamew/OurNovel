@@ -1,6 +1,18 @@
 label act5_start:
     "Начало 5 акта"
     # гг просыпается в больнице 
+    stop music fadeout 2
+    play music1 "music/Not Giving Up.ogg" fadein 2
+    scene bg hospital with dissolve
+    "Больница..."
+
+    scene bg painter_1 with dissolve
+    "Концовка: таинственный художник"
+    scene bg painter_2 with dissolve
+    "Таинственный художник смог обрести внутреннюю гармонию с самим собой"
+
+    scene bg detective with dissolve
+    "Концовка: юный детектив"
     
     # 1)	ЕСЛИ ГГ НЕ ПОДДЕРЖИВАЛ КОМПАНИЮ:
     # ЕСЛИ ГГ ВЫБРАЛ РИСОВАТЬ ПРИ ХОРОШИХ ОТНОШЕНИЯХ С НАОМИ:

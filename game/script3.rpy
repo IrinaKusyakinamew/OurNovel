@@ -731,9 +731,9 @@ label act3_flashback_start:
     "{sc=2}{i}{color=#626262}Это просто кошмар, это не может быть правдой!{/color} {/i}{/sc}"
 
     if gender == "male":
-        play sound "sounds/Mujchina-plachet-i-smorkaetsa (mp3cut.net).mp3"
+        play sound "sounds/Mujchina-plachet-i-smorkaetsa.mp3"
     if gender == "female":
-        play sound "sounds/plach-rydaniya-jenshiny61 (mp3cut.net).mp3"
+        play sound "sounds/plach-rydaniya-jenshiny.mp3"
     #всхлипы перед плачем
     "{i}{color=#626262}[partnerName] даже не смотрит в мою сторону{/color} {/i}"
     "{sc=2}{i}{color=#626262}Я хочу убраться отсюда{/color} {/i}{/sc}"

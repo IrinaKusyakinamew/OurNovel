@@ -9,9 +9,14 @@ label act4_start:
 
     scene bg graffity with pixellate
     show naomi normal with dissolve
+    play sound "sounds/paint_brush_artists_dabs_brushes_on_wood_palett_005_41143.mp3"
     #Наоми рисует, звук
     na "Отлично, половина работы выполнена. Надеюсь, сегодня получится закончить. Через пару часов уже надо сворачиваться и идти домой, пока родители ничего не заподозрили."
+    stop sound
+    play sound "sounds/vauxhall-carlton-podyezjaet.mp3"
     #подъезжает машина, звук
+    $ renpy.pause(8)
+    stop sound
     show naomi normal at right2 with moveinright
     show n_dad angry at left2 with dissolve
     nd "Вот ты где."
@@ -36,8 +41,10 @@ label act4_start:
     hide n_dad with dissolve
     show guard at left2 with dissolve
     "Охранник" "Наоми, не вынуждайте меня применять грубую силу."
+    play sound "sounds/mashina-startuet-i-byistro-uezjaet-34233.mp3"
     #уезжают, звук
-
+    $ renpy.pause(10)
+    stop sound
     scene bg estate with dissolve
     $ renpy.pause(0.7)
     scene bg estate_hall with dissolve
@@ -328,7 +335,11 @@ label act4_continue:
 
     #Место действия: VIP комната бара
     #звук открывания двери с ноги
-    scene bg estate_room with dissolve #заменить
+    stop music1 fadeout 2
+    play sound "sounds/e36add97d2dbebd.mp3"
+    scene bg vip_bar with dissolve #заменить
+    play music "music/Leaving Home.mp3" fadein 2
+    stop sound
     show aizek normal at left2 with dissolve
     aik "Наоми?"
     show naomi rage at right2 with dissolve
@@ -344,12 +355,17 @@ label act4_continue:
     aik "Наоми, успокойся."
     show naomi angry at right2
     na "Ты знаешь, как я к этому отношусь! То, что мы являемся какими-то там потомками испанской аристократии, не дает ничего! Не дает ему права так поступать. А ты, зная все, просто рассказал ему все!"
+    play sound "sounds/zvuk-padeniya-cheloveka-456.mp3"
     "Наоми толкает брата" #Звук толчка
+    stop sound
     aik "Да успокойся ты! Его методы может и жестоки, но ты должна понимать, почему он так поступает!"
     na "Не понимаю и не хочу понимать!"
+    play sound "sounds/shumnoe-rezkoe-padenie-s-vyisotyi.mp3"
     "Наоми толкает брата сильнее" #Звук сильного толчка. 
     "Разгоряченный алкоголем Айзек начинает закипать"
+    stop sound
     aik "Да угомонись ты!"
+    play sound "sounds/zvuk-upal.mp3"
     "Айзек толкает Наоми в ответ, не рассчитав силу"
     "Наоми падает, ударяясь головой об угол стола." #Звук удара/хруста черепа
     show aizek normal at left2
@@ -357,7 +373,7 @@ label act4_continue:
     "Наоми не отвечает"
     #Конец флешбека
 
-    scene bg estate_room with dissolve #заменить
+    scene bg vip_bar with dissolve #заменить
     gg "Охренеть…"
     show ghost upset with dissolve
     gh "Ты тоже это видел[verb_end]?"

@@ -589,6 +589,28 @@ screen estateRoom:
         hover "estate_room_objects/estate_room_easel_hover.png"
         action Jump("estate_room_easel")
 
+    # Это ноут, не стол
+    imagebutton:
+        xpos 1104
+        ypos 467
+        idle "estate_room_objects/estate_room_table_idle.png"
+        hover "estate_room_objects/estate_room_table_hover.png"
+        action Jump("estate_room_table")
+
+    imagebutton:
+        xpos 375
+        ypos 151
+        idle "estate_room_objects/estate_room_window_idle.png"
+        hover "estate_room_objects/estate_room_window_hover.png"
+        action Jump("estate_room_window")
+
+    imagebutton:
+        xpos 0
+        ypos 673
+        idle "estate_room_objects/estate_room_bed_idle.png"
+        hover "estate_room_objects/estate_room_bed_hover.png"
+        action Jump("estate_room_bed")
+
 # Экран с подсказкой
 screen info_panel:
     # Показывать экран только если подсказка ещё не была показана

@@ -4,7 +4,7 @@ python:
 
 
 label start:
-
+    stop music fadeout 0.5
     # Фон стола с компьютером от первого лица
     scene bg table1
     play sound "sounds/phone-vibration-96623.mp3"

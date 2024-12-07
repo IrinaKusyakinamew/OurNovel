@@ -318,6 +318,38 @@ screen navigation():
             hotspot(239, 782, 134, 136) action ShowMenu("preferences") #настройки
             hotspot(390, 765, 135, 159) action Quit(confirm=True) #выход
 
+screen messages():
+    imagemap:
+            ground "gui/game_menu/game_menu1.png"
+            idle "gui/game_menu/messages.png"
+            hover "gui/game_menu/messages_hover.png"
+
+            hotspot(69, 783, 147, 138) action ShowMenu("save") #вернуться
+            hotspot(239, 782, 134, 136) action ShowMenu("preferences") #настройки
+            hotspot(390, 765, 135, 159) action Quit(confirm=True) #выход
+
+            hotspot(65, 140, 246, 90) action ShowMenu("tele3") #теле3
+            hotspot(65, 250, 250, 85) action ShowMenu("ibank") #ыбанк
+            hotspot(65, 357, 275, 95) action ShowMenu("sixterochka") #шестерочка
+            hotspot(65, 471, 290, 100) action ShowMenu("toto") #тото пицца
+            hotspot(65, 585, 255, 95) action ShowMenu("ozo") #озонь
+
+screen cntcts():
+    imagemap:
+            ground "gui/game_menu/game_menu1.png"
+            idle "gui/game_menu/contacts.png"
+            hover "gui/game_menu/contacts_hover.png"
+
+            hotspot(69, 783, 147, 138) action ShowMenu("save") #вернуться
+            hotspot(239, 782, 134, 136) action ShowMenu("preferences") #настройки
+            hotspot(390, 765, 135, 159) action Quit(confirm=True) #выход
+
+            hotspot(54, 139, 232, 117) action ShowMenu("mom") #мать
+            hotspot(54, 257, 233, 103) action ShowMenu("father") #отец
+            hotspot(52, 363, 248, 100) action ShowMenu("friend") #заноза
+            hotspot(52, 463, 320, 112) action ShowMenu("partner") #не отвечать
+
+
 
 ## Экран главного меню #########################################################
 ##
@@ -413,7 +445,12 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
                     transclude
 
-    use navigation
+    if title == "Сообщения":
+        use messages
+    elif title == "Контакты":
+        use cntcts
+    else:
+        use navigation
 
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
@@ -553,11 +590,11 @@ screen notes():
             else:
                 vbox:
                     text _("Пазл не складывается...")
-                    text ""
 
             if friendshp_gh_temp == 5:
                 vbox:
                     text _("Я смог[past_verb_end] узнать Призрака получше. Она была интересным интересным человеком.")
+                    text ""
             else:
                 vbox:
                     text _("Я не смог[past_verb_end] собрать все сцены прошлого.")
@@ -625,22 +662,189 @@ screen msg():
 
     tag menu
 
+    if not is_flashback:
+        use game_menu(_("Сообщения"), scroll="viewport"):
+
+            style_prefix "about"
+            vbox:
+                text _("Выберите чат") xalign 1
+
+    else:
+        use game_menu(_("Флэшбек"), scroll="viewport"):
+            style_prefix "about"
+            vbox:
+                text _("Во время воспоминаний сообщения недоступны.") xalign 1
+
+screen tele3():
+    tag menu
+
     use game_menu(_("Сообщения"), scroll="viewport"):
 
         style_prefix "about"
         vbox:
-            text _("Сообщения. Функционал отсутствует") xalign 1
+            text _("Теле3") xalign 1
+            text ""
+            text _("Условия связи продлены. С вашего счета списано 250 руб. Баланс 1.24руб. Следующее списание 21.12.2017.")
+            text _("Ваш Теле3")
+            text ""
+            text _("Платеж на 250 руб. зачислен на ваш счет. Баланс 251.24 руб.")
+            text _("Ваш Теле3")
+            text ""
+            text _("21.11.2017 закончится действие тарифа.")
+            text _("Для продления его условий и сохранения доступа в интернет ваш баланс должен быть не менее 250 руб.")
+            text _("Текущий баланс: 1.24 руб.")
+            text _("Пополнить счет можно в приложении Теле3.")
+            text _("Ваш Теле3")
+            text ""
+            text _("Условия связи продлены. С вашего счета списано 250 руб. Баланс 1.24руб. Следующее списание 21.11.2017.")
+            text _("Ваш Теле3")
+            text ""
+            text _("Платеж на 250 руб. зачислен на ваш счет. Баланс 251.24 руб.")
+            text _("Ваш Теле3")
+            text ""
+            text _("На счете недостаточно денег, чтобы подключить 100 мин, 10 Гб и опции за 250 руб.")
+            text _("Сейчас интернет недоступен, а связь оплачивается так: Исходящие звонки - 3 руб./мин, СМС - 3,90 руб.")
+            text _("Пополните счет на 248.76 руб. в приложении или на сайте или проверьте доступность отсрочки платежа: *888#")
+            text _("Ваш Теле3")
+            text ""
+
+screen ibank():
+    tag menu
+
+    use game_menu(_("Сообщения"), scroll="viewport"):
+        style_prefix "about"
+        vbox:
+            text _("ЫБанк") xalign 1
+            text ""
+            text _("Повышаем ставки! откройте накопительный счет со ставкой до 15% годовых и получайте доход с первого месяца.")
+            text ""
+            text _("VISA7534 15:53 Перевод 500р от Ярослав Н. Баланс 510р")
+            text ""
+            text _("Подтвердите перевод по номеру ... на сумму 326 руб.")
+            text ""
+            text _("Начни карьеру в банке! Стань сотрудником ЫБанка и получай уникальный опыт в команде экспертов!")
+            text ""
+            text _("VISA4687 22:17 Перевод 1000р от Елизавета З. Баланс 1087р")
+            text ""
+            text _("VISA7534 03:05 Перевод 500р от Ярослав Н. Баланс 587р")
+            text ""
+            text _("Кэшбек 20% за любые покупки в сервисах Янд Маркет, Янд Такси, Янд Плюс, Янд Еда и пр. Успейте до 14.04.17!")
+            text ""
+            text _("VISA1763 09:59 Перевод 1500р от Олеся Л. Баланс 1573р")
+            text ""
+            text _("VISA1287 15:15 Перевод 1000р от Игорь Х. Баланс 1658р")
+            text ""
+            text _("Вклад 'Выгодный старт' со ставкой 13% годовых на 3 месяца! Откройте в любом офисе ЫБанка.")
+            text ""
+            text _("Яркие покупки с ШОГ ВИР! +5% повышенных бонусов ЫБанка и 100% возмещение стоимости покупок.")
+
+screen sixterochka():
+    tag menu
+
+    use game_menu(_("Сообщения"), scroll="viewport"):
+        style_prefix "about"
+        vbox:
+            text _("Шестерочка") xalign 1
+            text ""
+            text _("-40% на КОФЕ/КАКАО от 2-х шт. 3-5.12 в Шестерочке.")
+            text ""
+            text _("-20% сливоч. МАСЛО 25-27.10 в Шестерочке.")
+            text ""
+            text _("-25% на сливочное МАСЛО по вашей карте 1-3.03, кроме 365, до 10 кг/шт.")
+            text ""
+            text _("-25% на ОХЛ./ЗАМ РЫБУ по вашей карте 23-25.02, кроме 365, до 10 кг/шт.")
+            text ""
+            text _("-20% МЯСО и 50% СКОВОРОДЫ по вашей карте 22-23.02, кр. птицы, 365 до 10кг.")
+            text ""
+            text _("-20% на КОРМА для животных 1-2.12 в Шестерочке.")
+            text ""
+            text _("-40% на СРЕДСТВА ДЛЯ СТИРКИ по вашей карте 9-10.09 кроме 365 до 10 кг/шт.")
+
+screen toto():
+    tag menu
+
+    use game_menu(_("Сообщения"), scroll="viewport"):
+        style_prefix "about"
+        vbox:
+            text _("Тото Пицца") xalign 1
+            text ""
+            text _("Цыпленок барбекю 25см в подарок от 990р! Промокод: 9230 до 8.12.17")
+            text ""
+            text _("Бургер-пицца 25см в подарок от 850р!Промокод: 2058 до 24.12.17")
+            text ""
+            text _("Аррива! 25см в подарок от 1190р! Промокод: 0389 до 10.11.17")
+            text ""
+            text _("Мы торопились, но не успели! Дарим промокод на пиццу 30см ...")
+            text ""
+            text _("0177 - код для входа в приложение. Никому не говорите код")
+
+screen ozo():
+    tag menu
+
+    use game_menu(_("Сообщения"), scroll="viewport"):
+        style_prefix "about"
+        vbox:
+            text _("Озонь") xalign 1
+            text ""
+            text _("Доставлена часть заказа 020347309-0989.")
+            text _("Заберите ее из пункта выдачи Озонь до 21:00 пятницы, 27 сентября, потом заказ придется отменить. Напоминаем, что заказ на пункте выдачи можно получить только при предъявлении штрихкода или цифрового кода, который можно найти в разделеЗаказы в Личном Кабинете. Штрихкод и цифровой код обновляются раз в несколько дней и будут доступны, когда товары будут ожидать вас в пункте выдачи.")
+
 
 ## Экран Контакты ###############################################################
 screen contacts():
 
     tag menu
+    if not is_flashback:
+        use game_menu(_("Контакты"), scroll="viewport"):
 
+            style_prefix "about"
+            vbox:
+                text _("Контакты. Выберите абонента.") xalign 1
+    else:
+        use game_menu(_("Флэшбек"), scroll="viewport"):
+            style_prefix "about"
+            vbox:
+                text _("Во время воспоминаний контакты недоступны.") xalign 1
+
+screen mom():
+    tag menu
     use game_menu(_("Контакты"), scroll="viewport"):
 
         style_prefix "about"
         vbox:
-            text _("Контакты. Функционал отсутствует") xalign 1
+            text _("Мать") xalign 1
+            text ""
+            text _("Вы внесены в черный список контакта Мать. Вы не можете позвонить ему.")
+
+screen father():
+    tag menu
+    use game_menu(_("Контакты"), scroll="viewport"):
+
+        style_prefix "about"
+        vbox:
+            text _("Отец") xalign 1
+            text ""
+            text _("Вы внесены в черный список контакта Отец. Вы не можете позвонить ему.")
+
+screen friend():
+    tag menu
+    use game_menu(_("Контакты"), scroll="viewport"):
+
+        style_prefix "about"
+        vbox:
+            text _("Заноза") xalign 1
+            text ""
+            text _("Этот абонент не принимает звонки.")
+
+screen partner():
+    tag menu
+    use game_menu(_("Контакты"), scroll="viewport"):
+
+        style_prefix "about"
+        vbox:
+            text _("Не отвечать") xalign 1
+            text ""
+            text _("Вы внесли этот контакт в черный список. Звонки и сообщения этого абонента не будут приходить вам.")
 
 ## Экран Игры ###############################################################
 screen play_game():
@@ -681,6 +885,9 @@ screen file_slots(title):
     default page_name_value = FilePageNameInputValue(pattern=_("{} страница"), auto=_("Автосохранения"), quick=_("Быстрые сохранения"))
 
     use game_menu(title):
+
+        vbox:
+            text _(title) xalign 1
 
         fixed:
 
@@ -1000,6 +1207,12 @@ screen gallery():
                 add g.make_button("ending3g", "ending3g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
                 add g.make_button("ending4b", "ending4b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
                 add g.make_button("ending4g", "ending4g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending5b", "ending5b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending5g", "ending5g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending6b", "ending6b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending6g", "ending6g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending7b", "ending7b_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
+                add g.make_button("ending7g", "ending7g_mini", xalign=0.5, yalign=0.5, hover_border="images/Splash_arts/hover.png")
 
 ## Экран достижений ###############################################################
 screen achievements():
@@ -1021,11 +1234,11 @@ screen achievements():
 
                 add ach.make_button("late_fr", "late", xalign=0.5, yalign=0.5, hover_border="images/achievements/late_hover.png")
                 add ach.make_button("listen_smn", "listen", xalign=0.5, yalign=0.5, hover_border="images/achievements/listen_hover.png")
-                add ach.make_button("alone_forever", "alone", xalign=0.5, yalign=0.5, hover_border="images/achievements/alone_hover.png")
                 add ach.make_button("tolstoi", "bookworm", xalign=0.5, yalign=0.5, hover_border="images/achievements/bookworm_hover.png")
                 add ach.make_button("painting", "painting", xalign=0.5, yalign=0.5, hover_border="images/achievements/painting_hover.png")
                 add ach.make_button("history", "history", xalign=0.5, yalign=0.5, hover_border="images/achievements/history_hover.png")
                 add ach.make_button("prisoner", "prisoner", xalign=0.5, yalign=0.5, hover_border="images/achievements/prisoner_hover.png")
+                add ach.make_button("jos", "black_cat", xalign=0.5, yalign=0.5, hover_border="images/achievements/black_cat_hover.png")
 
 
 

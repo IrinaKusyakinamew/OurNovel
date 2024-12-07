@@ -373,11 +373,13 @@ label pre_goout:
     gg "Вообще ничего, никаких подсказок или зацепок."
     $ note_cooperate = True
     $ renpy.notify("В заметках появилась новая запись")
-    gh "Это очень странно. Тогда что будет делать дальше?"
+    gh "Это очень странно. Тогда что будем делать дальше?"
     gg "Раз тут тупик, можем попытаться пока выяснить, что произошло с тобой. Есть идеи?"
-    gh "Есть одно место, меня туда как будто бы тянет. Но я ходила туда…{w} и ничего."
+    gh "Есть одно место, меня туда как будто бы тянет. Но я ходила туда… и ничего."
     gg "В любом случае, других идей у нас нет. Веди."
     gh "Хорошо, это недалеко."
+
+    #ЗВУК ШАГОВ?
 
 label act2_gallery:
     # Логические переменные для отслеживания того, впервые мы появляемся в блоке локации или нет
@@ -461,6 +463,8 @@ label act2_flashback_start:
 
     scene bg flashback_lesson with pixellate
 
+    $ is_flashback = True
+
     "Урок математики"
     "[playerName] рисует в тетради"
     #мб сделать фон тетради?
@@ -471,7 +475,7 @@ label act2_flashback_start:
     scene bg flashback_lesson with dissolve
     show teacher silhouette with dissolve
     play sound "sounds/jenskiy-golos-nevnyatnoe-slovo.mp3"
-    scene bg flashback_lesson with dissolve
+    #scene bg flashback_lesson with dissolve
     tchr "*неразборчиво*"
     hide teacher with dissolve
     scene bg school_paint with dissolve
@@ -492,7 +496,6 @@ label act2_flashback_start:
     show teacher normal
     tchr "Продолжаем урок."
     play sound "sounds/call_for_break.mp3"
-    "*звенит звонок конца урока*"
     hide teacher with dissolve
     play ambient "sounds/noise_at_break.mp3" fadein 2
     "{i}{color=#626262}Тоже мне… Докопалась, карга старая. Так, на чем я останови[past_end]? {/color} {/i}"
@@ -518,6 +521,7 @@ label act2_flashback_start:
     "{i}{color=#626262}Осталось отсидеть 1 урок. Надеюсь, мама отпустит меня вечером погулять{/color} {/i}"
     stop ambient
 
+    #ЗВУК ШАГОВ?
 
     scene bg flashback_hall with dissolve
     $ renpy.pause(0.5)
@@ -635,7 +639,9 @@ label act2_flashback_graffity:
     
     "{i}{color=#626262}Им правда нравится? Никто давно так не хвалил мои рисунки… Может, все в жизни не так уж и плохо? {/color} {/i}"
     play sound "sounds/shagi-23.mp3"
-    "*Звуки шагов*"
+    #ТУТ ЖЕЛАТЕЛЬНО КАКИЕ-НИБУДЬ ГРУЗНЫЕ ШАГИ ПО ЗЕМЛЕ
+
+
     stop music1 fadeout 2
     play music "music/Leaving Home.mp3" fadein 2
     show fat_policeman at right2 with dissolve
@@ -648,7 +654,7 @@ label act2_flashback_graffity:
     "{i}{color=#626262} А? Куда? Кого? {/color} {/i}"
     "*Компания разбегается, [playerName] стоит столбом*"
     stop sound
-    t_pol "Кто это у нас тут? Пойдешь с нами, вандал."
+    t_pol "Кто это у нас тут? Пойдешь с нами, вандал." 
     "{i}{color=#626262}Почему я не сообразил[verb_end] и не побежал[verb_end]? Что теперь делать? Придется идти с ними. {/color} {/i}"
 
     jump act2_flashback_policy
@@ -656,6 +662,8 @@ label act2_flashback_graffity:
     return
 
 label act2_flashback_policy:
+
+    #ШАГИ?
 
     scene bg flashback_policy1 with dissolve
     $ renpy.pause(1)
@@ -680,6 +688,8 @@ label act2_flashback_policy:
     hide fat_policeman with dissolve
     mom "Дома поговорим."
 
+    #ШАГИ?
+
     jump act2_flashback_home
     
     return
@@ -700,6 +710,9 @@ label act2_flashback_home:
     mom "Это не важно, он сидит в тюрьме, а наша жизнь и репутация упали ниже плинтуса из-за этого, у нас нет денег и поддержки!"
     gg "Но мам…"
     mom "Не мамкай мне тут. Это все из-за твоих поганых рисунков. Мне это надоело. С этого дня ты под домашним арестом.{w} Ты обязан[verb_end] взяться за голову, пока еще не поздно, этими рисульками ты на жизнь не заработаешь. С этого дня никакого рисования!"
+   
+    #ШАГИ?
+   
     hide mom with dissolve
     play sound "sounds/z_uki-r_ut-bumagu.mp3"
     #слышится звук рвущейся бумаги
@@ -722,7 +735,7 @@ label act2_flashback_home:
     
     pause
     #звуки плача
-    "{sc=2}{i}{color=#626262}Как же… Почему все так получилось? Мои рисунки… Все, что я нарисовал[verb_end] за свою жизнь{/color} {/i}{/sc}"
+    "{sc=2}Как же… Почему все так получилось? Мои рисунки… Все, что я нарисовал[verb_end] за свою жизнь{/sc}"
 
     jump act2_present
     return
@@ -732,6 +745,8 @@ label act2_present:
     stop music fadeout 2
 
     play music1 "music/classic_music.mp3" fadein 2
+
+    $ is_flashback = False
 
     scene bg gallery_up with pixellate
     show ghost surprised with dissolve
@@ -1107,6 +1122,9 @@ label move_gallery_down:
     return
 
 label act2_street:
+
+    #ШАГИ ЗА ГИГИ
+
     stop music1 fadeout 2
     play music gallery1 fadein 2
     scene bg gallery_down with dissolve

@@ -23,12 +23,16 @@ label act3_continue:
 
     scene bg univer_front with dissolve
 
+    #ЫЫЫЫЫА ШАГИ
+
     $ renpy.pause(1.0)
 
     scene bg univer_side with dissolve
     show ghost normal with dissolve
     gh "Это место выглядит знакомо."
     gg "Отлично, пойдем внутрь."
+
+    #ЫЫЫЫЫА ШАГИ
 
     jump act3_hall_pred
 
@@ -519,15 +523,23 @@ label move_unik_down:
 
 label act3_flashback_start:
     scene bg classes with dissolve
+
+    gh "Интересно, что же за этой дверью?"
+
     $ note_fantoms2 = True
     $ renpy.notify("В заметках появилась новая запись")
 
     "{i}{color=#626262}Я невольно сравниваю эти коридоры и аудитории с тем, что, казалось, уже забыто…{/color} {/i}"
     stop music1 fadeout 2
     scene bg flashback2_awakening with pixellate
+
+    $ is_flashback = True
+
     play sound "sounds/flushing-water-from-bucket-to-toilet_gjh9mseu (mp3cut.net).mp3"
     #звук выливания воды из ведра
     show dad with dissolve
+    "*Отец выливает ведро воды на кровать*"
+    
     dad "Вставай, бестолочь!"
     gg "Ты че творишь?!"
     play music "music/AcrylicOnCanvas.mp3" fadein 2
@@ -604,36 +616,60 @@ label act3_flashback_start:
     scene bg flashback2_summer_day2 with fade
     "Спустя пару дней"
     nvl clear
+    nvl_narrator "Хлебушек"
     gg_nvl "{image=images/phone_icons/mem.jpg}"
-    par1_nvl "Ахахаха, люблю каламбуры"
-    gg_nvl "Ты пойдешь завтра на пары?"
-    par1_nvl "Да, а ты?"
-    gg_nvl "Тоже"
+    par1_nvl "ахахаха, люблю каламбуры"
+    gg_nvl "ты пойдешь завтра на пары?"
+    par1_nvl "да а ты?"
+    gg_nvl "тоже"
 
     "{i}{color=#626262}Блин, с [needPronoun1] как интересно общаться, я хочу чтобы так было всегда{/color} {/i}"
 
     scene bg flashback2_room with fade
     "Через пару недель"
     nvl clear
+    nvl_narrator "Хлебушек"
     par1_nvl "[playerName], ты сделал[verb_end] таблицу по гистологии?"
-    gg_nvl "Да"
-    gg_nvl "Щас скину"
-    par1_nvl "Кстати, как у тебя успехи с закрытием долгов?"
-    gg_nvl "С анатомией разобра[past_end]. Осталась химия и психология"
-    par1_nvl "Молодец!!! Если нужна будет помощь, пиши"
-    gg_nvl "Конечно"
+    gg_nvl "да"
+    gg_nvl "щас скину"
+    par1_nvl "кстати как у тебя успехи с закрытием долгов?"
+    gg_nvl "с анатомией разобра[past_end]. Осталась химия и психология"
+    par1_nvl "Молодец!!! если нужна будет помощь, пиши"
+    gg_nvl "конечно"
 
     "{i}{color=#626262}С [needPronoun1] колледж уже не кажется таким отвратительным местом. Он[verb_end] стимулирует меня ходить на пары, помогает с закрытием хвостов. Может, все не так плохо?{/color} {/i}"
 
+    scene bg flashback2_room with fade
+    "Прошло 4 дня"
+    "{i}{color=#626262}Хочу позвать [friendPronoun1] куда-нибудь.{/color} {/i}"
+    menu:
+        "Какое место выбрать?"
+        "Котокафе":
+            "{i}{color=#626262}Действительно, кто откажется погладить милых котиков?{/color} {/i}"
+            $ jos = True
+            nvl clear
+            nvl_narrator "Хлебушек"
+            gg_nvl "[partnerName], не хочешь завтра после пар сходить в котокафе?"
+            par1_nvl "не смогу, у меня аллергия на шерсть"
+            gg_nvl "прости я не знал[verb_end]. Тогда может зайдем в кафе около универа?"
+            par1_nvl "заметано"
+        "Кафе возле универа":
+            "{i}{color=#626262}Неплохой вариант. Недалеко идти и плюсом бюджетно.{/color} {/i}"
+            nvl clear
+            nvl_narrator "Хлебушек"
+            gg_nvl "[partnerName], не хочешь завтра после пар сходить в кафе около универа?"
+            par1_nvl "хорошо"
+    
     scene bg flashback2_winter_day2 with fade
     "Прошел примерно месяц"
     nvl clear
+    nvl_narrator "Хлебушек <3"
     par2_nvl "[playerName], хочешь встретиться сегодня?"
-    gg_nvl "Хочу, куда пойдем?"
-    par2_nvl "Секрет"
-    par2_nvl "Во сколько ты освободишься?"
-    gg_nvl "Часам к 6"
-    par2_nvl "Хорошо, я заеду за тобой"
+    gg_nvl "хочу, куда пойдем?"
+    par2_nvl "секрет"
+    par2_nvl "во сколько ты освободишься?"
+    gg_nvl "часам к 7"
+    par2_nvl "хорошо, я заеду за тобой"
     "{i}{color=#626262}Хм, как неожиданно. Интересно, что [partnerName] придумал[verb_end1]?{/color} {/i}"
 
     scene bg flashback2_winter_day1 with fade
@@ -645,10 +681,13 @@ label act3_flashback_start:
     hide par_winks with dissolve
 
     show bg flashback2_winter_day1 with fade
+    "Через час"
     gg "Отлично покатались."
     show expression par_winks with dissolve
     par "Пойдем, это еще не все."
     gg "Ого, веди."
+
+    #ШАГИ
 
     scene bg restaraunt with dissolve #НУЖЕН ФОН РЕСТОРАНА
     show expression par_winks with dissolve
@@ -677,16 +716,19 @@ label act3_flashback_start:
 
     scene bg flashback2_room with fade
     nvl clear
+    nvl_narrator "Заноза"
     fr_nvl "Хей, от тебя давно не было вестей, мб хочешь встретиться, выпить?"
-    "{i}{color=#626262}Не буду отвечать...{/color} {/i}"
+
+    "Не буду отвечать..."
 
     scene bg flashback2_winter_day2 with fade
     "Через пару недель"
     "{i}{color=#626262}На носу уже новый год. Как быстро летит время. Я очень рад[verb_end], что в моей жизни появи[past_end1] [partnerName].{/color} {/i}"
     nvl clear
+    nvl_narrator "Хлебушек <3"
     par2_nvl "[playerName], помнишь про новогоднюю вечеринку у меня дома, ты же придешь?"
-    gg_nvl "Еще спрашиваещь? Конечно!"
-    par2_nvl "Ты будешь самым желанным гостем"
+    gg_nvl "еще спрашиваешь? Конечно!"
+    par2_nvl "ты будешь самым желанным гостем"
 
     scene bg flashback2_winter_night2 with fade
     "День X"
@@ -699,6 +741,8 @@ label act3_flashback_start:
 
     show bg flashback2_partner_home with fade
     "Разгар праздника"
+    "{i}{color=#626262}Тут довольно весело.{/color} {/i}"
+
     show expression par_winks with dissolve
     par ```
     Прошу всех, внимание!
@@ -735,8 +779,10 @@ label act3_flashback_start:
     if gender == "female":
         play sound "sounds/plach-rydaniya-jenshiny.mp3"
     #всхлипы перед плачем
-    "{i}{color=#626262}[partnerName] даже не смотрит в мою сторону{/color} {/i}"
+    "{sc=2}{i}{color=#626262}[partnerName] даже не смотрит в мою сторону{/color} {/i}{/sc}"
     "{sc=2}{i}{color=#626262}Я хочу убраться отсюда{/color} {/i}{/sc}"
+
+    #БЕГ
 
     stop ambient
     stop sound
@@ -778,15 +824,21 @@ label act3_flashback_start:
 label act3_present:
     scene bg classes with pixellate
     show ghost uncomprehending with dissolve
+
+    $ is_flashback = False
+
     gh "Эй, [playerName], прием! Ты опять погряз[past_verb_end] в мыслях?"
     gg "Ммм… Да."
     gh" Ты что плачешь?"
     gg "Нет!"
-    "по щеке течет слеза"
+
+    #МБ ЗВУК ВСХЛИПА КОРОТКИЙ
+
+    "По щеке течет слеза"
     gg "Или да…"
     gh "Что вызвало в тебе эти чувства?"
     
-    if friendshp_gh >= 7:
+    if friendshp_gh >= 6:
         gg "Я резко вспомнил[verb_end] о том, о чем не хотелось бы вспоминать"
         "[playerName] вкратце рассказывает о своих печалях"
         gh surprised "Боже, это просто кошмар. Я не могу представить, какую сильную боль ты пережил[verb_end]! [partnerName] поступил[verb_end1] просто отвратительно!"
@@ -818,7 +870,7 @@ label act3_present:
             "Устраивает":
                 play hover "sounds/create_character.mp3"
                 gg "Знаешь, вполне."
-                $ friendshp_gh -= 3
+                $ friendshp_gh -= 2
                 $ renpy.notify("Отношения с персонажем Призрак резко ухудшились.")
                 gh upset "Я… Пожалуй не буду это никак комментировать. Пойдем дальше."
                 gg "Мы собирались зайти в этот кабинет"
@@ -839,6 +891,7 @@ label act3_present:
 
     stop music1 fadeout 2
     play music "music/Dreaming.mp3" fadein 2
+    scene bg class with dissolve
     scene bg class with pixellate
     show f_aizek normal with dissolve
     aik "Слушай, мне уже надоело прикрывать тебя перед родителями. Может, пока завязывать с твоим хобби? "
@@ -897,6 +950,8 @@ label act3_present:
 
     gh normal "Этот диалог заставил меня вспомнить многое. В частности, я знаю, куда я пошла после разговора. Думаю, нам следует отправиться туда."
     gg "Хорошо, веди."
+
+    #ШАГИ ЗА ГИГИ
 
     jump act3_end
     

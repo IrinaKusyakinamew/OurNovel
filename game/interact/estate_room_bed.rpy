@@ -1,4 +1,4 @@
 label estate_room_bed:
-    "Тупые дедлайны, верните нам нормальный режим сна аыъыаъъыъ"
+    "Я не хочу сейчас спать"
     jump act4_estate_room
     return

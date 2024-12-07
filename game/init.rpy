@@ -21,12 +21,23 @@ define aik = Character('Айзек', color="#6d457e", image='korteze/aizek')
 define na = Character('Наоми', color="#6d457e", image='korteze/naomi')
 define nd = Character('Отец Наоми', color="#6d457e", image='korteze/n_dad')
 
+define nu = Character('Медсестра', color="#221e3a", image='minor/nurse')
+
 #определяем телефонных персонажей
 define gg_nvl = Character("я", kind=nvl, callback=Phone_SendSound)
 define fr_nvl = Character("Заноза", kind=nvl, callback=Phone_ReceiveSound)
 define hr_nvl = Character("HR", kind=nvl, callback=Phone_ReceiveSound)
 define par1_nvl = Character("Хлебушек", kind=nvl, callback=Phone_ReceiveSound)
 define par2_nvl = Character("Хлебушек <3", kind=nvl, callback=Phone_ReceiveSound)
+
+label splashscreen:
+    scene black 
+    pause(0.5)
+    scene disclaimer with fade
+    pause(2)
+    scene sound_rec with fade
+    pause(2)
+    scene black with fade
 
 #переменные для плавного исчезновения телефона
 define config.adv_nvl_transition = None
@@ -35,7 +46,6 @@ define config.nvl_adv_transition = Dissolve(0.3)
 #переменные для разового отображения уведомления о получении достижения
 define persistent.late_notify = 0
 define persistent.listen_notify = 0
-define persistent.alone_notify = 0
 
 define persistent.bookworm_notify = 0
 define persistent.painting_notify = 0
@@ -44,6 +54,8 @@ define persistent.history_notify = 0
 define persistent.conversation_notify = 0
 
 define persistent.running_notify = 0
+
+define persistent.jos_notify = 0
 
 #переменные, отвечающие за отображение заметок в конкекстном меню
 define note_meet_fr1 = False
@@ -69,7 +81,9 @@ define note_Naomi_flashback = False
 
 define important1 = False
 define important2 = False
+define jos = False
 
+define is_flashback = False
 
 #создание анимации в главном меню
 image menu_slideshow:
@@ -129,9 +143,6 @@ init python:
     g.condition("persistent.Naomi_disappear")
     g.image("naomi_disappear")
 
-
-
-#пока что эти кнопки нерабочие
     g.button("ending2b")
     g.condition("persistent.ending2b")
     g.image("ending2b")
@@ -160,6 +171,30 @@ init python:
     g.condition("persistent.ending4g")
     g.image("ending4g")
 
+    g.button("ending5b")
+    g.condition("persistent.ending5b")
+    g.image("ending5b")
+
+    g.button("ending5g")
+    g.condition("persistent.ending5g")
+    g.image("ending5g")
+
+    g.button("ending6b")
+    g.condition("persistent.ending6b")
+    g.image("ending6b")
+
+    g.button("ending6g")
+    g.condition("persistent.ending6g")
+    g.image("ending6g")
+
+    g.button("ending7b")
+    g.condition("persistent.ending7b")
+    g.image("ending7b")
+
+    g.button("ending7g")
+    g.condition("persistent.ending7g")
+    g.image("ending7g")
+
 #добавление кнопок в экрана достижений
 init python:
     ach = Gallery()
@@ -173,10 +208,6 @@ init python:
     ach.button("listen_smn")
     ach.condition("persistent.listen")
     ach.image("listen_img")
-
-    ach.button("alone_forever")
-    ach.condition("persistent.alone")
-    ach.image("alone_img")
 
     ach.button("tolstoi")
     ach.condition("persistent.bookworm")
@@ -193,6 +224,10 @@ init python:
     ach.button("prisoner")
     ach.condition("persistent.running")
     ach.image("running_img")
+
+    ach.button("jos")
+    ach.condition("persistent.ending2jos")
+    ach.image("black_cat_img")
 
 
 # Теперь создаём экран для текста, который будет использоваться

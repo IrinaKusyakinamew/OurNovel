@@ -3,13 +3,16 @@ label act4_start:
     show ghost normal with dissolve
     gh "Пришли."
     gg "Помню, ты писала на канале тг, что ты планируешь очень большой проект. Это он?"
-    gh "Да… Но как видишь, я почти ничего не успела."
+    gh "Да… Но как видишь, я не успела его закончить."
     gg "Что помешало?"
-    gh "Давай подойдем поближе."
+    gh "Сейчас увидим."
 
     scene bg graffity with pixellate
     show naomi normal with dissolve
     play sound "sounds/paint_brush_artists_dabs_brushes_on_wood_palett_005_41143.mp3"
+
+    $ is_flashback = True
+
     #Наоми рисует, звук
     na "Отлично, половина работы выполнена. Надеюсь, сегодня получится закончить. Через пару часов уже надо сворачиваться и идти домой, пока родители ничего не заподозрили."
     stop sound
@@ -41,6 +44,8 @@ label act4_start:
     hide n_dad with dissolve
     show guard at left2 with dissolve
     "Охранник" "Наоми, не вынуждайте меня применять грубую силу."
+    hide naomi with dissolve
+    hide guard with dissolve
     play sound "sounds/mashina-startuet-i-byistro-uezjaet-34233.mp3"
     #уезжают, звук
     $ renpy.pause(10)
@@ -86,7 +91,7 @@ label act4_estate_hall_pred:
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_pred_interact==0:
 
-        na "Нужно убираться отсюда"
+        na "Я обязательно выберусь отсюда"
 
         # Меняем значение переменной
         $ count_pred_interact = 1
@@ -324,6 +329,7 @@ label act4_continue:
     pause
     na "Видимо, у меня нет выбора. Сейчас за мной пристально следят. Нарисую эту уродскую картину, а потом буду думать о том, как убраться навсегда из этого дома."
     hide naomi_draws with dissolve
+    scene bg estate_room with fade
     "Прошло 3 месяца"
     show n_dad smile at left2 with dissolve
     nd "Молодец, вот можешь, когда хочешь"
@@ -332,6 +338,8 @@ label act4_continue:
     nd "Да, ты свободна в своем перемещении."
     hide n_dad with dissolve
     na "Айзек за все это время ни разу не навестил меня. Время уже позднее. Пожалуй, наведаюсь к нему на работу…"
+
+    #ПОКАЗАТЬ ПУТЬ ДО ВИП КОМНАТЫ ЧТОБЫ ИГРОКИ ПОНЯЛИ ЧТО ЭТОТ ТОТ ЖЕ БАР
 
     #Место действия: VIP комната бара
     #звук открывания двери с ноги
@@ -367,16 +375,20 @@ label act4_continue:
     aik "Да угомонись ты!"
     play sound "sounds/zvuk-upal.mp3"
     "Айзек толкает Наоми в ответ, не рассчитав силу"
+    show bg vip_bar with hpunch
     "Наоми падает, ударяясь головой об угол стола." #Звук удара/хруста черепа
+    hide naomi with dissolve
     show aizek normal at left2
     aik "Наоми? Ты в порядке?"
     "Наоми не отвечает"
     #Конец флешбека
 
-    scene bg vip_bar with dissolve #заменить
+    $ is_flashback = False
+
+    scene bg graffity with dissolve #заменить
     gg "Охренеть…"
     show ghost upset with dissolve
-    gh "Ты тоже это видел[verb_end]?"
+    gh "Ты видел[verb_end] все это?"
     gg "Да." 
     gh "Судя по всему, именно так я и умерла." 
     gg "Что будем делать?"
@@ -400,7 +412,7 @@ label act4_continue:
     gg "Но мы ведь еще так мало сделали!"
     gh "Судя по всему, дальше тебе придется действовать в одиночку."
 
-    if friendshp_gh > 8:
+    if friendshp_gh >= 8:
         if important1:
             gh "[playerName]… Я… не хочу, чтобы мое дело остановилось. Пожалуйста, продолжи его, стань новым таинственным художником."
             gg "Что? Но справлюсь ли я? Я давно не рисовал[verb_end], это очень ответственная задача."
@@ -408,7 +420,6 @@ label act4_continue:
             gh "Я верю в тебя. Рисование для тебя, как и для меня является чем-то очень важным. Преобрази этот город, ты справишься."
             gg "Хорошо."
             gh "Держи логин и пароль от моего аккаунта. И… спасибо тебе за все."
-            hide ghost with dissolve
             gg "Наоми!"
         else:
             gh "[playerName], спасибо тебе за все. Ты очень сильно помог[past_verb_end] мне."
@@ -422,20 +433,44 @@ label act4_continue:
             gg "Но ведь у меня нет никаких доказательств."
             show ghost happy dis
             gh "К сожалению, мое время подходит к концу, я чувствую это. Я уверена, что ты со всем справишься. Ты куда сильнее, чем ты думаешь. Удачи…"
-            hide ghost with dissolve
 
     else:
         gh "[playerName], я чувствую, что мое время подходит к концу…"
         gg "Постой, мы же еще не разобрались со всем до конца, я все еще не знаю, что произошло со мной!"
-        gh "К сожалению, я ничем не могу помочь. Остатки моей жизни утекают сквозь пальцы. Спасибо тебе за помощь… и прощай."
+        gh "К сожалению, я ничем не могу помочь. Остатки моей жизни утекают сквозь пальцы."
         hide ghost with dissolve
 
-        if not important1 and not important2:
-            gg "И что мне теперь делать? Куда идти?"
-            gg "И есть ли вообще во всем этом смысл…"
-            #КОНЦОВКА: смерть
+        if not (important1 and important2):
+            #КОНЦОВКА: смерть 7
+            jump ending_seventh
 
+    scene naomi_disappear with fade 
+    #музычки бы грустной навалить
     $ persistent.Naomi_disappear = True
+    pause
+    na "Спасибо тебе за помощь… и прощай."
+
+    #ГГ ТЕРЯЕТ СОЗНАНИЕ ДОБАВИТЬ ЭФФЕКТ
 
     jump act5_start
+    return
+
+label ending_seventh:
+    "И что мне теперь делать? Куда идти?"
+    "И есть ли вообще во всем этом смысл…"
+
+    if gender_symbol == "♂":
+        $ persistent.ending7b = True
+        scene ending7b with fade
+    else:
+        $ persistent.ending7g = True
+        scene ending7g with fade
+
+    pause
+
+    "{glitch=2}Что происходит?{/glitch}"
+    "{glitch=3}Я... Умираю?{/glitch}"
+    show the_end with fade
+    pause
+
     return

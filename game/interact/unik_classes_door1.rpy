@@ -1,5 +1,6 @@
 label unik_classes_door1:
     if friendshp_gh_temp == 5:
+        hide screen unikClasses
         menu:
             "Вы нашли все возможное на это локации. Зайдя в кабинет, вы больше не сможете ходить по локациям университета"
             "Зайти в кабинет искусства":
@@ -20,7 +21,9 @@ label unik_classes_door1:
                 jump act3_classes 
 
     else:
+        hide screen unikClasses
         menu:
+            
             "Внимание! Вы не полностью исследовали локацию. Если вы зайдете внутрь, то больше не сможете исследовать локации университета. Вы уверены, что хотите зайти?"
             "Зайти в кабинет искусства":
                 $ friendshp_gh += friendshp_gh_temp

@@ -1,4 +1,5 @@
 label estate_interact_door:
+    hide screen estateHall
     "Дверь, за которой свобода"
     menu:
         "Что делать?"

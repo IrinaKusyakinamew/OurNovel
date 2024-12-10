@@ -1,8 +1,8 @@
 label act5_start:
     # гг просыпается в больнице 
-    stop music fadeout 2
-    play music1 "music/Not Giving Up.ogg" fadein 2
-    scene bg hospital with dissolve
+    stop music1 fadeout 2
+    play music "music/Not Giving Up.ogg" fadein 2
+    scene bg hospital with onn
     gg "Где я? Больница? Неужели все, что произошло это просто сон?"
     show nurse with dissolve
     nu "Здравствуйте, [playerName]. Рада, что вы очнулись."

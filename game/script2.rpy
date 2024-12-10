@@ -135,15 +135,13 @@ label move_street_up:
 
     # Если текущая позиция - центр улицы, то при нажатии на кнопку "вверх"
     if current_loc == "street_front":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в верхней части улицы
         jump act2_up_pred
     # Иначе локация недоступна
     elif current_loc == "street_down":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act2_front_pred
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_street
 
     return
 
@@ -209,17 +207,14 @@ label move_street_right:
 
     # Если текущая позиция - центр улицы, то при нажатии на кнопку "вправо"
     if current_loc == "street_front":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в центре улицы
         jump act2_right_pred
     # Иначе если текущая позиция - левая часть улицы, то при нажатии на кнопку "вправо"
     elif current_loc == "street_left":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в центр улицы
         jump act2_front_pred
-    # Иначе локация недоступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_street
 
     return
 
@@ -285,17 +280,14 @@ label move_street_left:
 
     # Если текущая позиция - главный зал бара, то при нажатии на кнопку "влево"
     if current_loc == "street_front":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в левой части бара
         jump act2_left_pred
     # Иначе если текущая позиция - правая часть бара, то при нажатии на кнопку "влево"
     elif current_loc == "street_right":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в главном зале бара
         jump act2_front_pred
-    # Иначе локация недопступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_street
 
     return
 
@@ -342,16 +334,13 @@ label move_street_down:
 
     # Если текущая позиция - верхняя часть бара, то при нажатии на кнопку "вниз"
     if current_loc == "street_up":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в главном зале бара
         jump act2_front_pred
 
     elif current_loc == "street_front":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act2_down_pred
-    # Иначе локация недоступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_street
 
     return
 
@@ -362,7 +351,7 @@ label act2_bag:
 
 label act2_bag_interact:
     show screen bagInteract with dissolve
-    # Включаем интерактивное взаимодействие (пока не нажмем на дверь, не попадем внутрь бара)
+    # Включаем интерактивное взаимодействие
     $ result = ui.interact()
 
 label pre_goout:
@@ -379,7 +368,7 @@ label pre_goout:
     gg "В любом случае, других идей у нас нет. Веди."
     gh "Хорошо, это недалеко."
 
-    #ЗВУК ШАГОВ?
+    play sound "sounds/shagi-23 (mp3cut.net).mp3"
 
 label act2_gallery:
     # Логические переменные для отслеживания того, впервые мы появляемся в блоке локации или нет
@@ -388,6 +377,8 @@ label act2_gallery:
     $ count_pred_up = 0
     $ count_pred_right = 0
     $ count_pred_left = 0
+    # Нашли картину или нет
+    $ found_painting = False
 
     # Обнуляем нажатие на подсказку
     $ info_panel_closed_2 = False
@@ -397,6 +388,8 @@ label act2_gallery:
     $ renpy.pause(0.5)
 
     scene bg gallery_up with dissolve
+
+    stop sound
 
     stop music fadeout 2
     play music1 "music/classic_music.mp3" fadein 2
@@ -475,7 +468,6 @@ label act2_flashback_start:
     scene bg flashback_lesson with dissolve
     show teacher silhouette with dissolve
     play sound "sounds/jenskiy-golos-nevnyatnoe-slovo.mp3"
-    #scene bg flashback_lesson with dissolve
     tchr "*неразборчиво*"
     hide teacher with dissolve
     scene bg school_paint with dissolve
@@ -521,7 +513,7 @@ label act2_flashback_start:
     "{i}{color=#626262}Осталось отсидеть 1 урок. Надеюсь, мама отпустит меня вечером погулять{/color} {/i}"
     stop ambient
 
-    #ЗВУК ШАГОВ?
+    play sound "sounds/shagi-23.mp3"
 
     scene bg flashback_hall with dissolve
     $ renpy.pause(0.5)
@@ -530,6 +522,7 @@ label act2_flashback_start:
     
     gg "Мам, я дома."
     show mom angry
+    stop sound
     mom "Мне звонила классная руководительница."
     "{i}{color=#626262}Ой-ей{/color} {/i}"
     mom "Она сказала, что ты опять рисовал[verb_end] вместо того, чтобы заниматься. Сколько уже можно?! Ты обязан[verb_end] хорошо учиться." 
@@ -586,6 +579,7 @@ label act2_flashback_graffity:
     show gang at left with dissolve
     gang "Ууу, а говорили, что ты паинька, художник"
     "{i}{color=#626262}Какие-то они…{w} Странные, ладно, посмотрим, что будет дальше{/color} {/i}"
+    stop sound
     gg "Хе-хе, не всегда"
     hide fr_yo_normal
     show expression fr_yo_grin at right
@@ -597,13 +591,14 @@ label act2_flashback_graffity:
     show gang with dissolve
     gang "А эта площадка тоже скучная, ей не помешало бы добавить красок"
     "{i}{color=#626262}Но… Это же вандализм! Что же мне делать? {/color} {/i}"
-    #надо какое-нибудь улюлюкание добавить
+    play ambient "sounds/a3af11d3a0fb6b0.mp3"
     gang``` 
     Давай, художник. Бери баллончик, не стесняйся!
 
     Если тебе что-то не нравится, конечно, можешь уйти, мы насильно тебя не держим
 
     ```
+    stop ambient
     play sound "sounds/zvuk-tolpa-smeetsya-3-24183.mp3"
 
     gang "Да, ну. А в начале крутышкой показа[past_end]"
@@ -612,6 +607,7 @@ label act2_flashback_graffity:
 
     "{i}{color=#626262}Черт… Я не могу сейчас повернуть назад{/color} {/i}"
     gg "Ладно"
+    stop sound
     hide gang
     play sound "sounds/hold_spray.mp3"
     "*[playerName] берет баллончик*"
@@ -622,7 +618,8 @@ label act2_flashback_graffity:
     "*[playerName] надевает маску, взбалтывает баллончик и начинает рисовать*" #надо звуков добавить
     play sound "sounds/sprayer_30d0f.mp3"
     gang "Я знал, что ты свой человек!"
-    "{i}{color=#626262}Так, надо постараться не сильно испортить площадку. Попробую нарисовать что-то красивое. {/color} {/i}" #звуки рисования из баллончика
+    "{i}{color=#626262}Так, надо постараться не сильно испортить площадку. Попробую нарисовать что-то красивое. {/color} {/i}"
+    play sound "sounds/sprayer_30d0f.mp3"
     gang```
     Ого, здорово получается, [friendName], ты не зря [friendPronoun] позвал[verb_end]
 
@@ -638,17 +635,17 @@ label act2_flashback_graffity:
     ```
     
     "{i}{color=#626262}Им правда нравится? Никто давно так не хвалил мои рисунки… Может, все в жизни не так уж и плохо? {/color} {/i}"
-    play sound "sounds/shagi-23.mp3"
+    play sound "sounds/shagi-12.mp3"
     #ТУТ ЖЕЛАТЕЛЬНО КАКИЕ-НИБУДЬ ГРУЗНЫЕ ШАГИ ПО ЗЕМЛЕ
 
 
     stop music1 fadeout 2
     play music "music/Leaving Home.mp3" fadein 2
     show fat_policeman at right2 with dissolve
-    stop sound
     f_pol "Так, шпана! Что это вы тут делаете?!"
     show tall_policeman at left2 with dissolve
     t_pol "Петрович, лови их!"
+    stop sound
     play sound "sounds/run.mp3"
     fr "Черт, мусора! Бежим!"
     "{i}{color=#626262} А? Куда? Кого? {/color} {/i}"
@@ -663,13 +660,14 @@ label act2_flashback_graffity:
 
 label act2_flashback_policy:
 
-    #ШАГИ?
+    play sound "sounds/shagi-23.mp3"
 
     scene bg flashback_policy1 with dissolve
     $ renpy.pause(1)
 
     scene bg flashback_policy with dissolve
     show fat_policeman with dissolve
+    stop sound
     f_pol "Как тебя зовут, где твои родители?"
     gg "[playerName] Ковалев[verb_end], мама ушла на вечернюю подработку"
     f_pol "Знаешь ее номер?"
@@ -688,7 +686,7 @@ label act2_flashback_policy:
     hide fat_policeman with dissolve
     mom "Дома поговорим."
 
-    #ШАГИ?
+    play sound "sounds/shagi-23 (mp3cut.net).mp3"
 
     jump act2_flashback_home
     
@@ -699,6 +697,7 @@ label act2_flashback_home:
     play music1 "music/Abuse In The Orphanage.ogg" fadein 2
     scene bg flashback_kitchen with dissolve
     show mom street with dissolve
+    stop sound
     "Мама снимает кепку, проходит на кухню"
     mom "Иди сюда."
     "{i}{color=#626262}Кажется, мне хана... {/color} {/i}"
@@ -711,32 +710,38 @@ label act2_flashback_home:
     gg "Но мам…"
     mom "Не мамкай мне тут. Это все из-за твоих поганых рисунков. Мне это надоело. С этого дня ты под домашним арестом.{w} Ты обязан[verb_end] взяться за голову, пока еще не поздно, этими рисульками ты на жизнь не заработаешь. С этого дня никакого рисования!"
    
-    #ШАГИ?
+    play sound "sounds/z_uki-r_ut-bumagu.mp3"
    
     hide mom with dissolve
-    play sound "sounds/z_uki-r_ut-bumagu.mp3"
     #слышится звук рвущейся бумаги
     "{i}{color=#626262}Что это за звук?{/color} {/i}"
+    stop sound
+    play sound "sounds/19557.mp3"
     show bg flashback_room with wipeleft
     gg "{sc=1}Мама, что ты делаешь?!{/sc}"
+    stop sound
+    play sound "sounds/z_uki-r_ut-bumagu.mp3"
     show mom shout with dissolve
     mom "Как что? Избавляюсь от этого мусора. Мое терпение лопнуло. Если я еще раз увижу, что ты рисуешь, пеняй на себя."
-    stop sound
     "*Мать забирает еще целые альбомы с рисунками*"
     hide mom with dissolve
+    stop sound
     show bg flashback_room with vpunch
     $ renpy.pause(1)
     if gender_symbol == "♂":
+        play sound "sounds/cartoon-dramatic-male-crying_zk7gssvd.mp3"
         scene flashback1b with fade
         $ persistent.flashback1b = True
     else:
+        play sound "sounds/df8e786138341fc.mp3"
         scene flashback1g with fade
         $ persistent.flashback1g = True
     
-    pause
+    pause 
     #звуки плача
     "{sc=2}Как же… Почему все так получилось? Мои рисунки… Все, что я нарисовал[verb_end] за свою жизнь{/sc}"
 
+    stop sound
     jump act2_present
     return
 
@@ -790,7 +795,7 @@ label act2_front_pred_gallery:
         # Меняем значение переменной
         $ count_pred_interact = 1
 
-    # Перемещаемся в блок интерактивности в главном зале бара 
+    # Перемещаемся в блок интерактивности в центральной части галереи
     jump act2_front_gallery
 
     return
@@ -818,7 +823,7 @@ label act2_front_gallery:
     while not closed:
         # Закрываем диалоговое окно
         window hide
-        # Показываем фон главного зала в баре, если он не был показан ранее
+        # Показываем фон, если он не был показан ранее
         if not persistent.background_shown:
             show bg gallery_front with dissolve
             # Меняем глобальную переменную на True, так как фон был показан
@@ -850,7 +855,7 @@ label act2_up_pred_gallery:
         # Меняем значение переменной
         $ count_pred_up = 1
 
-    # Перемещаемся в блок интерактивности в главном зале бара 
+    # Перемещаемся в блок интерактивности в дальней части галереи
     jump act2_up_gallery
 
     return
@@ -863,43 +868,7 @@ label act2_up_gallery:
     # Меняем текущее местоположение для осуществления правильной логики навигации
     $ current_loc = "gallery_up"
 
-    # # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    # while not closed:
-    #     # Закрываем диалоговое окно
-    #     window hide
-    #     # Показываем фон главного зала в баре, если он не был показан ранее
-    #     if not persistent.background_shown:
-    #         show bg gallery_up with dissolve
-    #         # Меняем глобальную переменную на True, так как фон был показан
-    #         $ persistent.background_shown = True
-
-    #     # Запускаем интерактивный экран
-    #     show screen galleryUp with dissolve
-
-    #     # Включаем интерактивное взаимодействие
-    #     $ result = ui.interact()
-
-    # hide galleryUp
-
     jump showbuttons_gallery
-
-    return
-
-label move_gallery_up:
-    # Убираем экран с кнопками
-    hide screen movebuttons_gallery
-
-    # Если текущая позиция - центр улицы, то при нажатии на кнопку "вверх"
-    if current_loc == "gallery_front":
-        # Перемещаемся в блок диалога в верхней части улицы
-        jump act2_up_pred_gallery
-    # Иначе локация недоступна
-    elif current_loc == "gallery_down":
-        jump act2_front_pred_gallery
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_gallery
 
     return
 
@@ -916,7 +885,7 @@ label act2_right_pred_gallery:
         # Меняем значение переменной
         $ count_pred_right = 1
 
-    # Перемещаемся в блок интерактивности в главном зале бара 
+    # Перемещаемся в блок интерактивности в правой части галереи
     jump act2_right_gallery
 
     return
@@ -933,7 +902,7 @@ label act2_right_gallery:
     while not closed:
         # Закрываем диалоговое окно
         window hide
-        # Показываем фон главного зала в баре, если он не был показан ранее
+        # Показываем фон, если он не был показан ранее
         if not persistent.background_shown:
             show bg gallery_right with dissolve
             # Меняем глобальную переменную на True, так как фон был показан
@@ -951,28 +920,6 @@ label act2_right_gallery:
 
     return
 
-
-label move_gallery_right:
-    # Убираем экран с кнопками
-    hide screen movebuttons_gallery
-
-    # Если текущая позиция - главный зал бара, то при нажатии на кнопку "вправо"
-    if current_loc == "gallery_front":
-        # Перемещаемся в блок диалога в части бара
-        jump act2_right_pred_gallery
-    # Иначе если текущая позиция - левая часть бара, то при нажатии на кнопку "вправо"
-    elif current_loc == "gallery_left":
-        # Перемещаемся в блок диалога в главном зале бара
-        jump act2_front_pred_gallery
-    # Иначе локация недоступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_gallery
-
-    return
-
-
 label act2_left_pred_gallery:
     # Инициализаруем переменную, проверяющую, нажата ли кнопка выхода из интерактивного фона
     $ closed = False
@@ -986,7 +933,7 @@ label act2_left_pred_gallery:
         # Меняем значение переменной
         $ count_pred_left = 1
 
-    # Перемещаемся в блок интерактивности в главном зале бара 
+    # Перемещаемся в блок интерактивности в левой части галереи 
     jump act2_left_gallery
 
     return
@@ -1003,7 +950,7 @@ label act2_left_gallery:
     while not closed:
         # Закрываем диалоговое окно
         window hide
-        # Показываем фон главного зала в баре, если он не был показан ранее
+        # Показываем фон, если он не был показан ранее
         if not persistent.background_shown:
             show bg gallery_left with dissolve
             # Меняем глобальную переменную на True, так как фон был показан
@@ -1021,86 +968,65 @@ label act2_left_gallery:
 
     return
 
-label move_gallery_left:
-    # Убираем экран с кнопками
+label move_gallery_up:
+    # Убираем экран со стрелками
     hide screen movebuttons_gallery
 
-    # Если текущая позиция - главный зал бара, то при нажатии на кнопку "влево"
+    # Если текущая позиция - центральная часть галереи, то при нажатии на кнопку "вверх"
     if current_loc == "gallery_front":
-        # Перемещаемся в блок диалога в левой части бара
-        jump act2_left_pred_gallery
-    # Иначе если текущая позиция - правая часть бара, то при нажатии на кнопку "влево"
-    elif current_loc == "gallery_right":
-        # Перемещаемся в блок диалога в главном зале бара
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
+        # Перемещаемся в блок диалога в дальней части галереи
+        jump act2_up_pred_gallery
+    
+    return
+
+label move_gallery_right:
+    # Убираем экран со стрелками
+    hide screen movebuttons_gallery
+
+    # Если текущая позиция - центральная часть галереи, то при нажатии на кнопку "вправо"
+    if current_loc == "gallery_front":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
+        # Перемещаемся в блок диалога в правой части галереи
+        jump act2_right_pred_gallery
+    # Иначе если текущая позиция - левая часть галереи, то при нажатии на кнопку "вправо"
+    elif current_loc == "gallery_left":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
+        # Перемещаемся в блок диалога в главной части галереи
         jump act2_front_pred_gallery
-    # Иначе локация недопступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_gallery
 
     return
 
-label act2_down_pred_gallery:
-    # Инициализаруем переменную, проверяющую, нажата ли кнопка выхода из интерактивного фона
-    $ closed = False
+label move_gallery_left:
+    # Убираем экран со стрелками
+    hide screen movebuttons_gallery
 
-    scene bg gallery_down with dissolve
-
-
-    # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
-    if count_pred_down==0:
-        
-        # ВСТАВИТЬ НУЖНЫЕ РЕПЛИКИ ИМЕННО СЮДА!!!
-
-        # Меняем значение переменной
-        $ count_pred_down = 1
-
-    # Перемещаемся в блок интерактивности в главном зале бара 
-    jump act2_down_gallery
-
-    return
-
-label act2_down_gallery:
-    # ЗДЕСЬ НЕ ДОЛЖНО БЫТЬ НИКАКИХ ДИАЛОГОВ, ВСЕ ДИАЛОГИ ВСТАВЛЯТЬ В БЛОК ВЫШЕ
-
-    scene bg gallery_down with dissolve
-
-    # Меняем текущее местоположение для осуществления правильной логики навигации
-    $ current_loc = "gallery_down"
-
-    # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-    while not closed:
-        # Закрываем диалоговое окно
-        window hide
-        # Показываем фон главного зала в баре, если он не был показан ранее
-        if not persistent.background_shown:
-            show bg gallery_down with dissolve
-            # Меняем глобальную переменную на True, так как фон был показан
-            $ persistent.background_shown = True
-
-        # Запускаем интерактивный экран
-        show screen galleryDown with dissolve
-
-        # Включаем интерактивное взаимодействие
-        $ result = ui.interact()
-
-    hide galleryDown
-
-    jump showbuttons_gallery
+    # Если текущая позиция - главная часть галереи, то при нажатии на кнопку "влево"
+    if current_loc == "gallery_front":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
+        # Перемещаемся в блок диалога в левой части галереи
+        jump act2_left_pred_gallery
+    # Иначе если текущая позиция - правая часть галереи, то при нажатии на кнопку "влево"
+    elif current_loc == "gallery_right":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
+        # Перемещаемся в блок диалога в главной части галереи
+        jump act2_front_pred_gallery
 
     return
 
 label move_gallery_down:
-    # Убираем экран с кнопками
+    # Убираем экран со стрелками
     hide screen movebuttons_gallery
 
-    # Если текущая позиция - верхняя часть бара, то при нажатии на кнопку "вниз"
+    # Если текущая позиция - дальняя часть галереи, то при нажатии на кнопку "вниз"
     if current_loc == "gallery_up":
-        # Перемещаемся в блок диалога в главном зале бара
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
+        # Перемещаемся в блок диалога в центральной части галереи
         jump act2_front_pred_gallery
 
+    # Иначе если текущая позиция - центральная часть галереи, то при нажатии на кнопку "вниз"
     elif current_loc == "gallery_front":
+        # Отображается меню выбора
         menu:
             "Внимание! Если вы подтвердите выбор, то покинете локацию!"
             "Покинуть картинную галерею":
@@ -1113,17 +1039,12 @@ label move_gallery_down:
             "Еще рано":
                 play sound "sounds/create_character.mp3"
                 jump act2_front_pred_gallery
-    # Иначе локация недоступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_gallery
 
     return
 
 label act2_street:
 
-    #ШАГИ ЗА ГИГИ
+    play sound "sounds/shagi-23.mp3"
 
     stop music1 fadeout 2
     play music gallery1 fadein 2
@@ -1131,6 +1052,7 @@ label act2_street:
     show ghost uncomprehending with dissolve
     gh "И все-таки, почему ты бросил[verb_end] рисовать?"
     gg "Да так… Вырос[past_verb_end], сменились увлечения, не до этого стало"
+    stop sound
     gh surprised "Но я видела, как у тебя загорелись глаза, когда ты заговорил[verb_end] о живописи! Человек не может говорить о том, что ему не интересно с такими глазами."
     "{i}{color=#626262}Что же ответить… Все тогда так навалилось. Действительно ли я хочу об этом вспоминать? Не будет ли это ворошить прошлые раны? {/color} {/i}"
 

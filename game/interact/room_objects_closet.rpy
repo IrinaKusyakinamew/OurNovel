@@ -1,5 +1,5 @@
 label room_objects_door:
     $ flashback1_click += 1
-    "Здесь хранится вся моя одежда."
-
+    "Дверь в мою комнату"
+    window hide
     jump act2_flashback_interact_room

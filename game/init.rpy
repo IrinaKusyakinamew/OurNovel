@@ -309,7 +309,7 @@ $ partnerName = "Игрок"
 $ partnerSprite = ""
 $ gender = "None"
 
-#Инициализация звука НЕ РАБОТАЕТ
+#Инициализация звука
 init:
     $ hover_sound = "sounds/create_character.mp3"  # Путь к вашему звуковому файлу
 
@@ -325,8 +325,76 @@ init python:
     if not hasattr(persistent, 'info_panel_shown'):
         persistent.info_panel_shown = False
 
-# Функция для воспроизведения звука при наведении НЕ РАБОТАЕТ
-python:
-    def play_hover_sound():
-        renpy.sound.play(hover_sound)
+    onn = ImageDissolve("eye.jpg", 2.0, 80, reverse=False)
+    off = ImageDissolve("eye.jpg", 2.0, 20, reverse=True)
 
+# # Функция для воспроизведения звука при наведении НЕ РАБОТАЕТ
+# python:
+#     def play_hover_sound():
+#         renpy.sound.play(hover_sound)
+
+# script.rpy
+
+
+
+
+
+# init python:
+#     import sys
+#     import os
+#     import renpy
+    
+#     # Получаем путь к директории игры
+#     game_dir = renpy.config.base
+    
+#     # Добавляем путь к папке game_pygame
+#     game_pygame_dir = os.path.join(game_dir, "game_pygame")
+    
+#     # Проверяем, что путь корректен
+#     if not os.path.exists(game_pygame_dir):
+#         raise FileNotFoundError(f"Директория {game_pygame_dir} не найдена.")
+    
+#     sys.path.append(game_pygame_dir)
+
+#     # Теперь можно импортировать модули из game_pygame
+#     import pygame
+#     import controls
+#     from gun import Gun
+#     from pygame.sprite import Group
+#     from stats import Stats
+#     from scores import Scores
+#     import pygame.time
+
+
+#     def StartGame():
+#         pygame.init()
+#         screen = pygame.display.set_mode((800, 700))
+#         pygame.display.set_caption("Коты-защитники")
+
+#         stats = Stats()
+#         sc = Scores(screen, stats)
+#         bg_color = (220, 220, 220)
+
+#         # Показываем главное меню и ждем действия пользователя
+#         menu_result = show_main_menu(screen)
+
+#         if menu_result == "quit":
+#             pygame.quit()
+#             exit()
+
+#         # После того как игрок выбрал "Начать игру"
+#         gun = Gun(screen)
+#         bullets = Group()
+#         mouses = Group()
+#         controls.create_army(screen, mouses)
+
+#         # Основной игровой цикл
+#         while True:
+#             controls.events(screen, gun, bullets)
+#             if stats.run_game:
+#                 gun.update_gun()
+#                 controls.update(bg_color, screen, stats, sc, gun, mouses, bullets)
+#                 controls.update_bullets(screen, stats, sc, mouses, bullets)
+#                 controls.update_mouses(stats, screen, sc, gun, mouses, bullets)
+
+#             pygame.display.flip()

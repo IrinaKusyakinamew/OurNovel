@@ -1,5 +1,6 @@
 # Блок с описанием интерактивности в левой части бара (заказываем выпивку)
 label bar_left_man:
+    hide screen barLeft
     if barman_click > 0:
         jump bar_left_man1
     "{i}{color=#626262}Самое время заказать чего-нибудь покрепче.{/color}{/i}"
@@ -49,6 +50,7 @@ label bar_left_man2:
     hide operator with easeoutleft
     gg "Они меня не видят. Я же не мог[past_verb_end] сам[verb_end] стать призраком! Это все невозможно! Нужно поговорить с той девушкой на улице!"
 
+    play sound "sounds/19557.mp3"
     # Перемещаемся в главный зал бара
     scene bg bar_people with wipeleft
     # Перемещаемся в блок решающего диалога с призраком

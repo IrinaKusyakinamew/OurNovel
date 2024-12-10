@@ -19,5 +19,5 @@ label street_right_tree:
     else:
         "Люблю русскую классику..."
             
-
+    window hide
     jump act2_right

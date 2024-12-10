@@ -1,16 +1,12 @@
-python:
-    def play_hover_sound():
-        renpy.sound.play(hover_sound)
-
-
 label start:
     stop music fadeout 0.5
-    # Фон стола с компьютером от первого лица
     scene bg table1
     play sound "sounds/phone-vibration-96623.mp3"
-    # Играет бодрая композиция
     play music1 start_music_2 fadein 2
-    #"ГГ открывает глаза, просыпается" #в будущем - анимация
+    "звук уведомления на телефон"
+    scene black with dissolve
+    scene bg table1 with onn
+    "ГГ открывает глаза, просыпается"
     "{i}{color=#626262} Ммм… {w}Уже вечер, засыпать за просмотром сериала становится дурной привычкой.{/color}{/i}"
     nvl_narrator "Заноза"
     fr_nvl "мы сегодня собирались в бар, помнишь? не опаздывай!!"
@@ -18,7 +14,6 @@ label start:
     gg_nvl "скоро выхожу"
     "{i}{color=#626262}Хм, а мне ведь так и не позвонили с последнего собеседования. Нужно написать им, пока помню.{/color}{/i}"
     jump create_character
-
     return
 
 # Блок создания персонажа
@@ -240,6 +235,7 @@ label go_to_hall:
 label bar_outside:
     # Показываем фон перед входом в бар
     scene bg bar_outside with dissolve
+    stop hover
 
     stop music fadeout 2
     play music1 start_music_2 fadein 2
@@ -289,15 +285,15 @@ label bar_inside:
 
     # Показываем фон бара с людьми
     show bg bar_people with fade
+    play sound "sounds/shagi-23.mp3"
     $ renpy.pause(0.5)
 
     stop music1 fadeout 2
     play music bar2 fadein 2
 
-    #ЗВУК ШАГОВ?
-
     show bg bar_without_alcohol with fade
     show expression fr_normal with dissolve
+    stop sound
     fr "Выбирай, что душе угодно, сегодня я угощаю."
     gg "Щедро. Есть повод?"
     hide fr_normal
@@ -404,11 +400,14 @@ label bar_inside:
     "{bt=10}{i}{color=#626262}Что это? Где я? Мне надо это выпить?{/color}{/i}{/bt}"
     gg "{bt=10}Наверно… Ты прав[verb_end]…{/bt}"
 
+    play sound "sounds/padenie-v-obmorok-molodoy-devushki.mp3"
     # ЗВУК ПОТЕРИ СОЗНАНИЯ/ПАДАНИЯ
 
     hide fr_normal with dissolve
 
     # Перемещаемся в блок встречи с призраком
+
+    stop sound
     jump meet_ghost
 
     return
@@ -421,7 +420,8 @@ label meet_ghost:
     
     # Показываем фон дворика за баром
     play sound "sounds/singing.mp3"
-    show bg street_center with fade
+    scene black with dissolve
+    show bg street_center with onn
     $ renpy.pause(1.5)
     show bg street_animation_right with fade
     $ renpy.pause(1.5)
@@ -506,7 +506,7 @@ label bar_interact_pred:
     # Делаем так, чтобы при возвращении в главную локацию музыка не звучала заново
     if not werePlayed:
 
-        #ЗВУК ШАГОВ?
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
 
         stop music1 fadeout 2
 
@@ -549,37 +549,6 @@ label bar_interact:
     while not info_panel_closed:
         # Ждем, пока подсказка не будет закрыта
         $ renpy.pause(0.1)  
-
-    # # После того как подсказка закрыта, показываем меню выбора, если мы еще не включали интерактивный экран
-    # if interactive_mode_ended_interact == 0:
-    #     menu:
-    #         "Осмотреться":
-    #             # Закрываем диалоговое окно
-    #             window hide
-
-    #             # Показываем фон главного зала в баре, если он не был показан ранее
-    #             if not persistent.background_shown:
-    #                 show bg bar_people with dissolve
-    #                 # Меняем глобальную переменную на True, так как фон был показан
-    #                 $ persistent.background_shown = True
-
-    #             # Запускаем интерактивный экран
-    #             show screen barInteract with dissolve
-    #             # Выведется только один раз
-    #             "Нажмите на кнопку, если хотите выйти из интерактивного режима"
-    #             # Меняем значение переменной, так как мы уже запустили интерактивный экран (больше нам не нужно меню выбора в этой локации)
-    #             $ interactive_mode_ended_interact = 1
-    #             # Включаем интерактивное взаимодействие
-    #             $ result = ui.interact()
-
-    #         "Исследовать локацию позже":
-    #             "Продолжайте ходить по локациям"
-    #             # Переходим в блок, который открывает экран с кнопками навигации
-    #             jump showbuttons
-
-    # # Если мы потыкались больше, чем на 1 предмет
-    # else:
-    #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
 
     while not closed:
         # Закрываем диалоговое окно
@@ -631,34 +600,6 @@ label bar_up:
     # Меняем текущую локацию, так как мы переместились в другое место
     $ current_loc = "bar_up"
 
-    # # Показываем меню выбора, если мы еще не включали интерактивный экран
-    # if interactive_mode_ended_up == 0:
-    #     menu:
-    #         "Осмотреться":
-    #             window hide
-    #             # Показываем фон дальней части бара, если он не был показан ранее
-    #             if not persistent.background_shown:
-    #                 show bg bar_up with dissolve
-    #                 # Меняем глобальную переменную на True, так как фон был показан
-    #                 $ persistent.background_shown = True
-    #             # Запускаем интерактивный экран
-    #             show screen barUp with dissolve
-    #             # Выведется только один раз
-    #             "Нажмите на кнопку, если хотите выйти из интерактивного режима"
-    #             # Меняем значение переменной, так как мы уже запустили интерактивный экран (больше нам не нужно меню выбора в этой локации)
-    #             $ interactive_mode_ended_up = 1
-    #             # Включаем интерактивное взаимодействие
-    #             $ result = ui.interact()
-
-    #         "Исследовать локацию позже":
-    #             "Продолжайте ходить по локациям"
-    #             # Переходим в блок, который открывает экран с кнопками навигации
-    #             jump showbuttons
-
-    # # Если мы потыкались больше, чем на 1 предмет
-    # else:
-    #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
-
     while not closed:
         # Закрываем диалоговое окно
         window hide
@@ -690,13 +631,9 @@ label move_bar_up:
     hide screen movebuttons
     # Если текущая позиция - главный зал бара, то при нажатии на кнопку "вверх"
     if current_loc == "bar_front":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в дальней части бара
         jump bar_up_pred
-    # Иначе локация недоступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons
 
     return
 
@@ -723,33 +660,6 @@ label bar_right:
     scene bg bar_right with dissolve
     # Меняем текущую локацию
     $ current_loc = "bar_right"
-    # # Показываем меню выбора, если мы еще не включали интерактивный экран
-    # if interactive_mode_ended_right == 0:
-    #     menu:
-    #         "Осмотреться":
-    #             window hide
-    #             # Показываем фон правой части бара, если он не был показан ранее
-    #             if not persistent.background_shown:
-    #                 show bg bar_right with dissolve
-    #                 # Меняем глобальную переменную на True, так как фон был показан
-    #                 $ persistent.background_shown = True
-    #             # Запускаем интерактивный экран
-    #             show screen barRight with dissolve
-    #             # Выведется только один раз
-    #             "Нажмите на кнопку, если хотите выйти из интерактивного режима"
-    #             # Меняем значение переменной, так как мы уже запустили интерактивный экран (больше нам не нужно меню выбора в этой локации)
-    #             $ interactive_mode_ended_right = 1
-    #             # Включаем интерактивное взаимодействие
-    #             $ result = ui.interact()
-
-    #         "Исследовать локацию позже":
-    #             "Продолжайте ходить по локациям"
-    #             # Переходим в блок, который открывает экран с кнопками навигации
-    #             jump showbuttons
-
-    # # Если мы потыкались больше, чем на 1 предмет
-    # else:
-    #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
 
     while not closed:
         # Закрываем диалоговое окно
@@ -781,17 +691,14 @@ label move_bar_right:
     hide screen movebuttons
     # Если текущая позиция - главный зал бара, то при нажатии на кнопку "вправо"
     if current_loc == "bar_front":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в части бара
         jump bar_right_pred
     # Иначе если текущая позиция - левая часть бара, то при нажатии на кнопку "вправо"
     elif current_loc == "bar_left":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в главном зале бара
         jump bar_interact_pred
-    # Иначе локация недоступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons
 
     return
 
@@ -818,34 +725,6 @@ label bar_left:
     scene bg bar_left with dissolve
     # Меняем текущую локацию
     $ current_loc = "bar_left"
-
-    # # Показываем меню выбора, если мы еще не включали интерактивный экран
-    # if interactive_mode_ended_left == 0:
-    #     menu:
-    #         "Осмотреться":
-    #             window hide
-    #             # Показываем фон левой части бара, если он не был показан ранее
-    #             if not persistent.background_shown:
-    #                 show bg bar_left with dissolve
-    #                 # Меняем глобальную переменную на True, так как фон был показан
-    #                 $ persistent.background_shown = True
-    #             # Запускаем интерактивный экран
-    #             show screen barLeft with dissolve
-    #             # Выведется только один раз
-    #             "Нажмите на кнопку, если хотите выйти из интерактивного режима"
-    #             # Меняем значение переменной, так как мы уже запустили интерактивный экран (больше нам не нужно меню выбора в этой локации)
-    #             $ interactive_mode_ended_left = 1
-    #             # Включаем интерактивное взаимодействие
-    #             $ result = ui.interact()
-
-    #         "Исследовать локацию позже":
-    #             "Продолжайте ходить по локациям"
-    #             # Переходим в блок, который открывает экран с кнопками навигации
-    #             jump showbuttons
-
-    # # Если мы потыкались больше, чем на 1 предмет
-    # else:
-    #     # Пока не закроем интерактивный экран с помощью кнопки, кнопки навигации не появятся
 
     while not closed:
         # Закрываем диалоговое окно
@@ -878,17 +757,14 @@ label move_bar_left:
     hide screen movebuttons
     # Если текущая позиция - главный зал бара, то при нажатии на кнопку "влево"
     if current_loc == "bar_front":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в левой части бара
         jump bar_left_pred
     # Иначе если текущая позиция - правая часть бара, то при нажатии на кнопку "влево"
     elif current_loc == "bar_right":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в главном зале бара
         jump bar_interact_pred
-    # Иначе локация недопступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons
 
     return
 
@@ -905,6 +781,7 @@ label bar_down:
 
     show ghost happy
     gh "О, ты так быстро, не ожидала."
+    stop sound
     gg "Только что сквозь меня прошел человек,{w}{sc=2} Я ЧЕРТОВ ПРИЗРАК!{/sc}"
     gh uncomprehending "Нет, ты не можешь быть призраком, я вижу тебя ровно так же, как и обычных людей, у тебя такой же облик."
     gh " Если бы ты был[verb_end] призраком, ты был[verb_end] бы похож[verb_end] на меня, наверно."
@@ -946,14 +823,9 @@ label move_bar_down:
     hide screen movebuttons
     # Если текущая позиция - верхняя часть бара, то при нажатии на кнопку "вниз"
     if current_loc == "bar_up":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в главном зале бара
         jump bar_interact_pred
-
-    # Иначе локация недоступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons
 
     return
 
@@ -981,4 +853,3 @@ label ending_first:
     pause
 
     return
-

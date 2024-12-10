@@ -22,6 +22,7 @@ label ghost:
             "Внимание, если вы подойдете к призраку, то покинете локацию"
             "Подойти к призраку":
                 play sound "sounds/create_character.mp3"
+                hide screen streetFront
                 gh "[playerName], cмотри, тут лежит чья-то сумка."
                 gg "Хм, стоит осмотреть."
 

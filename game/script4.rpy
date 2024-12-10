@@ -2,6 +2,7 @@ label act4_start:
     scene bg graffity with dissolve
     show ghost normal with dissolve
     gh "Пришли."
+    stop sound
     gg "Помню, ты писала на канале тг, что ты планируешь очень большой проект. Это он?"
     gh "Да… Но как видишь, я не успела его закончить."
     gg "Что помешало?"
@@ -50,11 +51,14 @@ label act4_start:
     #уезжают, звук
     $ renpy.pause(10)
     stop sound
+    
+    play sound "sounds/shagi-23.mp3"
     scene bg estate with dissolve
     $ renpy.pause(0.7)
     scene bg estate_hall with dissolve
     show n_dad normal at left2 with dissolve
     nd "Тебе запрещено покидать поместье. Твой телефон я также забираю."
+    stop sound
     show naomi angry at right2 with dissolve
     na "Что?!"
     nd "Через 3 месяца в этом городе будет выставка картин. Я уже договорился, твоя картина должна стать главным экспонатом. Ты обязана нарисовать картину, достойную нашей семьи."
@@ -242,23 +246,6 @@ label act4_estate_balkon:
 
     return
 
-# # Блок перехода на другую локацию, запускается при нажатии на кнопку "вверх"
-# label move_estate_up:
-#     # Убираем экран с кнопками
-#     hide screen movebuttons_estate
-
-#     # Если текущая позиция - верхняя часть бара, то при нажатии на кнопку "вверх"
-#     if current_loc == "estate_balkon":
-#         # Перемещаемся в блок диалога в главном зале бара
-#         jump act4_estate_hall_pred
-#     # Иначе локация недоступна
-#     else:
-#         "Локация недоступна"
-#         # Переходим в блок, который открывает экран с кнопками навигации
-#         jump showbuttons_estate
-
-#     return
-
 # Блок перехода на другую локацию, запускается при нажатии на кнопку "вниз"
 label move_estate_right:
     # Убираем экран с кнопками
@@ -266,14 +253,12 @@ label move_estate_right:
 
     # Если текущая позиция - верхняя часть бара, то при нажатии на кнопку "вниз"
     if current_loc == "estate_kitchen":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в главном зале бара
         jump act4_estate_hall_pred
     elif current_loc == "estate_hall":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act4_estate_room_pred
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_estate
 
     return
 
@@ -285,15 +270,12 @@ label move_estate_left:
 
     # Если текущая позиция - верхняя часть бара, то при нажатии на кнопку "вниз"
     if current_loc == "estate_room":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в главном зале бара
         jump act4_estate_hall_pred
     elif current_loc == "estate_hall":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act4_estate_kitchen_pred
-    # Иначе локация недоступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_estate
 
     return
 
@@ -305,15 +287,12 @@ label move_estate_down:
 
     # Если текущая позиция - верхняя часть бара, то при нажатии на кнопку "вниз"
     if current_loc == "estate_hall":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в главном зале бара
         jump act4_estate_balkon_pred
     elif current_loc == "estate_balkon":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act4_estate_hall_pred
-    # Иначе локация недоступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_estate
 
     return
 
@@ -338,12 +317,14 @@ label act4_continue:
     nd "Да, ты свободна в своем перемещении."
     hide n_dad with dissolve
     na "Айзек за все это время ни разу не навестил меня. Время уже позднее. Пожалуй, наведаюсь к нему на работу…"
+    hide naomi with dissolve
 
     #ПОКАЗАТЬ ПУТЬ ДО ВИП КОМНАТЫ ЧТОБЫ ИГРОКИ ПОНЯЛИ ЧТО ЭТОТ ТОТ ЖЕ БАР
 
     #Место действия: VIP комната бара
     #звук открывания двери с ноги
     stop music1 fadeout 2
+    show bg bar_people with wipeleft
     play sound "sounds/e36add97d2dbebd.mp3"
     scene bg vip_bar with dissolve #заменить
     play music "music/Leaving Home.mp3" fadein 2
@@ -373,9 +354,9 @@ label act4_continue:
     "Разгоряченный алкоголем Айзек начинает закипать"
     stop sound
     aik "Да угомонись ты!"
-    play sound "sounds/zvuk-upal.mp3"
     "Айзек толкает Наоми в ответ, не рассчитав силу"
     show bg vip_bar with hpunch
+    play sound "sounds/zvuk-upal.mp3"
     "Наоми падает, ударяясь головой об угол стола." #Звук удара/хруста черепа
     hide naomi with dissolve
     show aizek normal at left2
@@ -403,6 +384,8 @@ label act4_continue:
     gg "Не слишком ли поспешные выводы? Разве он не любил тебя?"
     gh normal "Любил, но себя он любит больше. Ты видел[verb_end] слишком мало, чтобы правильно оценить ситуацию."
     gg "Хорошо, я доверюсь тебе. Но вопрос о дальнейших действиях все еще открыт."
+    stop music fadeout 2
+    play music1 "music/Kiss And Goodbye.ogg" fadein 2
     show ghost normal dis with dissolve
     gg "Что происходит?"
     gh "Не знаю…"
@@ -445,12 +428,12 @@ label act4_continue:
             jump ending_seventh
 
     scene naomi_disappear with fade 
-    #музычки бы грустной навалить
     $ persistent.Naomi_disappear = True
     pause
     na "Спасибо тебе за помощь… и прощай."
 
     #ГГ ТЕРЯЕТ СОЗНАНИЕ ДОБАВИТЬ ЭФФЕКТ
+    scene black with off
 
     jump act5_start
     return

@@ -23,16 +23,17 @@ label act3_continue:
 
     scene bg univer_front with dissolve
 
-    #ЫЫЫЫЫА ШАГИ
+    play sound "sounds/shagi-23.mp3"
 
     $ renpy.pause(1.0)
 
     scene bg univer_side with dissolve
     show ghost normal with dissolve
+    stop sound
     gh "Это место выглядит знакомо."
     gg "Отлично, пойдем внутрь."
 
-    #ЫЫЫЫЫА ШАГИ
+    play sound "sounds/shagi-23.mp3"
 
     jump act3_hall_pred
 
@@ -46,18 +47,19 @@ label act3_hall_pred:
 
     scene bg hall with dissolve
 
-
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_hall_interact==0:
         if important1:
             gg "Здесь так красиво, ощущается творческая атмосфера. Я бы хотел здесь учиться."
+            stop sound
         else:
             gg "Здесь ощущается простор, интересная атмосфера."
+            stop sound
 
         show ghost normal with dissolve
         gh "Да, мне тоже нравится. Пойдем посмотрим на холл со 2 этажа."
-
-
+        stop sound
+        play sound "sounds/shagi-23.mp3"
         # Меняем значение переменной
         $ count_hall_interact = 1
 
@@ -192,7 +194,6 @@ label act3_ladder_pred:
     $ closed = False
 
     scene bg ladder with dissolve
-
 
     # Если мы впервые в этой локации, запускается диалог (иначе происходит переход к др. блоку без диалога)
     if count_ladder_interact==0:
@@ -434,18 +435,16 @@ label move_unik_up:
 
     # Если текущая позиция - верхняя часть бара, то при нажатии на кнопку "вверх"
     if current_loc == "hall":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в главном зале бара
         jump act3_ladder_pred
 
     elif current_loc == "ladder":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act3_frescoes_pred
     elif current_loc == "classes":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act3_awards_pred
-    # Иначе локация недоступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_unik
 
     return
 
@@ -457,21 +456,21 @@ label move_unik_right:
 
     # Если текущая позиция - верхняя часть бара, то при нажатии на кнопку "вниз"
     if current_loc == "hall":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в главном зале бара
         jump act3_classes_pred
 
     elif current_loc == "canteen":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act3_hall_pred
     # Иначе локация недоступна
     elif current_loc == "ladder":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act3_dean_pred
     elif current_loc == "lecture":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act3_ladder_pred
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_unik
-
+    
     return
 
 
@@ -482,20 +481,19 @@ label move_unik_left:
 
     # Если текущая позиция - верхняя часть бара, то при нажатии на кнопку "вниз"
     if current_loc == "hall":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в главном зале бара
         jump act3_canteen_pred
 
     elif current_loc == "classes":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act3_hall_pred
     elif current_loc == "ladder":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act3_lecture_pred
     elif current_loc == "dean":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act3_ladder_pred
-    # Иначе локация недоступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_street
 
     return
 
@@ -507,17 +505,15 @@ label move_unik_down:
 
     # Если текущая позиция - верхняя часть бара, то при нажатии на кнопку "вниз"
     if current_loc == "ladder":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         # Перемещаемся в блок диалога в главном зале бара
         jump act3_hall_pred
     elif current_loc == "frescoes":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act3_ladder_pred
     elif current_loc == "awards":
+        play sound "sounds/shagi-23 (mp3cut.net).mp3"
         jump act3_classes_pred
-    # Иначе локация недоступна
-    else:
-        "Локация недоступна"
-        # Переходим в блок, который открывает экран с кнопками навигации
-        jump showbuttons_unik
 
     return
 
@@ -541,8 +537,8 @@ label act3_flashback_start:
     "*Отец выливает ведро воды на кровать*"
     
     dad "Вставай, бестолочь!"
-    gg "Ты че творишь?!"
     play music "music/AcrylicOnCanvas.mp3" fadein 2
+    gg "Ты че творишь?!"
     dad "Что-что? Бужу тебя, дубина.{w} Твои пьянки не являются причиной для пропусков пар. Собирайся."
     hide dad with dissolve
 
@@ -687,10 +683,11 @@ label act3_flashback_start:
     par "Пойдем, это еще не все."
     gg "Ого, веди."
 
-    #ШАГИ
+    play sound "sounds/shagi-23 (mp3cut.net).mp3"
 
     scene bg restaraunt with dissolve #НУЖЕН ФОН РЕСТОРАНА
     show expression par_winks with dissolve
+    stop sound
     par "Заказывай, что хочешь."
     gg "Хорошо."
     "{i}{color=#626262}Он[verb_end1] привел[verb_end1] меня в недешевое место. Даже не знаю, что взять, чтобы не напрягать [friendPronoun1]{/color} {/i}"
@@ -782,10 +779,9 @@ label act3_flashback_start:
     "{sc=2}{i}{color=#626262}[partnerName] даже не смотрит в мою сторону{/color} {/i}{/sc}"
     "{sc=2}{i}{color=#626262}Я хочу убраться отсюда{/color} {/i}{/sc}"
 
-    #БЕГ
+    play sound "sounds/19557.mp3"
 
     stop ambient
-    stop sound
 
     stop music fadeout 2
     play music1 "music/Kiss And Goodbye.ogg" fadein 2
@@ -798,7 +794,7 @@ label act3_flashback_start:
     else:
         scene flashback2g with fade
         $ persistent.flashback2g = True
-
+    stop sound
     pause
     gg "Почему, как только я начинаю верить во что-то хорошее, меня спускают с небес на землю? Почему…"
     fr "Эй, что случилось? Ты сначала несколько месяцев не выходил[verb_end] на связь, а теперь я застаю тебя в таком состоянии в новогоднюю ночь!"
@@ -832,7 +828,7 @@ label act3_present:
     gh" Ты что плачешь?"
     gg "Нет!"
 
-    #МБ ЗВУК ВСХЛИПА КОРОТКИЙ
+    play sound "sounds/cry.mp3"
 
     "По щеке течет слеза"
     gg "Или да…"
@@ -951,7 +947,7 @@ label act3_present:
     gh normal "Этот диалог заставил меня вспомнить многое. В частности, я знаю, куда я пошла после разговора. Думаю, нам следует отправиться туда."
     gg "Хорошо, веди."
 
-    #ШАГИ ЗА ГИГИ
+    play sound "sounds/shagi-23.mp3"
 
     jump act3_end
     
